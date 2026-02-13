@@ -73,3 +73,74 @@ footer {
   background: #e5e7eb;
   font-size: 0.9rem;
 }
+/* ============ TRANSITIONS & ANIMATIONS ============ */
+
+/* Smooth transitions on hover for links and buttons */
+header nav a {
+  transition: all 0.3s ease-in-out;
+}
+
+header nav a:hover {
+  text-decoration: underline;
+  color: #60a5fa;
+  transform: translateY(-2px);
+}
+
+/* Smooth transitions on project cards */
+.project {
+  transition: all 0.3s ease-in-out;
+}
+
+.project:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  border-left-color: #2563eb;
+}
+
+.project a {
+  transition: color 0.3s ease-in-out;
+}
+
+.project a:hover {
+  color: #1d4ed8;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+section {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+/* ============ VIDEO EMBEDS ============ */
+
+/* Responsive video container */
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  margin: 1rem 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.video-container iframe,
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
