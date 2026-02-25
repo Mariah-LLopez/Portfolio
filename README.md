@@ -1,22 +1,6 @@
-# Mariah Lopez — Portfolio
+# Mariah Lopez | Portfolio
 
-A complete static portfolio website for Mariah Lopez, Web UX/UI Strategist & UX Architecture Lead. Built with plain HTML, CSS, and JavaScript — no frameworks, no build tools, no dependencies.
-
-## 🌐 Live Demo
-
-Deploy to GitHub Pages and update this section with your live URL.
-
----
-
-## 🚀 Deploying to GitHub Pages
-
-1. Push this repository to GitHub.
-2. Go to **Settings → Pages**.
-3. Under **Source**, select **Deploy from a branch**.
-4. Choose branch: `main`, folder: `/ (root)`.
-5. Click **Save**.
-
-Your site will be live at `https://<your-username>.github.io/<repo-name>/` within a few minutes.
+A complete static portfolio website for Mariah Lopez, Web UX/UI Strategist & UX Architecture Lead. Built with plain HTML, CSS, and JavaScript
 
 ---
 
