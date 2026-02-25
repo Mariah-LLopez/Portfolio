@@ -291,7 +291,15 @@ p:last-child {
   font-size: var(--font-size-2xl);
   font-weight: 500;
   color: var(--color-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.hero__supporting {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  font-style: italic;
   margin-bottom: var(--space-md);
+  max-width: 60ch;
 }
 
 .hero__description {
