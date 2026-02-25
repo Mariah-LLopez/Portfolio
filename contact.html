@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact Mariah Lopez — UX strategist open to new opportunities in discovery, IA, and documentation." />
+  <title>Contact — Mariah Lopez</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
+  <!-- ===== Header ===== -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <a href="index.html" class="site-logo" aria-label="Mariah Lopez — Home">Mariah Lopez</a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <button
+          class="hamburger"
+          aria-controls="primary-nav-list"
+          aria-expanded="false"
+          aria-label="Toggle navigation menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="site-nav__list" id="primary-nav-list" role="list">
+          <li><a href="index.html" class="site-nav__link">Home</a></li>
+          <li><a href="about.html" class="site-nav__link">About</a></li>
+          <li><a href="resume.html" class="site-nav__link">Resume</a></li>
+          <li><a href="projects.html" class="site-nav__link">Projects</a></li>
+          <li><a href="contact.html" class="site-nav__link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== Main Content ===== -->
+  <main id="main-content">
+
+    <!-- Page Header -->
+    <div class="page-header">
+      <div class="container">
+        <h1 class="page-header__title">Contact</h1>
+        <p class="page-header__subtitle">Let's talk about your next project.</p>
+      </div>
+    </div>
+
+    <!-- Contact Content -->
+    <section class="contact-page" aria-labelledby="contact-section-heading">
+      <div class="container">
+        <h2 class="visually-hidden" id="contact-section-heading">Contact information and form</h2>
+
+        <div class="contact-grid">
+
+          <!-- Intro & Direct Links -->
+          <div class="contact-intro">
+            <h2 class="contact-intro__tagline">Open to New Opportunities</h2>
+            <p class="contact-intro__message">
+              I'm currently open to new opportunities. If you're looking for a UX strategist who can
+              hit the ground running with discovery, IA, and documentation—let's talk.
+            </p>
+            <p class="contact-intro__message">
+              Whether you have a specific role in mind or just want to explore if there's a fit,
+              I'm happy to connect.
+            </p>
+
+            <div class="contact-links" aria-label="Direct contact options">
+              <a href="mailto:mariah@example.com" class="contact-link">
+                <span class="contact-link__icon" aria-hidden="true">✉️</span>
+                mariah@example.com
+              </a>
+            </div>
+
+            <div class="contact-social" aria-label="Social profiles">
+              <a
+                href="#"
+                class="btn btn--outline"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="View LinkedIn profile (opens in new tab)"
+              >
+                LinkedIn
+              </a>
+              <a
+                href="#"
+                class="btn btn--outline"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="View GitHub profile (opens in new tab)"
+              >
+                GitHub
+              </a>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="form-card">
+            <form id="contact-form" novalidate aria-label="Send a message">
+              <h3 style="font-size:var(--font-size-xl);margin-bottom:var(--space-md)">Send a Message</h3>
+
+              <div class="form-group">
+                <label class="form-label" for="contact-name">
+                  Name <span class="required-mark" aria-hidden="true">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="contact-name"
+                  name="name"
+                  class="form-control"
+                  autocomplete="name"
+                  required
+                  aria-required="true"
+                  aria-describedby="contact-name-error"
+                  placeholder="Your full name"
+                />
+                <span id="contact-name-error" class="field-error" role="alert" style="display:none"></span>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="contact-email">
+                  Email <span class="required-mark" aria-hidden="true">*</span>
+                </label>
+                <input
+                  type="email"
+                  id="contact-email"
+                  name="email"
+                  class="form-control"
+                  autocomplete="email"
+                  required
+                  aria-required="true"
+                  aria-describedby="contact-email-error"
+                  placeholder="your@email.com"
+                />
+                <span id="contact-email-error" class="field-error" role="alert" style="display:none"></span>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="contact-company">
+                  Company / Organization <span style="font-weight:400;color:var(--color-text-secondary)">(optional)</span>
+                </label>
+                <input
+                  type="text"
+                  id="contact-company"
+                  name="company"
+                  class="form-control"
+                  autocomplete="organization"
+                  placeholder="Where you work"
+                />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="contact-message">
+                  Message <span class="required-mark" aria-hidden="true">*</span>
+                </label>
+                <textarea
+                  id="contact-message"
+                  name="message"
+                  class="form-control"
+                  required
+                  aria-required="true"
+                  aria-describedby="contact-message-error"
+                  placeholder="Tell me about the opportunity or project you have in mind…"
+                  rows="6"
+                ></textarea>
+                <span id="contact-message-error" class="field-error" role="alert" style="display:none"></span>
+              </div>
+
+              <button type="submit" class="btn btn--primary btn--lg" style="width:100%">
+                Send Message
+              </button>
+
+              <div id="form-success" class="form-success" tabindex="-1" aria-live="polite">
+                ✅ Your message has been sent! I'll be in touch soon.
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-brand__name">Mariah Lopez</a>
+        <p class="footer-brand__tagline">Web UX/UI Strategist &amp; UX Architecture</p>
+      </div>
+      <nav aria-label="Footer navigation">
+        <p class="footer-nav__heading">Navigation</p>
+        <ul class="footer-nav__list" role="list">
+          <li><a href="index.html" class="footer-nav__link">Home</a></li>
+          <li><a href="about.html" class="footer-nav__link">About</a></li>
+          <li><a href="resume.html" class="footer-nav__link">Resume</a></li>
+          <li><a href="projects.html" class="footer-nav__link">Projects</a></li>
+          <li><a href="contact.html" class="footer-nav__link">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="footer-contact">
+        <p class="footer-contact__heading">Get in Touch</p>
+        <a href="mailto:mariah@example.com" class="footer-contact__email">mariah@example.com</a>
+        <div class="footer-social">
+          <a href="#" class="footer-social__link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">LinkedIn</a>
+          <a href="#" class="footer-social__link" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">GitHub</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; <span id="footer-year"></span> Mariah Lopez. Built with HTML, CSS &amp; JavaScript.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.getElementById("footer-year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
