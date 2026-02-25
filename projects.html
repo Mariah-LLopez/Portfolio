@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Projects by Mariah Lopez — UX strategy, information architecture, content strategy, and discovery work." />
+  <title>Projects — Mariah Lopez</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
+  <!-- ===== Header ===== -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <a href="index.html" class="site-logo" aria-label="Mariah Lopez — Home">Mariah Lopez</a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <button
+          class="hamburger"
+          aria-controls="primary-nav-list"
+          aria-expanded="false"
+          aria-label="Toggle navigation menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="site-nav__list" id="primary-nav-list" role="list">
+          <li><a href="index.html" class="site-nav__link">Home</a></li>
+          <li><a href="about.html" class="site-nav__link">About</a></li>
+          <li><a href="resume.html" class="site-nav__link">Resume</a></li>
+          <li><a href="projects.html" class="site-nav__link">Projects</a></li>
+          <li><a href="contact.html" class="site-nav__link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== Main Content ===== -->
+  <main id="main-content">
+
+    <!-- Page Header -->
+    <div class="page-header">
+      <div class="container">
+        <h1 class="page-header__title">Projects</h1>
+        <p class="page-header__subtitle">
+          Case studies covering UX strategy, information architecture, content design,
+          and discovery across government, nonprofit, and civic sectors.
+        </p>
+      </div>
+    </div>
+
+    <!-- Projects Section -->
+    <section class="section" aria-labelledby="projects-heading">
+      <div class="container">
+        <h2 class="visually-hidden" id="projects-heading">All Projects</h2>
+
+        <!-- Filter Bar -->
+        <div class="filter-bar" role="group" aria-label="Filter projects by category">
+          <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter-btn" data-filter="UX Strategy" aria-pressed="false">UX Strategy</button>
+          <button class="filter-btn" data-filter="Information Architecture" aria-pressed="false">Information Architecture</button>
+          <button class="filter-btn" data-filter="Discovery" aria-pressed="false">Discovery</button>
+          <button class="filter-btn" data-filter="Content Strategy" aria-pressed="false">Content Strategy</button>
+          <button class="filter-btn" data-filter="Documentation" aria-pressed="false">Documentation</button>
+          <button class="filter-btn" data-filter="Accessibility" aria-pressed="false">Accessibility</button>
+          <button class="filter-btn" data-filter="Prototyping" aria-pressed="false">Prototyping</button>
+          <button class="filter-btn" data-filter="QA & Audits" aria-pressed="false">QA &amp; Audits</button>
+        </div>
+
+        <!-- Projects Grid (populated by JS) -->
+        <div id="projects-grid" aria-live="polite" aria-label="Projects list">
+          <!-- Loaded by main.js -->
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-brand__name">Mariah Lopez</a>
+        <p class="footer-brand__tagline">Web UX/UI Strategist &amp; UX Architecture</p>
+      </div>
+      <nav aria-label="Footer navigation">
+        <p class="footer-nav__heading">Navigation</p>
+        <ul class="footer-nav__list" role="list">
+          <li><a href="index.html" class="footer-nav__link">Home</a></li>
+          <li><a href="about.html" class="footer-nav__link">About</a></li>
+          <li><a href="resume.html" class="footer-nav__link">Resume</a></li>
+          <li><a href="projects.html" class="footer-nav__link">Projects</a></li>
+          <li><a href="contact.html" class="footer-nav__link">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="footer-contact">
+        <p class="footer-contact__heading">Get in Touch</p>
+        <a href="mailto:mariah@example.com" class="footer-contact__email">mariah@example.com</a>
+        <div class="footer-social">
+          <a href="#" class="footer-social__link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">LinkedIn</a>
+          <a href="#" class="footer-social__link" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">GitHub</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; <span id="footer-year"></span> Mariah Lopez. Built with HTML, CSS &amp; JavaScript.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.getElementById("footer-year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
