@@ -1111,14 +1111,16 @@ textarea.form-control {
 }
 
 .footer-nav__link {
-  color: #a0a0b8;
+  color: #fff;
   text-decoration: none;
   font-size: 0.9375rem;
   transition: color var(--transition);
 }
 
-.footer-nav__link:hover {
+.footer-nav__link:hover,
+.footer-nav__link:focus {
   color: #fff;
+  text-decoration: underline;
 }
 
 .footer-contact__heading {
