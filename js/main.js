@@ -382,7 +382,7 @@
       { key: "userFlows", label: "User Flows" },
       { key: "wireframesAndPrototypes", label: "Wireframes & Prototypes" },
       { key: "requirementsAndCriteria", label: "Requirements & Acceptance Criteria" },
-      { key: "qaAndIteration", label: "QA & Iteration" },
+      { key: "qaAndIteration", label: "Analytics & Iteration" },
       { key: "outcomesAndNextSteps", label: "Outcomes & Next Steps" },
     ];
 
