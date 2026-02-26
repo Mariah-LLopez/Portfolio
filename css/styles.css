@@ -1102,10 +1102,12 @@ textarea.form-control {
   margin-bottom: var(--space-sm);
 }
 
-.footer-nav__list {
+   .footer-nav__list {
   display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem; /* row-gap column-gap */
+}
 }
 
 .footer-nav__link {
