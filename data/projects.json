@@ -115,6 +115,30 @@
     "outcomesAndNextSteps": "The content strategy was delivered as a prioritized roadmap with 12 specific recommendations. The organization implemented the top 5 recommendations over 3 months and reported a measurable increase in foster applications. Next steps include a follow-up analytics review and expansion of the strategy to email and social media."
   },
   {
+    "title": "Ppora",
+    "slug": "ppora",
+    "strategicSummary": "Designed UX strategy and analytics framework for Ppora, providing actionable insights to improve user engagement and product performance.",
+    "role": "UX Strategist & Analytics Lead",
+    "responsibilities": ["Defined analytics instrumentation strategy", "Identified key user journeys for measurement", "Developed KPI framework and reporting dashboards", "Collaborated with engineering on data capture requirements", "Documented insights and optimization recommendations"],
+    "tags": ["Analytics & Insights", "UX Strategy", "Discovery"],
+    "tools": ["Google Analytics", "Figma", "Miro", "Looker"],
+    "heroImage": "assets/placeholder.svg",
+    "galleryImages": [{"src": "assets/placeholder.svg", "alt": "Ppora analytics dashboard overview"}, {"src": "assets/placeholder.svg", "alt": "Ppora KPI framework"}],
+    "externalLinks": [{"label": "View Project", "url": "#"}],
+    "videoEmbed": "",
+    "overview": "Ppora is a product focused on delivering analytics and insights to its users. This engagement involved building a UX-led analytics strategy to ensure product decisions were grounded in behavioral data and measurable outcomes.",
+    "problemAndGoals": "The product lacked a coherent analytics instrumentation plan, making it difficult to understand user behavior or measure the impact of UX changes. Goals included establishing a clear KPI framework, defining event tracking requirements, and enabling data-driven iteration.",
+    "myRole": "As Analytics Lead, I defined the instrumentation strategy, worked with engineering to implement event tracking, and built reporting views to surface actionable insights for the product team.",
+    "discoveryAndConstraints": "Discovery included a review of existing tracking setup, interviews with product stakeholders on key questions they needed answered, and an audit of current reporting capabilities. Key constraints were limited engineering capacity and a need for results within a single sprint cycle.",
+    "informationArchitecture": "The analytics framework was organized around three user journey stages: acquisition, activation, and retention. Each stage had defined events, success metrics, and ownership assigned to product or marketing.",
+    "userFlows": "Core flows instrumented included onboarding completion, first key action, return visit, and feature discovery. Each flow was mapped to specific analytics events with clear naming conventions.",
+    "wireframesAndPrototypes": "Dashboard mockups were created in Figma to align stakeholders on reporting views before engineering implementation, reducing back-and-forth during build.",
+    "requirementsAndCriteria": "Analytics requirements were documented as a tracking plan spreadsheet, covering event names, properties, trigger conditions, and owner. Acceptance criteria required each event to be verified in the analytics platform before sign-off.",
+    "qaAndIteration": "Tracking implementation was validated using browser developer tools and the analytics platform's debug view. Two iteration cycles addressed missed events in the onboarding flow and corrected property naming inconsistencies.",
+    "outcomesAndNextSteps": "The instrumentation plan was fully implemented and validated. The product team gained visibility into previously unmeasured user behaviors, enabling the next quarter's roadmap to be prioritized by data rather than assumption.",
+    "analyticsCategory": "Analytics & Insights"
+  },
+  {
     "title": "Furniture Flipping App Concept",
     "slug": "furniture-flipping-app-concept",
     "strategicSummary": "Designed UX strategy and information architecture for a mobile app concept connecting furniture flippers with local buyers, focusing on trust, transaction clarity, and community.",
@@ -135,6 +159,7 @@
     "wireframesAndPrototypes": "A complete interactive prototype was built in Figma covering the browse, listing, and transaction flows. The prototype included 40+ screens with realistic content and was tested with 4 participants from the furniture flipping community.",
     "requirementsAndCriteria": "A feature requirements document specified MVP scope versus future phases, covering listing fields, transaction flow requirements, community features, and trust and safety requirements. Accessibility requirements were included for the MVP, covering touch target sizing, color contrast, and screen reader support.",
     "qaAndIteration": "Prototype testing revealed that the listing creation flow was too long for mobile completion in a single session. The flow was redesigned to support saving drafts and resuming, and the step count was reduced from 7 to 4 by consolidating related fields. A second test round validated the revised flow.",
-    "outcomesAndNextSteps": "The prototype was well-received in community feedback sessions, with participants specifically calling out the transformation story format and the safety-integrated meetup flow as differentiators. Next steps for the concept include a technical feasibility review, business model exploration, and a higher-fidelity prototype for investor presentation."
+    "outcomesAndNextSteps": "The prototype was well-received in community feedback sessions, with participants specifically calling out the transformation story format and the safety-integrated meetup flow as differentiators. Next steps for the concept include a technical feasibility review, business model exploration, and a higher-fidelity prototype for investor presentation.",
+    "analyticsCategory": "Analytics & Insights"
   }
 ]

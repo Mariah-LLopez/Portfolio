@@ -97,8 +97,18 @@
       })
       .join("");
 
+    const analyticsAttrs = project.analyticsCategory
+      ? ' data-analytics-category="' +
+        escapeHtml(project.analyticsCategory) +
+        '" data-analytics-project="' +
+        escapeHtml(project.slug) +
+        '"'
+      : "";
+
     return (
-      '<article class="project-card">' +
+      '<article class="project-card"' +
+      analyticsAttrs +
+      ">" +
       '<img class="project-card__image" src="' +
       escapeHtml(project.heroImage || "assets/placeholder.svg") +
       '" alt="' +
@@ -120,7 +130,9 @@
       '<div class="project-card__footer">' +
       '<a href="case-study.html?slug=' +
       encodeURIComponent(project.slug) +
-      '" class="btn btn--outline btn--sm">View Case Study</a>' +
+      '" class="btn btn--outline btn--sm"' +
+      analyticsAttrs +
+      ">View Case Study</a>" +
       "</div>" +
       "</div>" +
       "</article>"

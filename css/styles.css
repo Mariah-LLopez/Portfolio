@@ -1102,23 +1102,24 @@ textarea.form-control {
   margin-bottom: var(--space-sm);
 }
 
-   .footer-nav__list {
+.footer-nav__list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 0.75rem 1.25rem; /* row-gap column-gap */
 }
-}
 
 .footer-nav__link {
-  color: #a0a0b8;
+  color: #fff;
   text-decoration: none;
   font-size: 0.9375rem;
   transition: color var(--transition);
 }
 
-.footer-nav__link:hover {
+.footer-nav__link:hover,
+.footer-nav__link:focus {
   color: #fff;
+  text-decoration: underline;
 }
 
 .footer-contact__heading {
@@ -1380,4 +1381,9 @@ textarea.form-control {
 
 .footer-nav li {
   margin: 0;          /* remove default vertical spacing if you have any */
+}
+
+.footer-nav a {
+  color: #fff;
+  text-decoration: none;
 }
