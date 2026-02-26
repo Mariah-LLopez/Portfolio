@@ -1346,3 +1346,23 @@ textarea.form-control {
     color: #000;
   }
 }
+/* =============================================
+   About Page Photos
+   ============================================= */
+.about-photo {
+  margin: 0 0 1.25rem 0;
+}
+
+.about-photo img {
+  display: block;
+  width: 100%;
+  max-width: 640px;
+  height: auto;
+  border-radius: 16px;
+}
+
+.about-photo figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  color: var(--muted-text, #555);
+}
