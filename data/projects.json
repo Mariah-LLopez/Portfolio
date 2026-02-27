@@ -146,7 +146,7 @@
     "responsibilities": ["Conducted competitive analysis of resale platforms", "Facilitated user interviews with sellers and buyers", "Developed app concept and value proposition", "Designed information architecture and navigation model", "Created user flows for core transaction scenarios", "Built interactive prototype in Figma"],
     "tags": ["UX Strategy", "Prototyping", "Information Architecture", "Discovery", "Analytics & Insights"],
     "tools": ["Figma", "Miro", "Notion"],
-    "heroImage": "assets/placeholder.svg",
+    "heroImage": "assets/furnitureflip.png",
     "galleryImages": [{"src": "assets/placeholder.svg", "alt": "App concept wireframes"}, {"src": "assets/placeholder.svg", "alt": "User flow diagram"}],
     "externalLinks": [{"label": "View Prototype", "url": "https://www.figma.com/proto/gIaU447SKnJYepg8Wk7lh1/Untitled?node-id=7-988&starting-point-node-id=7%3A988&t=9SPnxmgoxnGWsw9o-1"}],
     "videoEmbed": "",
