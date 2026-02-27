@@ -76,6 +76,21 @@ assets/resume.pdf
 ```
 The Download Resume buttons throughout the site link to this path automatically.
 
+### Add a PDF to a case study
+Place the PDF file in the `assets/` folder using a URL-safe filename (lowercase letters, numbers, and hyphens only — no spaces or special characters):
+
+```
+assets/your-project-name.pdf
+```
+
+Then reference it in `data/projects.json` under `externalLinks` using the `url` field with a site-relative path:
+
+```json
+"externalLinks": [{"label": "View Project", "url": "assets/your-project-name.pdf"}]
+```
+
+The case study page will render a button that opens the PDF in a new browser tab.
+
 ### Embed a video in a case study
 In `data/projects.json`, set the `videoEmbed` field to a YouTube or Vimeo URL:
 

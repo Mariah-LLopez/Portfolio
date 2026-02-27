@@ -373,9 +373,14 @@
 
     const linksHtml = (p.externalLinks || [])
       .map(function (l) {
+        var href = l.url;
+        if (!href && l.src) {
+          console.warn("externalLinks entry uses deprecated \"src\" key; use \"url\" instead.", l);
+          href = l.src;
+        }
         return (
           '<a href="' +
-          escapeHtml(l.url) +
+          escapeHtml(href) +
           '" class="btn btn--outline" target="_blank" rel="noopener noreferrer">' +
           escapeHtml(l.label) +
           "</a>"
