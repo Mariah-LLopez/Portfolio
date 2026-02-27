@@ -123,7 +123,7 @@
     "tags": ["UX Strategy", "Prototyping", "Information Architecture", "Discovery", "Analytics & Insights"],
     "tools": ["Figma", "Canva", "Notion"],
     "heroImage": "assets/furnitureflip.png",
-    "galleryImages": [{"src": "assets/placeholder.svg", "alt": "App concept wireframes"}, {"src": "assets/placeholder.svg", "alt": "User flow diagram"}],
+    "galleryImages": [{"src": "assets/ffapp.png", "alt": "Services Checkout in App"}, {"src": "assets/ffaccount.png", "alt": "User Account in App"}],
     "externalLinks": [{"label": "View Prototype", "url": "https://www.figma.com/proto/gIaU447SKnJYepg8Wk7lh1/Untitled?node-id=7-988&starting-point-node-id=7%3A988&t=9SPnxmgoxnGWsw9o-1"}],
     "videoEmbed": "",
     "overview": "Furniture flipping—buying, refinishing, and reselling used furniture—is a growing side economy with an active community of creators and buyers. Existing resale platforms were not designed for the unique needs of this niche: buyers want to see transformation stories, sellers need to communicate craft and quality, and transactions require local coordination. This concept project explored what a purpose-built platform for this community would look like.",
