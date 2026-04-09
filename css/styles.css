@@ -1140,7 +1140,7 @@ textarea.form-control {
 }
 
 .footer-contact__email:hover {
-  color: #4dc3e8;
+  color: #c26a4a;
 }
 
 .footer-social {
@@ -1150,23 +1150,23 @@ textarea.form-control {
 }
 
 .footer-social__link {
-  color: #a0a0b8;
+  color: #898995;
   text-decoration: none;
   font-size: 0.9375rem;
   font-weight: 500;
   padding: 0.3em 0.8em;
-  border: 1px solid #3a3a5a;
+  border: 1px solid #3e2f25;
   border-radius: var(--border-radius);
   transition: color var(--transition), border-color var(--transition);
 }
 
 .footer-social__link:hover {
-  color: #fff;
+  color: #c26a4a;
   border-color: #fff;
 }
 
 .footer-bottom {
-  border-top: 1px solid #2d2d4a;
+  border-top: 1px solid #3e2f25;
   margin-top: var(--space-lg);
   padding-top: var(--space-md);
   font-size: 0.875rem;
