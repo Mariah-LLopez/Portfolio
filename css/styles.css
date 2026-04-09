@@ -1069,7 +1069,7 @@ textarea.form-control {
    ============================================= */
 .site-footer {
   background: var(--color-text);
-  color: #c8c8d8;
+  color: #fff;
   padding-block: var(--space-xl);
 }
 
@@ -1090,7 +1090,7 @@ textarea.form-control {
 
 .footer-brand__tagline {
   font-size: 0.9375rem;
-  color: #898995;
+  color: #fff;
 }
 
 .footer-nav__heading {
@@ -1155,7 +1155,7 @@ textarea.form-control {
   font-size: 0.9375rem;
   font-weight: 500;
   padding: 0.3em 0.8em;
-  border: 1px solid #3e2f25;
+  border: 1px solid #fff;
   border-radius: var(--border-radius);
   transition: color var(--transition), border-color var(--transition);
 }
