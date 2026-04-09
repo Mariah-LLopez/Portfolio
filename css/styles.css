@@ -2,14 +2,14 @@
    CSS Custom Properties
    ============================================= */
 :root {
-  --color-primary: #0a7ea4;
-  --color-primary-dark: #085f7a;
-  --color-text: #1a1a2e;
-  --color-text-secondary: #4a4a6a;
-  --color-bg: #ffffff;
-  --color-bg-alt: #f5f7fa;
-  --color-border: #e2e8f0;
-  --color-accent: #e8f4f8;
+  --color-primary: #6F7D5A;
+  --color-primary-dark: #556047;
+  --color-text: #3E2F25;
+  --color-text-secondary: #7A6055;
+  --color-bg: #F4EDE4;
+  --color-bg-alt: #EAE0D5;
+  --color-border: #D4C8BB;
+  --color-accent: #C26A4A;
   --font-size-base: 1rem;
   --font-size-lg: 1.125rem;
   --font-size-xl: 1.25rem;
