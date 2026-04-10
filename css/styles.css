@@ -350,6 +350,7 @@ p:last-child {
      display: flex;
      align-items: center;
 }
+
 /* =============================================
    Buttons
    ============================================= */
@@ -1446,4 +1447,12 @@ textarea.form-control {
 .footer-nav a {
   color: #fff;
   text-decoration: none;
+}
+html {
+  scroll-snap-type: y mandatory;
+}
+
+.section,
+.hero {
+  scroll-snap-align: start;
 }
