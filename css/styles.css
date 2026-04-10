@@ -136,7 +136,7 @@ p:last-child {
    ============================================= */
 .container {
   width: 100%;
-  max-width: 1000px; /* was 1200px */
+  max-width: var(--max-width);
   margin-inline: auto;
   padding-inline: var(--space-sm);
 }
@@ -327,15 +327,16 @@ p:last-child {
   gap: var(--space-sm);
   align-items: center;
 }
+
 .hero__layout {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.3fr 0.7fr;
   gap: 2rem;
   align-items: center;
 }
 .hero__image {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 }
 
