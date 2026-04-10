@@ -171,8 +171,8 @@ p:last-child {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: var(--color-bg);
-  border-bottom: 1px solid var(--color-border);
+  background: #3E2F25;
+  border-bottom: 1px solid #3E2F25;
   transition: box-shadow var(--transition);
 }
 
@@ -190,14 +190,14 @@ p:last-child {
 .site-logo {
   font-size: var(--font-size-xl);
   font-weight: 700;
-  color: var(--color-text);
+  color: #fff;
   text-decoration: none;
   letter-spacing: -0.02em;
   flex-shrink: 0;
 }
 
 .site-logo:hover {
-  color: var(--color-primary);
+  color: #fff;
 }
 
 .site-nav {
@@ -215,7 +215,7 @@ p:last-child {
 .site-nav__link {
   font-size: var(--font-size-base);
   font-weight: 500;
-  color: var(--color-text-secondary);
+  color: #fff;
   text-decoration: none;
   padding: var(--space-xs) 0;
   border-bottom: 2px solid transparent;
@@ -224,8 +224,8 @@ p:last-child {
 
 .site-nav__link:hover,
 .site-nav__link.active {
-  color: var(--color-primary);
-  border-bottom-color: var(--color-primary);
+  color: #fff;
+  border-bottom-color: #fff;
 }
 
 .hamburger {
@@ -250,7 +250,7 @@ p:last-child {
   display: block;
   width: 24px;
   height: 2px;
-  background: var(--color-text);
+  background: #fff;
   border-radius: 2px;
   transition: transform var(--transition), opacity var(--transition);
 }
@@ -272,7 +272,7 @@ p:last-child {
    ============================================= */
 .hero {
   padding-block: var(--space-2xl);
-  background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-accent) 100%);
+  background: #fff;
 }
 
 .hero__content {
@@ -1242,19 +1242,19 @@ textarea.form-control {
     display: flex;
   }
 
-  .site-nav__list {
-    display: none;
-    position: absolute;
-    top: 64px;
-    left: 0;
-    right: 0;
-    background: var(--color-bg);
-    border-bottom: 1px solid var(--color-border);
-    flex-direction: column;
-    gap: 0;
-    box-shadow: var(--shadow-md);
-    z-index: 99;
-  }
+.site-nav__list {
+  display: none;
+  position: absolute;
+  top: 64px;
+  left: 0;
+  right: 0;
+  background: #3E2F25;
+  border-bottom: 1px solid #3E2F25;
+  flex-direction: column;
+  gap: 0;
+  box-shadow: var(--shadow-md);
+  z-index: 99;
+}
 
   .site-nav__list.open {
     display: flex;
