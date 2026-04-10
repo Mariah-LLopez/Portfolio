@@ -9,7 +9,7 @@
   --color-bg: #F4EDE4;
   --color-bg-alt: #EAE0D5;
   --color-border: #D4C8BB;
-  --color-accent: #f4ede4;
+  --color-accent: #898995;
   --font-size-base: 1rem;
   --font-size-lg: 1.125rem;
   --font-size-xl: 1.25rem;
@@ -1082,7 +1082,7 @@ textarea.form-control {
 .footer-brand__name {
   font-size: var(--font-size-xl);
   font-weight: 700;
-  color: #fff;
+  color: #898995;
   text-decoration: none;
   display: block;
   margin-bottom: var(--space-xs);
@@ -1090,7 +1090,7 @@ textarea.form-control {
 
 .footer-brand__tagline {
   font-size: 0.9375rem;
-  color: #fff;
+  color: #898995;
 }
 
 .footer-nav__heading {
