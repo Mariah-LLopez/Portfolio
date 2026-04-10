@@ -459,6 +459,15 @@ p:last-child {
   background: #c26a4a; /* terracotta */
   transform: translateY(-2px);
 }
+#backToTop {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#backToTop.show {
+  opacity: 1;
+  pointer-events: auto;
+}
 
 /* =============================================
    Strategy Highlights Tiles
