@@ -373,9 +373,14 @@
 
     const linksHtml = (p.externalLinks || [])
       .map(function (l) {
+        var href = l.url;
+        if (!href && l.src) {
+          console.warn("externalLinks entry uses deprecated \"src\" key; use \"url\" instead.", l);
+          href = l.src;
+        }
         return (
           '<a href="' +
-          escapeHtml(l.url) +
+          escapeHtml(href) +
           '" class="btn btn--outline" target="_blank" rel="noopener noreferrer">' +
           escapeHtml(l.label) +
           "</a>"
@@ -624,4 +629,25 @@
       }
     });
   }
+   const backToTopBtn = document.getElementById("backToTop");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    backToTopBtn.style.display = "block";
+  } else {
+    backToTopBtn.style.display = "none";
+  }
+});
+
+backToTopBtn.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
+   if (window.scrollY > 300) {
+  backToTopBtn.classList.add("show");
+} else {
+  backToTopBtn.classList.remove("show");
+}
 })();

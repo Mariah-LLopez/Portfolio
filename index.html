@@ -1,10 +1,10 @@
-e<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Mariah Lopez — Web UX/UI Strategist, Design, &amp; Documentation. Relentlessy Curious, Infinitely Capable." />
-  <title>Mariah Lopez — Web UX/UI Strategist, Design, &amp; Documentation. Relentlessy Curious, Infinitely Capable.</title>
+  <meta name="description" content="Mariah Lopez Portfolio" />
+  <title>Mariah Lopez Portfolio</title>
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
@@ -43,28 +43,36 @@ e<!DOCTYPE html>
     <!-- Hero -->
     <section class="hero" aria-labelledby="hero-heading">
       <div class="container">
-        <div class="hero__content">
-          <h1 class="hero__name" id="hero-heading">Mariah Lopez</h1>
-          <h2 class="hero__title">Relentlessy Curious, Infinitely Capable</h2>
-          <p class="hero__supporting">
-            Web UX/UI Strategist, Design, &amp; Documentation.
-          </p>
-          <p class="hero__description">
-            Web and UX professional focused on planning and structuring digital experiences before design and development begin. 
-            I work at the intersection of UX strategy, information architecture, and content design, translating business goals
-            into clear site structures, user flows, and documentation that support scalable, accessible websites.
-          </p>
-          <div class="hero__actions">
-            <a href="projects.html" class="btn btn--primary btn--lg">View Projects</a>
-            <a href="assets/resume.pdf" class="btn btn--secondary btn--lg" download>Download Resume</a>
-            <a href="contact.html" class="btn btn--outline btn--lg">Contact</a>
+        <div class="hero__layout">
+          <div class="hero__content">
+            <h1 class="hero__name" id="hero-heading">Mariah Lopez</h1>
+            <h2 class="hero__title">Analytics engineer | Digital Products Specialist</h2>
+            <p class="hero__supporting">
+              Designing, building, and optimizing digital products using data and user experience
+            </p>
+            <p class="hero__description">
+              Analytics Engineer and Digital Product Specialist with a background in technical communication,
+              UX design and web development. Experienced in transforming complex data into clear, user-centered
+              digital solutions through data analysis, structured systems, and intuitive design. Skilled in 
+              bridging data, business needs, and user experience to build and optimize accessible, high-performing
+              digital products.
+            </p>
+            <div class="hero__actions">
+              <a href="projects.html" class="btn btn--projects btn--lg">View Projects</a>
+              <a href="assets/Resume.pdf" class="btn btn--secondary btn--lg" download>Download Resume</a>
+              <a href="contact.html" class="btn btn--outline btn--lg">Contact</a>
+            </div>
+          </div>
+          <!-- IMAGE (RIGHT) -->
+          <div class="hero__image">
+            <img src="assets/MariahLopezHeadshot.jpeg" alt="Mariah Lopez headshot">
           </div>
         </div>
       </div>
     </section>
 
     <!-- Strategy Highlights -->
-    <section class="section section--alt" aria-labelledby="highlights-heading">
+    <section class="section section--skills" aria-labelledby="highlights-heading">
       <div class="container">
         <div class="section__header">
           <h2 class="section__title" id="highlights-heading">What I Bring to a Project</h2>
@@ -133,7 +141,7 @@ e<!DOCTYPE html>
     </section>
 
     <!-- Featured Work -->
-    <section class="section" aria-labelledby="featured-heading">
+    <section class="section section--alt" aria-labelledby="featured-heading">
       <div class="container">
         <div class="section__header">
           <h2 class="section__title" id="featured-heading">Featured Work</h2>
@@ -155,7 +163,7 @@ e<!DOCTYPE html>
     <div class="container">
       <div class="footer-brand">
         <a href="index.html" class="footer-brand__name">Mariah Lopez</a>
-        <p class="footer-brand__tagline">Web UX/UI Strategist, Design, &amp; Documentation.</p>
+        <p class="footer-brand__tagline">Designing, building, and optimizing digital products using data and user experience</p>
       </div>
       <nav aria-label="Footer navigation">
         <p class="footer-nav__heading">Navigation</p>
@@ -171,7 +179,7 @@ e<!DOCTYPE html>
         <p class="footer-contact__heading">Get in Touch</p>
         <a href="mailto:mariahllopez.co@gmail.com" class="footer-contact__email">mariahllopez.co@gmail.com</a>
         <div class="footer-social">
-          <a href="https://www.linkedin.com/in/mariah-lopez-4650b5237/" class="footer-social__link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/mariah-lopez-co/" class="footer-social__link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">LinkedIn</a>
           <a href="https://github.com/Mariah-LLopez" class="footer-social__link" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">GitHub</a>
         </div>
       </div>
@@ -187,5 +195,6 @@ e<!DOCTYPE html>
   <script>
     document.getElementById("footer-year").textContent = new Date().getFullYear();
   </script>
+  <button id="backToTop" aria-label="Back to top">↑</button>
 </body>
 </html>
