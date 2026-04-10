@@ -164,6 +164,10 @@ p:last-child {
   max-width: 60ch;
 }
 
+.section--skills {
+  background-color: #7F9FA8;
+}
+
 /* =============================================
    Header & Navigation
    ============================================= */
@@ -1082,15 +1086,18 @@ textarea.form-control {
 .footer-brand__name {
   font-size: var(--font-size-xl);
   font-weight: 700;
-  color: #898995;
+  color: #fff;
   text-decoration: none;
   display: block;
   margin-bottom: var(--space-xs);
 }
 
+.footer-brand__name:hover {
+  color: #c26a4a;
+}
 .footer-brand__tagline {
   font-size: 0.9375rem;
-  color: #7F9FA8;
+  color: #fff;
 }
 
 .footer-nav__heading {
@@ -1132,7 +1139,7 @@ textarea.form-control {
 }
 
 .footer-contact__email {
-  color: var(--color-primary);
+  color: #fff;
   text-decoration: none;
   font-size: 0.9375rem;
   display: block;
