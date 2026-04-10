@@ -328,7 +328,7 @@ p:last-child {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
   gap: 1rem; /* tighter */
-  align-items: center;
+  align-items: start;
 }
 .hero__image {
   justify-self: start;
@@ -338,7 +338,7 @@ p:last-child {
   display: block;
   width: 100%;
   max-width: 320px;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 2 / 5;
   object-fit: cover;
   border-radius: 220px 220px 0 0;
   overflow: hidden;
@@ -351,7 +351,7 @@ p:last-child {
 
   .hero__image {
     margin: 0 auto;
-    justify-self: center;
+    justify-self: start;
   }
 }
    .hero {
