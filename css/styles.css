@@ -472,7 +472,7 @@ p:last-child {
   transform: translateY(-2px);
 }
 #backToTop {
-  opacity: 0;
+  opacity: 1;
   pointer-events: none;
 }
 
