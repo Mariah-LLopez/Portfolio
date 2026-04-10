@@ -272,7 +272,7 @@ p:last-child {
    ============================================= */
 .hero {
   padding-block: var(--space-2xl);
-  background: #fff;
+  background: var(--color-bg-alt);
 }
 
 .hero__content {
