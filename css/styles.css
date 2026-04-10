@@ -384,6 +384,18 @@ p:last-child {
   font-size: var(--font-size-lg);
 }
 
+.btn--projects {
+  background: #c26a4a;
+  color: #fff;
+  border: 2px solid #c26a4a;
+}
+
+.btn--projects:hover {
+  background: #a9553b;
+  border-color: #a9553b;
+  color: #fff;
+}
+
 /* =============================================
    Strategy Highlights Tiles
    ============================================= */
