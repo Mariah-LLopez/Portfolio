@@ -345,6 +345,11 @@ p:last-child {
     justify-self: center;
   }
 }
+   .hero {
+     min-height: 100vh;
+     display: flex;
+     align-items: center;
+}
 /* =============================================
    Buttons
    ============================================= */
@@ -1335,7 +1340,11 @@ textarea.form-control {
     font-size: var(--font-size-2xl);
   }
 }
-
+.section {
+  min-height: 90vh;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
 /* =============================================
    Utility: Visually Hidden (accessible but off-screen)
    ============================================= */
