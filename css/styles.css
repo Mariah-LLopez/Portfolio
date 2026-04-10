@@ -136,7 +136,7 @@ p:last-child {
    ============================================= */
 .container {
   width: 100%;
-  max-width: 1000px; /* was 1200px */
+  max-width: var(--max-width);
   margin-inline: auto;
   padding-inline: var(--space-sm);
 }
@@ -328,6 +328,7 @@ p:last-child {
   gap: var(--space-sm);
   align-items: center;
 }
+
 .hero__layout {
   display: grid;
   grid-template-columns: 3fr 2fr;
@@ -473,7 +474,7 @@ p:last-child {
   transform: translateY(-2px);
 }
 #backToTop {
-  opacity: 0;
+  opacity: 1;
   pointer-events: none;
 }
 
