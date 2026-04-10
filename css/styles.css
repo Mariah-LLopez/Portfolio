@@ -323,7 +323,7 @@ p:last-child {
 
 .hero__actions {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap; /* prevents stacking */
   gap: var(--space-sm);
   align-items: center;
 }
@@ -1387,6 +1387,7 @@ textarea.form-control {
 
   .hero__title {
     font-size: var(--font-size-xl);
+    white-space: nowrap;
   }
 
   .section__title {
