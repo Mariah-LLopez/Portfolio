@@ -73,9 +73,14 @@
               digital products.
             </p>
             <div class="hero__actions">
-              <a href="projects.html" class="btn btn--projects btn--lg">View Projects</a>
-              <a href="assets/Resume.pdf" class="btn btn--secondary btn--lg" download>Download Resume</a>
-              <a href="contact.html" class="btn btn--outline btn--lg">Contact</a>
+              <a href="projects.html" class="btn btn--projects btn--lg"
+                onclick="gtag('event', 'click_projects', {
+                'section': 'hero'
+              });">View Projects</a>
+              <a href="assets/Resume.pdf" class="btn btn--secondary btn--lg" download
+                onclick="gtag('event', 'download_resume');"> Download Resume</a>
+              <a href="contact.html" class="btn btn--outline btn--lg"
+                onclick="gtag('event', 'click_contact');">Contact</a>
             </div>
           </div>
           <!-- IMAGE (RIGHT) -->
