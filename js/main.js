@@ -645,4 +645,9 @@ backToTopBtn.addEventListener("click", () => {
     behavior: "smooth"
   });
 });
+   if (window.scrollY > 300) {
+  backToTopBtn.classList.add("show");
+} else {
+  backToTopBtn.classList.remove("show");
+}
 })();
