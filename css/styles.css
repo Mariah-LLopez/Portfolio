@@ -280,9 +280,14 @@ p:last-child {
 }
 
 .hero__content {
-  max-width: 780px;
+  max-width: 520px;
 }
 
+.hero {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+}
 .hero__name {
   font-size: var(--font-size-hero);
   font-weight: 800;
