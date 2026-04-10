@@ -228,8 +228,8 @@ p:last-child {
 
 .site-nav__link:hover,
 .site-nav__link.active {
-  color: #fff;
-  border-bottom-color: #fff;
+  color: #c26a4a;
+  border-bottom-color: #c26a4a;
 }
 
 .hamburger {
@@ -370,8 +370,9 @@ p:last-child {
 }
 
 .btn--outline:hover {
-  background: var(--color-primary);
+  background: #c26a4a;
   color: #fff;
+  border-color: #c26a4a;
 }
 
 .btn--sm {
@@ -1137,7 +1138,7 @@ textarea.form-control {
 
 .footer-nav__link:hover,
 .footer-nav__link:focus {
-  color: #fff;
+  color: #c26a4a;
   text-decoration: underline;
 }
 
@@ -1286,6 +1287,12 @@ textarea.form-control {
     border-bottom-width: 0;
     border-bottom-color: transparent;
   }
+   
+   .site-nav__link,
+   .footer-nav__link,
+   .btn {
+    transition: all 0.2s ease;
+ }
 
   .site-nav__list li:not(:last-child) .site-nav__link {
     border-bottom: 1px solid var(--color-border);
