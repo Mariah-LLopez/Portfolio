@@ -326,10 +326,10 @@ p:last-child {
   align-items: center;
 }
 .hero__image img {
+  display: block;
   width: 100%;
-  max-width: 300px;
-  border-radius: 200px 200px 0 0;
-  object-fit: cover;
+  max-width: 280px;
+  height: auto;
 }
 .hero__image {
   justify-self: end;
