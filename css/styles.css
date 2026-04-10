@@ -433,6 +433,32 @@ p:last-child {
   border-color: #a9553b;
   color: #fff;
 }
+#backToTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+
+  background: #3E2F25; /* your dark brown */
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+
+  font-size: 20px;
+  cursor: pointer;
+
+  display: none; /* hidden by default */
+
+  box-shadow: var(--shadow-md);
+  transition: opacity 0.3s ease, transform 0.2s ease;
+}
+
+#backToTop:hover {
+  background: #c26a4a; /* terracotta */
+  transform: translateY(-2px);
+}
 
 /* =============================================
    Strategy Highlights Tiles
