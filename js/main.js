@@ -629,48 +629,52 @@
       }
     });
   }
-   const backToTopBtn = document.getElementById("backToTop");
-
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 300) {
-    backToTopBtn.style.display = "block";
-  } else {
-    backToTopBtn.style.display = "none";
-  }
-});
-
-backToTopBtn.addEventListener("click", () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-});
-   if (window.scrollY > 300) {
-  backToTopBtn.classList.add("show");
-} else {
-  backToTopBtn.classList.remove("show");
-}
-})();
   /* ------------------------------------------
-     10. landing page transition
+     10. Back to Top Button
      ------------------------------------------ */
-document.addEventListener("DOMContentLoaded", () => {
+  const backToTopBtn = document.getElementById("backToTop");
+
+  if (backToTopBtn) {
+    const toggleBackToTop = function () {
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add("show");
+      } else {
+        backToTopBtn.classList.remove("show");
+      }
+    };
+
+    window.addEventListener("scroll", toggleBackToTop, { passive: true });
+    toggleBackToTop();
+
+    backToTopBtn.addEventListener("click", function () {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+  }
+
+  /* ------------------------------------------
+     11. Landing Page Scroll Reveal
+     ------------------------------------------ */
   const revealElements = document.querySelectorAll(".reveal");
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-        }
-      });
-    },
-    {
-      threshold: 0.15
-    }
-  );
+  if (revealElements.length) {
+    const observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+          }
+        });
+      },
+      {
+        threshold: 0.15
+      }
+    );
 
-  revealElements.forEach((element) => {
-    observer.observe(element);
-  });
-});
+    revealElements.forEach(function (element) {
+      observer.observe(element);
+    });
+  }
+})();
