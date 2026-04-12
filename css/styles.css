@@ -1565,8 +1565,9 @@ html {
 /* Scroll reveal for sections */
 .reveal {
   opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transform: translateY(24px);
+  animation: heroFadeIn 0.9s ease forwards;
+  animation-delay: 0.15s;
 }
 
 .reveal.is-visible {
