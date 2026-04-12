@@ -1564,7 +1564,7 @@ html {
 
 /* Scroll reveal for sections */
 .reveal {
-  opacity: 1;
+  opacity: 0;
   transform: translateY(32px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
