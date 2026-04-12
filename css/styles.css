@@ -523,11 +523,6 @@ p:last-child {
   transform: translateY(-2px);
 }
 
-#backToTop.show {
-  opacity: 1;
-  pointer-events: auto;
-}
-
 /* =============================================
    Strategy Highlights Tiles
    ============================================= */
@@ -1568,7 +1563,6 @@ html {
   transform: translateY(0);
 }
 
-/* ===== Hero Load Animation ===== */
 .hero--intro {
   opacity: 0;
   transform: translateY(24px);
