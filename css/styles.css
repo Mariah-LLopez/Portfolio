@@ -489,13 +489,14 @@ p:last-child {
   border-color: #a9553b;
   color: #fff;
 }
+
 #backToTop {
   position: fixed;
   bottom: 30px;
   right: 30px;
   z-index: 1000;
 
-  background: #3E2F25; /* your dark brown */
+  background: #3E2F25;
   color: #fff;
   border: none;
   border-radius: 50%;
@@ -505,19 +506,21 @@ p:last-child {
   font-size: 20px;
   cursor: pointer;
 
-  display: none; /* hidden by default */
+  opacity: 0;
+  pointer-events: none;
 
   box-shadow: var(--shadow-md);
   transition: opacity 0.3s ease, transform 0.2s ease;
 }
 
-#backToTop:hover {
-  background: #c26a4a; /* terracotta */
-  transform: translateY(-2px);
-}
-#backToTop {
+#backToTop.show {
   opacity: 1;
-  pointer-events: none;
+  pointer-events: auto;
+}
+
+#backToTop:hover {
+  background: #c26a4a;
+  transform: translateY(-2px);
 }
 
 #backToTop.show {
@@ -1432,7 +1435,7 @@ textarea.form-control {
 
   .hero__title {
     font-size: var(--font-size-xl);
-    white-space: nowrap;
+    white-space: normal;
   }
 
   .section__title {
@@ -1548,6 +1551,24 @@ html {
 /* =============================================
    Page loads transitions
    ============================================= */
+/* ===== Scroll Reveal Animation ===== */
+.reveal {
+  opacity: 1;
+  transform: none;
+}
+
+.js .reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Hero Load Animation ===== */
 .hero--intro {
   opacity: 0;
   transform: translateY(24px);
@@ -1560,22 +1581,4 @@ html {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-/* Scroll reveal for sections */
-.reveal {
-  opacity: 1;
-  transform: none;
-}
-
-/* Only hide AFTER JS loads */
-.js .reveal {
-  opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.js .reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
 }
