@@ -5,6 +5,10 @@
 (function () {
   "use strict";
 
+  /* Module-level reference to canvas init; set by initWireframeCanvas IIFE
+     so renderCaseStudy can initialise dynamically-added canvases. */
+  var _initCanvas = null;
+
   /* ------------------------------------------
      1. Navigation: Hamburger Menu Toggle
      ------------------------------------------ */
@@ -428,6 +432,7 @@
     container.innerHTML =
       // Hero
       '<div class="case-study-hero">' +
+      '<canvas class="section__canvas" aria-hidden="true"></canvas>' +
       '<div class="container">' +
       '<nav aria-label="Breadcrumb" style="margin-bottom:1rem;font-size:0.9375rem">' +
       '<a href="projects.html">← Back to Projects</a>' +
@@ -491,6 +496,12 @@
         : "") +
       "</div>" +
       "</div>";
+
+    // Initialise the canvas animation injected into the hero section
+    if (_initCanvas) {
+      var heroCanvas = container.querySelector(".case-study-hero .section__canvas");
+      if (heroCanvas) _initCanvas(heroCanvas);
+    }
   }
 
   /* ------------------------------------------
@@ -1260,6 +1271,9 @@
     for (var c = 0; c < canvases.length; c++) {
       initCanvas(canvases[c]);
     }
+
+    // Expose for use by renderCaseStudy after dynamic content injection
+    _initCanvas = initCanvas;
   })();
 
   /* ------------------------------------------
