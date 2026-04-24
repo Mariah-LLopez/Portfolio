@@ -132,7 +132,7 @@
       encodeURIComponent(project.slug) +
       '" class="btn btn--outline btn--sm"' +
       analyticsAttrs +
-      ">View Case Study</a>" +
+      ">View Project</a>" +
       "</div>" +
       "</div>" +
       "</article>"
