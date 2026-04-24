@@ -1025,7 +1025,9 @@
       resize();
       window.addEventListener("resize", resize, { passive: true });
 
-      // Pre-populate so elements are visible immediately on load
+      // Pre-populate so elements are visible immediately on load.
+      // Start life between 8%–45% of maxLife so they are past the fade-in
+      // ramp and spread across various stages of their lifespan.
       var preCount = Math.min(8, MAX_ELEMENTS);
       for (var p = 0; p < preCount; p++) {
         var el = spawnElement(canvas.width, canvas.height);
