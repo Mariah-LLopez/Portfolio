@@ -377,10 +377,10 @@ p:last-child {
 
 .hero__layout {
   display: grid;
-  grid-template-columns: 1.3fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: clamp(3rem, 6vw, 5rem);
   align-items: stretch;
-  max-width: 1050px;
+  max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
 }
