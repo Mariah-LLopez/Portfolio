@@ -678,99 +678,228 @@
     });
   }
   /* ------------------------------------------
-     12. Falling Leaves Canvas Animation
+     12. Wireframe Canvas Animation
      ------------------------------------------ */
-  (function initFallingLeaves() {
-    // Respect user's motion preference (initial check + live listener)
+  (function initWireframeCanvas() {
     var motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     if (motionQuery.matches) return;
 
-    var COLORS = [
+    var STROKE_COLORS = [
       "#6F7D5A", // sage green
-      "#8A9870", // light sage
       "#556047", // dark sage
       "#7A6055", // warm brown
       "#C26A4A", // terra cotta
-      "#D4874E", // amber-orange
       "#A89880", // warm tan
-      "#C4A882", // sand
-      "#9E8070", // dusty rose-brown
-      "#B5562E", // rust
     ];
 
-    var MAX_LEAVES = 45;
+    var KEYWORDS = [
+      "wireframe", "prototype", "mockup", "user flow", "sitemap",
+      "UX research", "persona", "journey map", "heuristics", "usability",
+      "information architecture", "style guide", "component", "accessibility",
+      "content strategy", "documentation", "taxonomy", "responsive design",
+      "design system", "affinity map", "task analysis", "card sort",
+      "A/B test", "visual hierarchy", "navigation", "interaction design",
+      "annotation", "specification", "user story", "low-fidelity",
+      "high-fidelity", "content audit", "layout grid", "typography",
+    ];
 
-    function rand(min, max) {
-      return min + Math.random() * (max - min);
+    var TYPES = [
+      "browser", "mobile", "card", "nav", "form",
+      "button", "textblock", "imagebox", "avatar", "keyword",
+    ];
+
+    var MAX_ELEMENTS = 18;
+    var KEYWORD_FONT_FAMILY = "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
+
+    function rand(min, max) { return min + Math.random() * (max - min); }
+    function randInt(min, max) { return Math.floor(rand(min, max)); }
+
+    /* ---- rounded-rect path helper (polyfill for older browsers) ---- */
+    function rrect(ctx, x, y, w, h, r) {
+      var rr = Math.min(r, w / 2, h / 2);
+      ctx.moveTo(x + rr, y);
+      ctx.lineTo(x + w - rr, y);
+      ctx.quadraticCurveTo(x + w, y, x + w, y + rr);
+      ctx.lineTo(x + w, y + h - rr);
+      ctx.quadraticCurveTo(x + w, y + h, x + w - rr, y + h);
+      ctx.lineTo(x + rr, y + h);
+      ctx.quadraticCurveTo(x, y + h, x, y + h - rr);
+      ctx.lineTo(x, y + rr);
+      ctx.quadraticCurveTo(x, y, x + rr, y);
+      ctx.closePath();
     }
 
-    function spawnLeaf(canvasWidth, canvasHeight) {
+    /* ---- draw helpers ---- */
+    function drawBrowser(ctx, s) {
+      var w = 110 * s, h = 76 * s, bh = 13 * s;
+      ctx.beginPath(); rrect(ctx, -w / 2, -h / 2, w, h, 4 * s); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(-w / 2, -h / 2 + bh); ctx.lineTo(w / 2, -h / 2 + bh); ctx.stroke();
+      [-w / 2 + 7 * s, -w / 2 + 14 * s, -w / 2 + 21 * s].forEach(function (dx) {
+        ctx.beginPath(); ctx.arc(dx, -h / 2 + bh / 2, 2.2 * s, 0, Math.PI * 2); ctx.stroke();
+      });
+      var ly = -h / 2 + bh + 9 * s;
+      [0.75, 0.9, 0.55, 0.82].forEach(function (p) {
+        if (ly < h / 2 - 6 * s) {
+          ctx.beginPath(); ctx.moveTo(-w / 2 + 7 * s, ly); ctx.lineTo(-w / 2 + 7 * s + (w - 14 * s) * p, ly); ctx.stroke();
+          ly += 9 * s;
+        }
+      });
+    }
+
+    function drawMobile(ctx, s) {
+      var w = 46 * s, h = 84 * s;
+      ctx.beginPath(); rrect(ctx, -w / 2, -h / 2, w, h, 7 * s); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(-w / 2 + 4 * s, -h / 2 + 11 * s); ctx.lineTo(w / 2 - 4 * s, -h / 2 + 11 * s); ctx.stroke();
+      ctx.beginPath(); ctx.arc(0, h / 2 - 8 * s, 4.5 * s, 0, Math.PI * 2); ctx.stroke();
+      var ly = -h / 2 + 19 * s;
+      [0.8, 0.6, 0.9, 0.5, 0.72].forEach(function (p) {
+        ctx.beginPath(); ctx.moveTo(-w / 2 + 5 * s, ly); ctx.lineTo(-w / 2 + 5 * s + (w - 10 * s) * p, ly); ctx.stroke();
+        ly += 9 * s;
+      });
+    }
+
+    function drawCard(ctx, s) {
+      var w = 96 * s, h = 68 * s, imgH = 28 * s, pad = 4 * s;
+      ctx.beginPath(); rrect(ctx, -w / 2, -h / 2, w, h, 4 * s); ctx.stroke();
+      ctx.beginPath(); ctx.rect(-w / 2 + pad, -h / 2 + pad, w - 2 * pad, imgH); ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(-w / 2 + pad, -h / 2 + pad); ctx.lineTo(w / 2 - pad, -h / 2 + pad + imgH);
+      ctx.moveTo(w / 2 - pad, -h / 2 + pad); ctx.lineTo(-w / 2 + pad, -h / 2 + pad + imgH);
+      ctx.stroke();
+      var ly = -h / 2 + imgH + 9 * s;
+      [0.72, 0.52].forEach(function (p) {
+        ctx.beginPath(); ctx.moveTo(-w / 2 + 7 * s, ly); ctx.lineTo(-w / 2 + 7 * s + (w - 14 * s) * p, ly); ctx.stroke();
+        ly += 9 * s;
+      });
+    }
+
+    function drawNav(ctx, s) {
+      var w = 126 * s, h = 20 * s;
+      ctx.beginPath(); ctx.rect(-w / 2, -h / 2, w, h); ctx.stroke();
+      ctx.beginPath(); ctx.rect(-w / 2 + 3 * s, -h / 2 + 3 * s, 22 * s, h - 6 * s); ctx.stroke();
+      var nx = w / 2 - 10 * s;
+      [0, 1, 2, 3].forEach(function () {
+        ctx.beginPath();
+        ctx.moveTo(nx - 8 * s, -3 * s); ctx.lineTo(nx, -3 * s);
+        ctx.moveTo(nx - 8 * s, 3 * s); ctx.lineTo(nx, 3 * s);
+        ctx.stroke(); nx -= 17 * s;
+      });
+    }
+
+    function drawForm(ctx, s) {
+      var fw = 94 * s, pad = 4 * s;
+      var ly = -(3 * 22 * s) / 2;
+      [1, 0.85, 0.7].forEach(function (p) {
+        ctx.beginPath(); ctx.moveTo(-fw / 2 + pad, ly); ctx.lineTo(-fw / 2 + pad + fw * 0.38, ly); ctx.stroke();
+        ly += 6 * s;
+        ctx.beginPath(); rrect(ctx, -fw / 2 + pad, ly, fw * p - pad, 13 * s, 2 * s); ctx.stroke();
+        ly += 17 * s;
+      });
+      ctx.beginPath(); rrect(ctx, -fw / 2 + pad, ly, 38 * s, 11 * s, 3 * s); ctx.stroke();
+    }
+
+    function drawButton(ctx, s) {
+      var w = 68 * s, h = 21 * s;
+      ctx.beginPath(); rrect(ctx, -w / 2, -h / 2, w, h, 5 * s); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(-18 * s, 0); ctx.lineTo(18 * s, 0); ctx.stroke();
+    }
+
+    function drawTextBlock(ctx, s) {
+      var w = 116 * s;
+      var pcts = [1.0, 0.84, 0.94, 0.58, 0.9, 0.73, 0.42];
+      var ly = -(pcts.length * 9 * s) / 2;
+      pcts.forEach(function (p) {
+        ctx.beginPath(); ctx.moveTo(-w / 2, ly); ctx.lineTo(-w / 2 + w * p, ly); ctx.stroke();
+        ly += 9 * s;
+      });
+    }
+
+    function drawImageBox(ctx, s) {
+      var w = 88 * s, h = 58 * s;
+      ctx.beginPath(); ctx.rect(-w / 2, -h / 2, w, h); ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(-w / 2, -h / 2); ctx.lineTo(w / 2, h / 2);
+      ctx.moveTo(w / 2, -h / 2); ctx.lineTo(-w / 2, h / 2);
+      ctx.stroke();
+    }
+
+    function drawAvatar(ctx, s) {
+      var r = 26 * s;
+      ctx.beginPath(); ctx.arc(0, 0, r, 0, Math.PI * 2); ctx.stroke();
+      ctx.beginPath(); ctx.arc(0, -r * 0.24, r * 0.34, 0, Math.PI * 2); ctx.stroke();
+      ctx.beginPath(); ctx.arc(0, r * 0.48, r * 0.54, Math.PI, 0); ctx.stroke();
+    }
+
+    function drawKeyword(ctx, el) {
+      var s = el.size;
+      var kw = el.keyword;
+      var fontSize = Math.round(10 * s) + "px";
+      ctx.font = "600 " + fontSize + " " + KEYWORD_FONT_FAMILY;
+      var tw = ctx.measureText(kw).width;
+      var th = 10 * s;
+      var pad = 5 * s;
+      ctx.beginPath(); rrect(ctx, -tw / 2 - pad, -th / 2 - pad * 0.6, tw + pad * 2, th + pad * 1.2, 3 * s); ctx.stroke();
+      ctx.fillStyle = ctx.strokeStyle;
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillText(kw, 0, 0);
+    }
+
+    /* ---- element factory ---- */
+    function spawnElement(cw, ch) {
+      var type = TYPES[randInt(0, TYPES.length)];
+      var color = STROKE_COLORS[randInt(0, STROKE_COLORS.length)];
       return {
-        x: rand(-20, canvasWidth + 20),
-        y: rand(-60, -10),
-        vy: rand(0.8, 2.2),        // falling speed
-        vx: rand(-0.6, 0.6),       // gentle horizontal drift
-        sway: rand(0.012, 0.032),  // sway frequency
-        swayAmp: rand(0.6, 1.8),   // sway amplitude
-        swayOffset: Math.random() * Math.PI * 2,
-        angle: Math.random() * Math.PI * 2,
-        spin: rand(-0.03, 0.03),
-        size: rand(10, 22),
-        color: COLORS[Math.floor(Math.random() * COLORS.length)],
+        type: type,
+        x: rand(0, cw),
+        y: rand(-150, ch + 150),
+        vx: rand(-0.12, 0.12),
+        vy: rand(0.04, 0.22),
+        angle: rand(-0.06, 0.06),
+        spin: rand(-0.0008, 0.0008),
+        color: color,
         life: 0,
-        maxLife: Math.round(rand(220, 420)),
+        maxLife: Math.round(rand(350, 650)),
+        size: rand(0.65, 1.0),
+        keyword: KEYWORDS[randInt(0, KEYWORDS.length)],
       };
     }
 
-    function drawLeaf(ctx, s) {
-      var t = s.life / s.maxLife;
+    function drawElement(ctx, el) {
+      var t = el.life / el.maxLife;
       var alpha;
-      if (t < 0.15) {
-        alpha = (t / 0.15) * 0.55;
-      } else if (t > 0.8) {
-        alpha = ((1 - t) / 0.2) * 0.55;
-      } else {
-        alpha = 0.55;
-      }
+      if (t < 0.12)       { alpha = (t / 0.12) * 0.13; }
+      else if (t > 0.85)  { alpha = ((1 - t) / 0.15) * 0.13; }
+      else                { alpha = 0.13; }
       if (alpha <= 0) return;
 
-      var sz = s.size;
       ctx.save();
       ctx.globalAlpha = alpha;
-      ctx.translate(s.x, s.y);
-      ctx.rotate(s.angle);
-      ctx.fillStyle = s.color;
+      ctx.strokeStyle = el.color;
+      ctx.lineWidth = Math.max(0.8, 1.1 * el.size);
+      ctx.translate(el.x, el.y);
+      ctx.rotate(el.angle);
 
-      // Leaf silhouette: two mirrored cubic bezier arcs meeting at top & bottom tips
-      ctx.beginPath();
-      ctx.moveTo(0, -sz * 0.5);                           // top tip
-      ctx.bezierCurveTo(
-        sz * 0.55, -sz * 0.3,
-        sz * 0.55,  sz * 0.3,
-        0, sz * 0.5                                        // bottom tip
-      );
-      ctx.bezierCurveTo(
-        -sz * 0.55,  sz * 0.3,
-        -sz * 0.55, -sz * 0.3,
-        0, -sz * 0.5
-      );
-      ctx.fill();
-
-      // Midrib vein
-      ctx.strokeStyle = s.color;
-      ctx.globalAlpha = alpha * 0.35;
-      ctx.lineWidth = Math.max(0.5, sz * 0.06);
-      ctx.beginPath();
-      ctx.moveTo(0, -sz * 0.5);
-      ctx.lineTo(0,  sz * 0.5);
-      ctx.stroke();
+      switch (el.type) {
+        case "browser":   drawBrowser(ctx, el.size);   break;
+        case "mobile":    drawMobile(ctx, el.size);    break;
+        case "card":      drawCard(ctx, el.size);      break;
+        case "nav":       drawNav(ctx, el.size);       break;
+        case "form":      drawForm(ctx, el.size);      break;
+        case "button":    drawButton(ctx, el.size);    break;
+        case "textblock": drawTextBlock(ctx, el.size); break;
+        case "imagebox":  drawImageBox(ctx, el.size);  break;
+        case "avatar":    drawAvatar(ctx, el.size);    break;
+        case "keyword":   drawKeyword(ctx, el);        break;
+      }
 
       ctx.restore();
     }
 
+    /* ---- canvas loop ---- */
     function initCanvas(canvas) {
       var ctx = canvas.getContext("2d");
-      var leaves = [];
+      var elements = [];
       var frame = 0;
       var rafId;
 
@@ -782,25 +911,22 @@
       function tick() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        if (frame % 4 === 0 && leaves.length < MAX_LEAVES) {
-          leaves.push(spawnLeaf(canvas.width, canvas.height));
+        if (frame % 10 === 0 && elements.length < MAX_ELEMENTS) {
+          elements.push(spawnElement(canvas.width, canvas.height));
         }
 
         var alive = [];
-        for (var i = 0; i < leaves.length; i++) {
-          var s = leaves[i];
-          s.life++;
-          if (s.life >= s.maxLife) continue;
-
-          // Sway left-right as leaf falls
-          s.x += s.vx + Math.sin(s.life * s.sway + s.swayOffset) * s.swayAmp;
-          s.y += s.vy;
-          s.angle += s.spin;
-
-          drawLeaf(ctx, s);
-          alive.push(s);
+        for (var i = 0; i < elements.length; i++) {
+          var el = elements[i];
+          el.life++;
+          if (el.life >= el.maxLife) continue;
+          el.x += el.vx;
+          el.y += el.vy;
+          el.angle += el.spin;
+          drawElement(ctx, el);
+          alive.push(el);
         }
-        leaves = alive;
+        elements = alive;
 
         frame++;
         rafId = requestAnimationFrame(tick);
@@ -829,7 +955,6 @@
       });
     }
 
-    // Initialise on every canvas in the page (.hero__canvas for hero section, .section__canvas for other sections)
     var canvases = document.querySelectorAll(".hero__canvas, .section__canvas");
     for (var c = 0; c < canvases.length; c++) {
       initCanvas(canvases[c]);
