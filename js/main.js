@@ -1283,9 +1283,9 @@
     for (var c = 0; c < canvases.length; c++) {
       var isHero = canvases[c].classList.contains("hero__canvas");
       // Hero canvas: bias illustrations to the left-edge strip and right half,
-      // keeping the center-left text area free. Two left entries vs one right
-      // entry means ~67 % of elements appear on the left side as requested.
-      var heroZones = [[0, 0.22], [0, 0.22], [0.50, 1.0]]; // left:left:right = 2:1 weighting
+      // keeping the center-left text area free. Extra right-side entries boost
+      // motion-graphic density on the right of the image.
+      var heroZones = [[0, 0.22], [0.50, 1.0], [0.50, 1.0], [0.50, 1.0]]; // left:right:right:right = 1:3 weighting
       initCanvas(canvases[c], isHero ? heroZones : null);
     }
 
@@ -1309,7 +1309,7 @@
     var MOON_CLASS = "moon-mode";
 
     // Shared thresholds
-    var MIN_DELTA     = 0.04;  // minimum channel spread to skip near-gray pixels
+    var MIN_DELTA     = 0.03;  // minimum channel spread to skip near-gray pixels
     var MIN_VAL       = 0.08;  // minimum brightness to skip near-black pixels
 
     // Shirt thresholds: olive/army-green range (hue 36°–80°)
@@ -1319,10 +1319,10 @@
     var SHIRT_SAT_MIN = 0.10;  // exclude near-neutral olive shadows
     var HUE_SHIFT     = 0.44;  // ~158° shift: moves olive (36–80°) to blue (194–238°)
 
-    // Background thresholds: blue-gray range (hue 180°–270°)
+    // Background thresholds: blue-gray range (hue 180°–300°)
     var BG_HUE_MIN      = 0.50;  // 180°
-    var BG_HUE_MAX      = 0.75;  // 270°
-    var BG_SAT_MIN      = 0.04;  // catch lightly-tinted blue-gray pixels
+    var BG_HUE_MAX      = 0.83;  // 300° – extended to capture indigo/violet-blue splotches
+    var BG_SAT_MIN      = 0.03;  // catch lightly-tinted blue-gray pixels
     var BG_HUE_TARGET   = 0.91;  // 328° – rose-pink target hue
     var BG_SAT_MIN_OUT  = 0.15;  // boost saturation so the pink is visible
 
