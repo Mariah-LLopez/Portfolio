@@ -1980,29 +1980,6 @@ html.moon-mode .site-header {
   background: linear-gradient(180deg, #2a2a2a 0%, #1A1A1A 55%, #111111 100%);
 }
 
-/* Keep the hero section in its light-mode appearance when moon-mode is active */
-html.moon-mode .hero {
-  --color-primary: #6F7D5A;
-  --color-primary-dark: #556047;
-  --color-text: #3E2F25;
-  --color-text-secondary: #7A6055;
-  --color-bg: #F4EDE4;
-  --color-bg-alt: #EAE0D5;
-  --color-border: #D4C8BB;
-  --color-orange: #c26a4a;
-  --color-orange-dark: #a9553b;
-  --color-secondary-hover: #2d2d4a;
-  --color-hero-desc-bg: #EAE0D5;
-  --shadow-rgb: 62, 47, 37;
-}
-
-/* Remove the moon-mode backdrop from hero content */
-html.moon-mode .hero__content {
-  background: none;
-  border-radius: 0;
-  padding: 0;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-}
+/* Hero inherits the global moon-mode color overrides (orange→pink, green→blue) */
 
 
