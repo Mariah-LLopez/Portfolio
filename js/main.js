@@ -709,7 +709,7 @@
       "barchart", "linechart", "piechart", "datatable", "dashboard", "funnel",
     ];
 
-    var MAX_ELEMENTS = 45;
+    var MAX_ELEMENTS = 20;
     var KEYWORD_FONT_FAMILY = "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
 
     function rand(min, max) { return min + Math.random() * (max - min); }
@@ -951,7 +951,7 @@
     function drawElement(ctx, el, maxAlpha) {
       var t = el.life / el.maxLife;
       var alpha;
-      if (t < 0.12)       { alpha = (t / 0.12) * maxAlpha; }
+      if (t < 0.08)       { alpha = (t / 0.08) * maxAlpha; }
       else if (t > 0.85)  { alpha = ((1 - t) / 0.15) * maxAlpha; }
       else                { alpha = maxAlpha; }
       if (alpha <= 0) return;
@@ -1001,7 +1001,7 @@
       function tick() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        if (frame % 10 === 0 && elements.length < MAX_ELEMENTS) {
+        if (frame % 6 === 0 && elements.length < MAX_ELEMENTS) {
           elements.push(spawnElement(canvas.width, canvas.height));
         }
 
@@ -1024,6 +1024,15 @@
 
       resize();
       window.addEventListener("resize", resize, { passive: true });
+
+      // Pre-populate so elements are visible immediately on load
+      var preCount = Math.min(8, MAX_ELEMENTS);
+      for (var p = 0; p < preCount; p++) {
+        var el = spawnElement(canvas.width, canvas.height);
+        el.life = Math.round(rand(el.maxLife * 0.08, el.maxLife * 0.45));
+        elements.push(el);
+      }
+
       rafId = requestAnimationFrame(tick);
 
       document.addEventListener("visibilitychange", function () {
