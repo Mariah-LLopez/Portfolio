@@ -1260,7 +1260,7 @@ textarea.form-control {
 }
 
 .footer-brand {
-  padding-left: clamp(2rem, 8vw, 5rem);
+  padding-left: 0;
 }
 
 .footer-brand__name {
@@ -1402,6 +1402,10 @@ textarea.form-control {
 
   .site-footer .container {
     grid-template-columns: 2fr 1fr 1fr;
+  }
+
+  .footer-brand {
+    padding-left: clamp(2rem, 8vw, 5rem);
   }
 
   .footer-bottom .container {
