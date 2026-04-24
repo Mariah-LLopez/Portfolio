@@ -284,6 +284,7 @@ p:last-child {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-left: clamp(1rem, 4vw, 3rem);
 }
 
 .hero__name {
@@ -382,6 +383,10 @@ p:last-child {
   .hero__supporting,
   .hero__description {
     max-width: 100%;
+  }
+
+  .hero__content {
+    padding-left: 0;
   }
 }
 /* =============================================
