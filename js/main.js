@@ -708,7 +708,7 @@
       "button", "textblock", "imagebox", "avatar", "keyword",
     ];
 
-    var MAX_ELEMENTS = 18;
+    var MAX_ELEMENTS = 30;
     var KEYWORD_FONT_FAMILY = "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
 
     function rand(min, max) { return min + Math.random() * (max - min); }
@@ -868,9 +868,9 @@
     function drawElement(ctx, el) {
       var t = el.life / el.maxLife;
       var alpha;
-      if (t < 0.12)       { alpha = (t / 0.12) * 0.13; }
-      else if (t > 0.85)  { alpha = ((1 - t) / 0.15) * 0.13; }
-      else                { alpha = 0.13; }
+      if (t < 0.12)       { alpha = (t / 0.12) * 0.28; }
+      else if (t > 0.85)  { alpha = ((1 - t) / 0.15) * 0.28; }
+      else                { alpha = 0.28; }
       if (alpha <= 0) return;
 
       ctx.save();
