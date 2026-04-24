@@ -363,7 +363,7 @@ p:last-child {
 .hero__layout {
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: clamp(2.5rem, 5vw, 5rem);
+  gap: clamp(5.5rem, 10vw, 8rem);
   align-items: center;
   max-width: 1050px;
   margin-inline: auto;
@@ -1591,7 +1591,7 @@ html {
 .hero--intro .hero__image {
   opacity: 0;
   animation: heroFadeInUp 0.8s ease forwards;
-  animation-delay: 0.1s;
+  animation-delay: 0.4s;
 }
 
 .hero--intro .hero__content {
