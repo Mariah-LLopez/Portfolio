@@ -272,6 +272,7 @@ p:last-child {
   width: auto;
   display: block;
   flex-shrink: 0;
+  animation: none; /* do not shadow-pulse the logo */
 }
 
 .site-logo__text {
