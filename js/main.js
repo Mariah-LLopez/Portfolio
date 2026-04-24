@@ -1098,7 +1098,7 @@
       ctx.beginPath(); rrect(ctx, -14 * s, baseY + 1.5 * s, 28 * s, 4 * s, 1.5 * s); ctx.stroke();
     }
 
-
+    function drawScatterplot(ctx, s) {
       var w = 96 * s, h = 70 * s, pad = 8 * s;
       ctx.beginPath(); ctx.rect(-w / 2, -h / 2, w, h); ctx.stroke();
       // y-axis
@@ -1178,7 +1178,7 @@
         case "flowchart":   drawFlowchart(ctx, el.size);   break;
         case "scatterplot": drawScatterplot(ctx, el.size); break;
         case "codetag":     drawCodeTag(ctx, el.size);     break;
-        case "curlycode":   drawCurlyCode(ctx, el);        break;
+        case "curlycode":   drawCurlyCode(ctx, el.size);   break;
         case "laptop":      drawLaptop(ctx, el.size);      break;
       }
 
