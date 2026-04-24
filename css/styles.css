@@ -51,7 +51,7 @@ body {
   font-size: var(--font-size-base);
   line-height: 1.6;
   color: var(--color-text);
-  background-color: var(--color-bg);
+  background-color: var(--color-bg-alt);
 }
 
 img, svg {
@@ -144,7 +144,6 @@ p:last-child {
 }
 
 .section--alt {
-  background-color: var(--color-bg-alt);
 }
 
 .section__header {
@@ -163,7 +162,6 @@ p:last-child {
 }
 
 .section--skills {
-  background-color: rgba(111, 125, 90, 0.40);
 }
 
 /* =============================================
