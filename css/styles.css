@@ -1011,6 +1011,47 @@ p:last-child {
   margin-top: var(--space-md);
 }
 
+/* Two-column layout when laptop images are present */
+.case-study-body--with-laptops {
+  display: grid !important;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.case-study-breakdown {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+}
+
+/* Sticky panel holding the layered laptop images */
+.laptop-layers-panel {
+  display: none; /* hidden on mobile, shown on desktop */
+}
+
+/* Layered laptop images container */
+.laptop-layers {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+}
+
+.laptop-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  top: 0;
+  left: 0;
+}
+
+/* Offset each layer slightly for a stacked depth effect */
+.laptop-layer--0 { z-index: 1; transform: translate(0, 0); }
+.laptop-layer--1 { z-index: 2; transform: translate(3%, -3%); }
+.laptop-layer--2 { z-index: 3; transform: translate(6%, -6%); }
+.laptop-layer--3 { z-index: 4; transform: translate(9%, -9%); }
+
 .video-container {
   position: relative;
   width: 100%;
@@ -1607,6 +1648,18 @@ textarea.form-control {
   .case-study-body .container {
     grid-template-columns: 1fr;
     max-width: 1200px;
+  }
+
+  /* Two-column layout: breakdown left, laptop layers right */
+  .case-study-body--with-laptops {
+    grid-template-columns: 1fr 420px !important;
+    align-items: start;
+  }
+
+  .laptop-layers-panel {
+    display: block;
+    position: sticky;
+    top: calc(var(--header-height, 4rem) + var(--space-lg));
   }
 
   .site-footer .container {

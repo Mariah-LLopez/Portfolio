@@ -4,12 +4,41 @@
     "slug": "oppi-data-hub-redesign",
     "strategicSummary": "Redesigned a complex government data hub to improve accessibility, usability, and navigation clarity for diverse public audiences.",
     "role": "UX Strategist & Information Architect",
-    "responsibilities": ["Feedback sessions with stakeholders", "Conducted user testing of site structure", "Developed user flow maps", "Created user flows for primary task scenarios", "Documented requirements and acceptance criteria", "Followed Brand and Style Guidelines"],
-    "tags": ["UX Strategy", "Information Architecture", "Discovery", "Documentation"],
-    "tools": ["Figma", "Adobe XD"],
-    "heroImage": "https://github.com/user-attachments/assets/1b9ca014-3c3a-4470-83c3-c1993b6f45aa",
-    "galleryImages": [{"src": "assets/persona.png", "alt": "OPPI Data Hub Persona"}, {"src": "assets/journeymap.png", "alt": "OPPI Data Hub persona journey"}],
-    "externalLinks": [{"label": "View Project", "url": "https://www.figma.com/proto/F8oHCe193wTF6eM8ug1Dbq/High-Fidelity-Prototype?node-id=15-2&starting-point-node-id=15%3A2&t=czIeDsVRafqJPArQ-1"}],
+    "responsibilities": [
+      "Feedback sessions with stakeholders",
+      "Conducted user testing of site structure",
+      "Developed user flow maps",
+      "Created user flows for primary task scenarios",
+      "Documented requirements and acceptance criteria",
+      "Followed Brand and Style Guidelines"
+    ],
+    "tags": [
+      "UX Strategy",
+      "Information Architecture",
+      "Discovery",
+      "Documentation"
+    ],
+    "tools": [
+      "Figma",
+      "Adobe XD"
+    ],
+    "heroImage": "assets/hifidelity.png",
+    "galleryImages": [
+      {
+        "src": "assets/persona.png",
+        "alt": "OPPI Data Hub Persona"
+      },
+      {
+        "src": "assets/journeymap.png",
+        "alt": "OPPI Data Hub persona journey"
+      }
+    ],
+    "externalLinks": [
+      {
+        "label": "View Project",
+        "url": "https://www.figma.com/proto/F8oHCe193wTF6eM8ug1Dbq/High-Fidelity-Prototype?node-id=15-2&starting-point-node-id=15%3A2&t=czIeDsVRafqJPArQ-1"
+      }
+    ],
     "videoEmbed": "",
     "overview": "The OPPI Data Hub serves as a central resource for public-sector data across multiple agencies. The existing site had grown organically over several years. This project focused on restructuring the navigation of the site and information architecture to create a clear, accessible, and intuitive experience.",
     "problemAndGoals": "The primary challenge was a disorganized content structure that made it difficult for users to locate relevant datasets and reports. Business goals included improving searching the site and achieving the task of saving data reports. Stakeholders needed a scalable architecture that could accommodate future navigation.",
@@ -20,19 +49,64 @@
     "wireframesAndPrototypes": "High-fidelity wireframes were created in Figma for all primary templates: homepage, category landing, dataset detail, and search results. A low-fidelity prototype was used in the stakeholder review session, with each round producing documented feedback and a revised iteration.",
     "requirementsAndCriteria": "Requirements were documented in Confluence, organized by user story. Each requirement included acceptance criteria written in Given/When/Then format. Accessibility requirements were integrated throughout rather than treated as a separate checklist, covering keyboard navigation, screen reader compatibility, and color contrast.",
     "qaAndIteration": "A thorough presentation of the heuristic evaluation of the prototype and stylistic branding visuals was given. Three iteration cycles addressed navigation labeling, filter behavior, and questions identified during presentation.",
-    "outcomesAndNextSteps": "The redesigned architecture was approved and handed off to development with complete documentation. A structured competition for the changes was addressed in the site's About page."
+    "outcomesAndNextSteps": "The redesigned architecture was approved and handed off to development with complete documentation. A structured competition for the changes was addressed in the site's About page.",
+    "laptopImages": [
+      {
+        "src": "assets/laptops.png",
+        "alt": "OPPI Data Hub laptops overview"
+      },
+      {
+        "src": "assets/laptop one.png",
+        "alt": "OPPI Data Hub laptop one"
+      },
+      {
+        "src": "assets/laptop two.png",
+        "alt": "OPPI Data Hub laptop two"
+      },
+      {
+        "src": "assets/laptop 3.png",
+        "alt": "OPPI Data Hub laptop three"
+      }
+    ]
   },
   {
     "title": "Pikes Peak Library District Website Redesign",
     "slug": "pikes-peak-library-district-website-redesign",
     "strategicSummary": "IA and content strategy for a large public library system website, unifying 12 branch locations under a coherent, accessible digital experience.",
     "role": "UX Strategist & Content Architect",
-    "responsibilities": ["Analyzed past site audit reports", "Designed unified navigation architecture", "Developed content templates and standards", "Created accessibility requirements documentation"],
-    "tags": ["UX Strategy", "Information Architecture", "Content Strategy", "Accessibility"],
-    "tools": ["Figma", "DeepL"],
+    "responsibilities": [
+      "Analyzed past site audit reports",
+      "Designed unified navigation architecture",
+      "Developed content templates and standards",
+      "Created accessibility requirements documentation"
+    ],
+    "tags": [
+      "UX Strategy",
+      "Information Architecture",
+      "Content Strategy",
+      "Accessibility"
+    ],
+    "tools": [
+      "Figma",
+      "DeepL"
+    ],
     "heroImage": "assets/hifippld.png",
-    "galleryImages": [{"src": "assets/translatedppld.png", "alt": "Library website Translated"}, {"src": "assets/ppld.png", "alt": "Library Redesigned Page"}],
-    "externalLinks": [{"label": "View Project", "url": "https://www.figma.com/proto/EuOqYxeVXyEU7Nq45vyjll/Untitled?node-id=1-2&p=f&t=LUfEIylj1yBnzqMG-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2"}],
+    "galleryImages": [
+      {
+        "src": "assets/translatedppld.png",
+        "alt": "Library website Translated"
+      },
+      {
+        "src": "assets/ppld.png",
+        "alt": "Library Redesigned Page"
+      }
+    ],
+    "externalLinks": [
+      {
+        "label": "View Project",
+        "url": "https://www.figma.com/proto/EuOqYxeVXyEU7Nq45vyjll/Untitled?node-id=1-2&p=f&t=LUfEIylj1yBnzqMG-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2"
+      }
+    ],
     "videoEmbed": "",
     "overview": "Pikes Peak Library District operates 12 branch locations and serves a diverse community across El Paso County, Colorado. The digital translation of the platform needed to make information culturally and contextually relevant to a local community. This project unified the digital presence under a single, coherent information architecture.",
     "problemAndGoals": "The main objective was to create a mockup of the website, navigating resources for Spanish-speaking patrons studying for the naturalization exam or civics GED. The goal was to create one unified IA that served both casual visitors and frequent library users, reduced content maintenance burden for staff, and met WCAG 2.1 AA standards.",
@@ -50,12 +124,40 @@
     "slug": "colorado-springs-utilities-public-information-flyer",
     "strategicSummary": "Redesigned public utility communications to improve content clarity, plain language compliance, and accessibility for a diverse municipal audience.",
     "role": "Content Strategist & Information Designer",
-    "responsibilities": ["Audited existing communications for clarity and accessibility", "Applied plain language principles to technical content", "Developed content hierarchy and layout recommendations", "Created accessible design specifications"],
-    "tags": ["Content Strategy", "Documentation", "Accessibility"],
-    "tools": ["Adobe XD", "Microsoft Word", "Kraemer's Library", "Figma"],
+    "responsibilities": [
+      "Audited existing communications for clarity and accessibility",
+      "Applied plain language principles to technical content",
+      "Developed content hierarchy and layout recommendations",
+      "Created accessible design specifications"
+    ],
+    "tags": [
+      "Content Strategy",
+      "Documentation",
+      "Accessibility"
+    ],
+    "tools": [
+      "Adobe XD",
+      "Microsoft Word",
+      "Kraemer's Library",
+      "Figma"
+    ],
     "heroImage": "assets/csuwebsite.png",
-    "galleryImages": [{"src": "assets/frontflyer.png", "alt": "Utility flyer Front"}, {"src": "assets/backflyer.png", "alt": "Utility Flyer Back"}],
-    "externalLinks": [{"label": "View Project", "url": "assets/csu-public-information-flyer.pdf"}],
+    "galleryImages": [
+      {
+        "src": "assets/frontflyer.png",
+        "alt": "Utility flyer Front"
+      },
+      {
+        "src": "assets/backflyer.png",
+        "alt": "Utility Flyer Back"
+      }
+    ],
+    "externalLinks": [
+      {
+        "label": "View Project",
+        "url": "assets/csu-public-information-flyer.pdf"
+      }
+    ],
     "videoEmbed": "",
     "overview": "Colorado Springs Utilities distributes public information materials to hundreds of thousands of customers across the Pikes Peak region. Many of these materials used technical language, dense formatting, and layouts that created barriers for residents. This project applied content strategy and plain language principles to improve communication effectiveness.",
     "problemAndGoals": "Confusion in the information already presented in the distributed materials, indicating comprehension failures rather than information gaps. Goals included improving first-read comprehension, reducing calls related to billing and service information, and ensuring materials met accessibility requirements.",
@@ -73,12 +175,39 @@
     "slug": "peak-vista-digital-style-video-templates",
     "strategicSummary": "Created a comprehensive digital style video template to standardize web communications across a multi-location community health organization.",
     "role": "Content Strategist & Social Media Content Creator",
-    "responsibilities": ["Analyzed voice, tone, and style guidelines", "Created Video Templates", "Maintained brand logo components"],
-    "tags": ["Content Strategy", "Social Media", "Video Editing", "UX Strategy"],
-    "tools": ["Microsoft Word", "Canva", "Google Docs"],
+    "responsibilities": [
+      "Analyzed voice, tone, and style guidelines",
+      "Created Video Templates",
+      "Maintained brand logo components"
+    ],
+    "tags": [
+      "Content Strategy",
+      "Social Media",
+      "Video Editing",
+      "UX Strategy"
+    ],
+    "tools": [
+      "Microsoft Word",
+      "Canva",
+      "Google Docs"
+    ],
     "heroImage": "assets/videoediting.png",
-    "galleryImages": [{"src": "assets/peakvistatt.png", "alt": "Social media Marketing Content"}, {"src": "assets/pvtt.png", "alt": "Style Guide Video Template"}],
-    "externalLinks": [{"label": "View Project", "url": "https://uccsoffice365-my.sharepoint.com/:v:/g/personal/mlopez6_uccs_edu/IQDwblTzE4vpT5u67TC1sNKPAfj0hiaR7hBQCnIDDYkDAfo?e=eoNVBk&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D"}],
+    "galleryImages": [
+      {
+        "src": "assets/peakvistatt.png",
+        "alt": "Social media Marketing Content"
+      },
+      {
+        "src": "assets/pvtt.png",
+        "alt": "Style Guide Video Template"
+      }
+    ],
+    "externalLinks": [
+      {
+        "label": "View Project",
+        "url": "https://uccsoffice365-my.sharepoint.com/:v:/g/personal/mlopez6_uccs_edu/IQDwblTzE4vpT5u67TC1sNKPAfj0hiaR7hBQCnIDDYkDAfo?e=eoNVBk&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D"
+      }
+    ],
     "videoEmbed": "",
     "overview": "Peak Vista Community Health Centers operates multiple locations serving underserved populations across southern Colorado. Their digital presence had grown without consistent standards, resulting in inconsistent voice, variable content quality, and patient-facing information that varied significantly across location pages. This project established a comprehensive digital style and content guide to unify their communications.",
     "problemAndGoals": "The goal was to create a practical, usable video template that non-specialist content contributors could apply without deep UX knowledge, while ensuring all content met accessibility and plain language standards.",
@@ -96,17 +225,46 @@
     "slug": "one-dog-at-a-time-colorado-audience-analysis",
     "strategicSummary": "Conducted audience research and developed a content strategy to help a local animal rescue nonprofit better connect with adopters, volunteers, and donors.",
     "role": "UX Researcher & Content Strategist",
-    "responsibilities": ["Designed audience surveys", "Developed audience personas and journey maps", "Created content strategy recommendations", "Conducted Content Audit"],
-    "tags": ["Discovery", "Content Strategy", "UX Strategy", "Information Architecture"],
-    "tools": ["Google Teams", "Canva", "Social Media", "Microsoft Word"],
+    "responsibilities": [
+      "Designed audience surveys",
+      "Developed audience personas and journey maps",
+      "Created content strategy recommendations",
+      "Conducted Content Audit"
+    ],
+    "tags": [
+      "Discovery",
+      "Content Strategy",
+      "UX Strategy",
+      "Information Architecture"
+    ],
+    "tools": [
+      "Google Teams",
+      "Canva",
+      "Social Media",
+      "Microsoft Word"
+    ],
     "heroImage": "assets/odaatwebsite.png",
-    "galleryImages": [{"src": "assets/odaatcover.png", "alt": "Audience Analysis Documentation Cover"}, {"src": "assets/odaatpageone.png", "alt": "content page example"}],
-    "externalLinks": [{"label": "View Project", "url": "assets/audience-analysis-content-strategy-document.pdf"}],
+    "galleryImages": [
+      {
+        "src": "assets/odaatcover.png",
+        "alt": "Audience Analysis Documentation Cover"
+      },
+      {
+        "src": "assets/odaatpageone.png",
+        "alt": "content page example"
+      }
+    ],
+    "externalLinks": [
+      {
+        "label": "View Project",
+        "url": "assets/audience-analysis-content-strategy-document.pdf"
+      }
+    ],
     "videoEmbed": "",
     "overview": "One Dog at a Time Colorado is a small volunteer-run rescue organization placing dogs from rural shelters into local foster and adoptive homes. This project used audience research to identify the gaps between what the organization communicated and what their audiences needed to take action.",
     "problemAndGoals": "Web analytics on adoption non-profits showed high traffic but low conversion on key actions: adoption applications, foster sign-ups, and donation completions. The content audit addresses why interested visitors were not completing these actions and what content or structural changes would improve outcomes.",
     "myRole": "As a researcher and strategist on this project, the findings need to be synthesized to create realistic improvements. The findings include the research plan, administering all data collection, and developing the content strategy recommendations.",
-    "discoveryAndConstraints": "Research included content audit of recent adopters, current fosters, and the organization's social media. The primary constraint was the organization's all-volunteer capacity—any recommendations made for only familiar engagement.",
+    "discoveryAndConstraints": "Research included content audit of recent adopters, current fosters, and the organization's social media. The primary constraint was the organization's all-volunteer capacity\u2014any recommendations made for only familiar engagement.",
     "informationArchitecture": "Analysis revealed that visitors were arriving primarily to see available dogs, but the path from browsing dogs to understanding the adoption process was unclear. The recommended IA changes included surfacing the adoption process earlier in the user journey, creating a dedicated foster page with a clear FAQ, and restructuring the donation page around impact stories rather than organizational needs.",
     "userFlows": "The user flows designed were the potential adopter journey (from dog browsing through application submission), the potential foster journey (from curiosity through first placement), and the donor journey (from interest through recurring giving setup). Each flow identified specific content needs at each step.",
     "wireframesAndPrototypes": "User flows were created for personas seeing social media posts and going to the adoption process page and the foster information page. These were presented  with content recommendations, not as final designs.",
@@ -119,14 +277,44 @@
     "slug": "furniture-flipping-app-concept",
     "strategicSummary": "Designed UX strategy and information architecture for a mobile app concept connecting furniture flippers with local buyers, focusing on trust, transaction clarity, and community.",
     "role": "UX Strategist & IA Lead",
-    "responsibilities": ["Conducted competitive analysis of resale platforms", "Developed app concept and value proposition", "Designed information architecture and navigation model", "Created user flows for core transaction scenarios", "Built interactive prototype in Figma"],
-    "tags": ["UX Strategy", "Prototyping", "Information Architecture", "Discovery", "Analytics & Insights"],
-    "tools": ["Figma", "Canva", "Google"],
+    "responsibilities": [
+      "Conducted competitive analysis of resale platforms",
+      "Developed app concept and value proposition",
+      "Designed information architecture and navigation model",
+      "Created user flows for core transaction scenarios",
+      "Built interactive prototype in Figma"
+    ],
+    "tags": [
+      "UX Strategy",
+      "Prototyping",
+      "Information Architecture",
+      "Discovery",
+      "Analytics & Insights"
+    ],
+    "tools": [
+      "Figma",
+      "Canva",
+      "Google"
+    ],
     "heroImage": "assets/furnitureflip.png",
-    "galleryImages": [{"src": "assets/ffapp.png", "alt": "Services Checkout in App"}, {"src": "assets/ffaccount.png", "alt": "User Account in App"}],
-    "externalLinks": [{"label": "View Prototype", "url": "https://www.figma.com/proto/gIaU447SKnJYepg8Wk7lh1/Untitled?node-id=7-988&starting-point-node-id=7%3A988&t=9SPnxmgoxnGWsw9o-1"}],
+    "galleryImages": [
+      {
+        "src": "assets/ffapp.png",
+        "alt": "Services Checkout in App"
+      },
+      {
+        "src": "assets/ffaccount.png",
+        "alt": "User Account in App"
+      }
+    ],
+    "externalLinks": [
+      {
+        "label": "View Prototype",
+        "url": "https://www.figma.com/proto/gIaU447SKnJYepg8Wk7lh1/Untitled?node-id=7-988&starting-point-node-id=7%3A988&t=9SPnxmgoxnGWsw9o-1"
+      }
+    ],
     "videoEmbed": "",
-    "overview": "Furniture flipping—buying, refinishing, and reselling used furniture. This is a growing side economy with an active community of creators and buyers. Existing resale platforms were not designed for the unique needs of this niche: buyers want to see transformation stories, sellers need to communicate craft and quality, and transactions require local coordination. This concept project explored what a purpose-built platform for this community would look like.",
+    "overview": "Furniture flipping\u2014buying, refinishing, and reselling used furniture. This is a growing side economy with an active community of creators and buyers. Existing resale platforms were not designed for the unique needs of this niche: buyers want to see transformation stories, sellers need to communicate craft and quality, and transactions require local coordination. This concept project explored what a purpose-built platform for this community would look like.",
     "problemAndGoals": "Furniture flippers using general resale platforms reported frustration with low visibility for their work, difficulty communicating quality and provenance, and safety concerns around local meetups. The concept aimed to design an app that addressed these specific friction points while creating a community-centered transaction experience.",
     "myRole": "This was an independent concept project. I owned all phases from research through interactive prototype, treating it as a full UX strategy engagement to develop and demonstrate my process.",
     "discoveryAndConstraints": "Research included competitive analysis of 8 resale platforms (Facebook Marketplace, Craigslist, OfferUp, Chairish, and others), interviews with a furniture flipper, and observation of online furniture flipping communities. The primary design constraint was mobile-first: the target audience managed all selling activity from their phones.",

@@ -375,6 +375,20 @@
       })
       .join("");
 
+    const laptopLayersHtml = (p.laptopImages || [])
+      .map(function (img, i) {
+        return (
+          '<img class="laptop-layer laptop-layer--' +
+          i +
+          '" src="' +
+          escapeHtml(img.src) +
+          '" alt="' +
+          escapeHtml(img.alt) +
+          '" loading="lazy">'
+        );
+      })
+      .join("");
+
     const linksHtml = (p.externalLinks || [])
       .map(function (l) {
         var href = l.url;
@@ -463,7 +477,9 @@
       "</div>" +
       // Body
       '<div class="case-study-body">' +
-      '<div class="container" style="max-width:1200px;margin-inline:auto">' +
+      '<div class="container' + (laptopLayersHtml ? " case-study-body--with-laptops" : "") + '" style="max-width:1200px;margin-inline:auto">' +
+      // Left column: all breakdown content
+      '<div class="case-study-breakdown">' +
       // Responsibilities & Tools sidebar block
       '<section class="case-study-section" aria-labelledby="section-responsibilities">' +
       '<h2 class="case-study-section__title" id="section-responsibilities">Responsibilities</h2>' +
@@ -493,6 +509,15 @@
           '<h2 class="case-study-section__title" id="section-video">Video Walkthrough</h2>' +
           videoHtml +
           "</section>"
+        : "") +
+      "</div>" +
+      // Right column: layered laptop images (only when present)
+      (laptopLayersHtml
+        ? '<div class="laptop-layers-panel" aria-hidden="true">' +
+          '<div class="laptop-layers">' +
+          laptopLayersHtml +
+          "</div>" +
+          "</div>"
         : "") +
       "</div>" +
       "</div>";
