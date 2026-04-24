@@ -677,4 +677,166 @@
       observer.observe(element);
     });
   }
+  /* ------------------------------------------
+     12. Hero Canvas: Racing Strips Animation
+     ------------------------------------------ */
+  (function initHeroStrips() {
+    var canvas = document.querySelector(".hero__canvas");
+    if (!canvas) return;
+
+    // Respect user's motion preference (initial check + live listener)
+    var motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (motionQuery.matches) return;
+
+    var ctx = canvas.getContext("2d");
+
+    var COLORS = [
+      "#6F7D5A", // sage green
+      "#8A9870", // light sage
+      "#556047", // dark sage
+      "#7A6055", // warm brown
+      "#9E8070", // dusty rose-brown
+      "#A89880", // warm tan
+      "#C4A882", // sand
+      "#B8A99A", // pale rose
+      "#6B8C6F", // muted teal-green
+    ];
+
+    var MAX_STRIPS = 65;
+    var strips = [];
+    var frame = 0;
+    var rafId;
+
+    function resize() {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    }
+
+    function rand(min, max) {
+      return min + Math.random() * (max - min);
+    }
+
+    function spawnStrip() {
+      // Spawn from any of the four edges (or random interior spawn for variety)
+      var edge = Math.random();
+      var x, y;
+      if (edge < 0.25) {
+        x = rand(0, canvas.width);
+        y = rand(-40, -10);
+      } else if (edge < 0.5) {
+        x = rand(canvas.width + 10, canvas.width + 40);
+        y = rand(0, canvas.height);
+      } else if (edge < 0.75) {
+        x = rand(0, canvas.width);
+        y = rand(canvas.height + 10, canvas.height + 40);
+      } else {
+        x = rand(-40, -10);
+        y = rand(0, canvas.height);
+      }
+
+      var speed = rand(1.2, 3.8);
+      var dir = Math.random() * Math.PI * 2;
+
+      return {
+        x: x,
+        y: y,
+        vx: Math.cos(dir) * speed,
+        vy: Math.sin(dir) * speed,
+        // Curvature makes the path arc/swirl over time
+        curve: rand(-0.035, 0.035),
+        // The drawn angle of the strip rotates independently (twirl)
+        angle: Math.random() * Math.PI * 2,
+        spin: rand(-0.09, 0.09),
+        length: rand(22, 70),
+        thick: rand(2, 5),
+        color: COLORS[Math.floor(Math.random() * COLORS.length)],
+        life: 0,
+        maxLife: Math.round(rand(90, 180)),
+      };
+    }
+
+    function drawStrip(s) {
+      var t = s.life / s.maxLife;
+      // Fade-in for first 20%, hold, then fade-out
+      var alpha;
+      if (t < 0.2) {
+        alpha = (t / 0.2) * 0.6;
+      } else {
+        alpha = (1 - t) * 0.6;
+      }
+      if (alpha <= 0) return;
+
+      ctx.save();
+      ctx.globalAlpha = alpha;
+      ctx.translate(s.x, s.y);
+      ctx.rotate(s.angle);
+      ctx.fillStyle = s.color;
+      // Rounded pill shape for each strip
+      var rx = s.thick / 2;
+      ctx.beginPath();
+      if (ctx.roundRect) {
+        ctx.roundRect(-s.length / 2, -rx, s.length, s.thick, rx);
+      } else {
+        ctx.rect(-s.length / 2, -rx, s.length, s.thick);
+      }
+      ctx.fill();
+      ctx.restore();
+    }
+
+    function tick() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Spawn a new strip every 3 frames while under cap
+      if (frame % 3 === 0 && strips.length < MAX_STRIPS) {
+        strips.push(spawnStrip());
+      }
+
+      var alive = [];
+      for (var i = 0; i < strips.length; i++) {
+        var s = strips[i];
+        s.life++;
+        if (s.life >= s.maxLife) continue;
+
+        // Rotate velocity direction gradually → curved, twirling path
+        var velDir = Math.atan2(s.vy, s.vx) + s.curve;
+        var spd = Math.sqrt(s.vx * s.vx + s.vy * s.vy);
+        s.vx = Math.cos(velDir) * spd;
+        s.vy = Math.sin(velDir) * spd;
+
+        s.x += s.vx;
+        s.y += s.vy;
+        s.angle += s.spin;
+
+        drawStrip(s);
+        alive.push(s);
+      }
+      strips = alive;
+
+      frame++;
+      rafId = requestAnimationFrame(tick);
+    }
+
+    resize();
+    window.addEventListener("resize", resize, { passive: true });
+    rafId = requestAnimationFrame(tick);
+
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden) {
+        if (rafId) cancelAnimationFrame(rafId);
+      } else {
+        frame = 0;
+        rafId = requestAnimationFrame(tick);
+      }
+    });
+
+    motionQuery.addEventListener("change", function (e) {
+      if (e.matches) {
+        if (rafId) cancelAnimationFrame(rafId);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      } else {
+        rafId = requestAnimationFrame(tick);
+      }
+    });
+  })();
+
 })();
