@@ -1908,24 +1908,24 @@ select {
    Moon Mode — Color Overrides
    ============================================= */
 html.moon-mode {
-  --color-primary: #8B5CF6;
-  --color-primary-dark: #6D28D9;
-  --color-text: #4B0082;
-  --color-text-secondary: #7C3AED;
+  --color-primary: #3A78C9;
+  --color-primary-dark: #2B5FA0;
+  --color-text: #111111;
+  --color-text-secondary: #555555;
   --color-bg: #FFFFFF;
-  --color-bg-alt: #F5F0FF;
-  --color-border: #DDD6FE;
-  --color-nav-bg: #2D1B69;
-  --color-orange: #EC4899;
-  --color-orange-dark: #DB2777;
-  --color-secondary-hover: #1E40AF;
-  --color-footer-bottom-border: #3730A3;
-  --color-footer-muted: #93C5FD;
-  --color-hero-desc-bg: rgba(245, 240, 255, 0.92);
-  --color-mobile-nav-bg: rgba(245, 240, 255, 0.97);
-  --shadow-rgb: 45, 27, 105;
+  --color-bg-alt: #E8E8E8;
+  --color-border: #D0D0D0;
+  --color-nav-bg: #1A1A1A;
+  --color-orange: #E8628A;
+  --color-orange-dark: #C44E73;
+  --color-secondary-hover: #2D2D2D;
+  --color-footer-bottom-border: #1A1A1A;
+  --color-footer-muted: #7F9FA8;
+  --color-hero-desc-bg: rgba(255, 255, 255, 0.92);
+  --color-mobile-nav-bg: rgba(255, 255, 255, 0.97);
+  --shadow-rgb: 26, 26, 26;
 }
 
 html.moon-mode .site-header {
-  background: linear-gradient(180deg, #3d2278 0%, #2D1B69 55%, #231458 100%);
+  background: linear-gradient(180deg, #2a2a2a 0%, #1A1A1A 55%, #111111 100%);
 }
