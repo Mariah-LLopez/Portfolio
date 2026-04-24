@@ -1296,7 +1296,7 @@
   /* ------------------------------------------
      Hero image: selective recolor in moon-mode
      – Shirt: shifts olive/yellow-green pixels (~36–80° hue) to blue (~194–240°)
-     – Background: shifts blue-gray pixels (~180–270° hue) to pink (~324°)
+     – Background: shifts blue-gray pixels (~180–270° hue) to pink (~328°)
      Face, hair, and near-black shadows are left unchanged.
      ------------------------------------------ */
   (function () {
