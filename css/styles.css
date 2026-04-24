@@ -392,8 +392,8 @@ p:last-child {
 
 .hero__image img {
   width: clamp(300px, 42vw, 520px);
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
   border-radius: 140px 140px 0 0;
 }
 
@@ -1249,6 +1249,10 @@ textarea.form-control {
   gap: var(--space-lg);
 }
 
+.footer-brand {
+  padding-left: clamp(1rem, 4vw, 3rem);
+}
+
 .footer-brand__name {
   font-size: var(--font-size-xl);
   font-weight: 700;
@@ -1348,7 +1352,8 @@ textarea.form-control {
 }
 
 .back-to-top {
-  display: inline-block;
+  display: block;
+  text-align: center;
   margin-top: var(--space-sm);
   color: #7F9FA8;
   text-decoration: none;
