@@ -376,12 +376,12 @@ p:last-child {
 
 .hero__layout {
   display: grid;
-  grid-template-columns: auto 1fr;
-  gap: clamp(5.5rem, 10vw, 8rem);
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(3rem, 6vw, 5rem);
   align-items: stretch;
   max-width: 1050px;
-  margin-inline: auto;
-  justify-content: center;
+  margin-left: auto;
+  margin-right: 0;
 }
 
 .hero__image {
@@ -391,15 +391,14 @@ p:last-child {
 }
 
 .hero__image img {
-  width: clamp(300px, 42vw, 520px);
-  height: auto;
-  object-fit: contain;
-  border-radius: 140px 140px 0 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--border-radius-lg);
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
   .hero__layout {
-    grid-template-columns: 1fr 1fr;
     gap: 2.5rem;
   }
 
@@ -419,10 +418,17 @@ p:last-child {
     grid-template-columns: 1fr;
     text-align: center;
     gap: 2rem;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .hero__image {
     justify-content: center;
+  }
+
+  .hero__image img {
+    height: clamp(260px, 50vw, 380px);
+    width: 100%;
   }
 
   .hero__actions {
