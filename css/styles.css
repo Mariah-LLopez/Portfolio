@@ -181,6 +181,7 @@ p:last-child {
 }
 
 .section--skills {
+  padding-bottom: calc(var(--space-xl) + 2rem);
 }
 
 /* =============================================
@@ -376,9 +377,9 @@ p:last-child {
 
 .hero__layout {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.3fr 1fr;
   gap: clamp(3rem, 6vw, 5rem);
-  align-items: center;
+  align-items: stretch;
   max-width: 1050px;
   margin-left: auto;
   margin-right: auto;
@@ -387,13 +388,12 @@ p:last-child {
 .hero__image {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
 }
 
 .hero__image img {
   width: 100%;
-  max-width: 340px;
-  aspect-ratio: 3 / 4;
+  height: 100%;
   object-fit: cover;
   border-radius: 50% 50% 8px 8px / 40% 40% 8px 8px;
 }
@@ -425,11 +425,14 @@ p:last-child {
 
   .hero__image {
     justify-content: center;
+    align-items: center;
   }
 
   .hero__image img {
     max-width: clamp(220px, 60vw, 320px);
     width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 4;
   }
 
   .hero__actions {
