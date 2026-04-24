@@ -706,9 +706,10 @@
     var TYPES = [
       "browser", "mobile", "card", "nav", "form",
       "button", "textblock", "imagebox", "avatar", "keyword",
+      "barchart", "linechart", "piechart", "datatable", "dashboard", "funnel",
     ];
 
-    var MAX_ELEMENTS = 30;
+    var MAX_ELEMENTS = 45;
     var KEYWORD_FONT_FAMILY = "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
 
     function rand(min, max) { return min + Math.random() * (max - min); }
@@ -845,6 +846,88 @@
       ctx.fillText(kw, 0, 0);
     }
 
+    function drawBarChart(ctx, s) {
+      var w = 100 * s, h = 68 * s, pad = 6 * s;
+      ctx.beginPath(); ctx.rect(-w / 2, -h / 2, w, h); ctx.stroke();
+      var bars = [0.55, 0.85, 0.40, 0.70, 0.95, 0.60];
+      var bw = (w - 2 * pad) / bars.length - 2 * s;
+      var bx = -w / 2 + pad;
+      bars.forEach(function (p) {
+        var bh = (h - 2 * pad) * p;
+        ctx.beginPath(); ctx.rect(bx, h / 2 - pad - bh, bw, bh); ctx.stroke();
+        bx += bw + 2 * s;
+      });
+    }
+
+    function drawLineChart(ctx, s) {
+      var w = 104 * s, h = 66 * s, pad = 8 * s;
+      ctx.beginPath(); ctx.rect(-w / 2, -h / 2, w, h); ctx.stroke();
+      var pts = [0.4, 0.65, 0.35, 0.80, 0.55, 0.90, 0.60];
+      var step = (w - 2 * pad) / (pts.length - 1);
+      ctx.beginPath();
+      pts.forEach(function (p, i) {
+        var px = -w / 2 + pad + i * step;
+        var py = h / 2 - pad - (h - 2 * pad) * p;
+        if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+      });
+      ctx.stroke();
+      pts.forEach(function (p, i) {
+        var px = -w / 2 + pad + i * step;
+        var py = h / 2 - pad - (h - 2 * pad) * p;
+        ctx.beginPath(); ctx.arc(px, py, 2.5 * s, 0, Math.PI * 2); ctx.stroke();
+      });
+    }
+
+    function drawPieChart(ctx, s) {
+      var r = 30 * s;
+      var slices = [0.30, 0.22, 0.18, 0.15, 0.15];
+      var start = -Math.PI / 2;
+      slices.forEach(function (p) {
+        var end = start + p * Math.PI * 2;
+        ctx.beginPath(); ctx.moveTo(0, 0); ctx.arc(0, 0, r, start, end); ctx.closePath(); ctx.stroke();
+        start = end;
+      });
+    }
+
+    function drawDataTable(ctx, s) {
+      var w = 110 * s, h = 72 * s, rowH = 12 * s, pad = 5 * s;
+      ctx.beginPath(); ctx.rect(-w / 2, -h / 2, w, h); ctx.stroke();
+      var cols = [-w / 2 + w * 0.35, -w / 2 + w * 0.62];
+      cols.forEach(function (cx) {
+        ctx.beginPath(); ctx.moveTo(cx, -h / 2); ctx.lineTo(cx, h / 2); ctx.stroke();
+      });
+      var ry = -h / 2 + rowH;
+      while (ry < h / 2) {
+        ctx.beginPath(); ctx.moveTo(-w / 2, ry); ctx.lineTo(w / 2, ry); ctx.stroke();
+        ry += rowH;
+      }
+      [0.80, 0.60, 0.90].forEach(function (p, i) {
+        var tx = -w / 2 + pad;
+        var ty = -h / 2 + rowH * 0.6;
+        ctx.beginPath(); ctx.moveTo(tx, ty + rowH * i * 1.1); ctx.lineTo(tx + (w * 0.32) * p, ty + rowH * i * 1.1); ctx.stroke();
+      });
+    }
+
+    function drawDashboard(ctx, s) {
+      var w = 116 * s, h = 78 * s, pad = 5 * s;
+      ctx.beginPath(); rrect(ctx, -w / 2, -h / 2, w, h, 4 * s); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(-w / 2, -h / 2 + 14 * s); ctx.lineTo(w / 2, -h / 2 + 14 * s); ctx.stroke();
+      var hw = w / 2 - pad * 1.5, hh = (h - 18 * s - pad * 2) / 2 - pad / 2;
+      ctx.beginPath(); rrect(ctx, -w / 2 + pad, -h / 2 + 18 * s, hw, hh, 3 * s); ctx.stroke();
+      ctx.beginPath(); rrect(ctx, pad / 2, -h / 2 + 18 * s, hw, hh, 3 * s); ctx.stroke();
+      ctx.beginPath(); rrect(ctx, -w / 2 + pad, -h / 2 + 18 * s + hh + pad, w - 2 * pad, hh, 3 * s); ctx.stroke();
+    }
+
+    function drawFunnel(ctx, s) {
+      var layers = [1.0, 0.78, 0.56, 0.36, 0.18];
+      var maxW = 90 * s, lh = 12 * s;
+      var ty = -(layers.length * lh) / 2;
+      layers.forEach(function (p, i) {
+        var lw = maxW * p;
+        ctx.beginPath(); ctx.rect(-lw / 2, ty + i * lh, lw, lh - 1 * s); ctx.stroke();
+      });
+    }
+
     /* ---- element factory ---- */
     function spawnElement(cw, ch) {
       var type = TYPES[randInt(0, TYPES.length)];
@@ -853,10 +936,10 @@
         type: type,
         x: rand(0, cw),
         y: rand(-150, ch + 150),
-        vx: rand(-0.12, 0.12),
-        vy: rand(0.04, 0.22),
+        vx: rand(-0.28, 0.28),
+        vy: rand(0.18, 0.55),
         angle: rand(-0.06, 0.06),
-        spin: rand(-0.0008, 0.0008),
+        spin: rand(-0.003, 0.003),
         color: color,
         life: 0,
         maxLife: Math.round(rand(350, 650)),
@@ -881,16 +964,22 @@
       ctx.rotate(el.angle);
 
       switch (el.type) {
-        case "browser":   drawBrowser(ctx, el.size);   break;
-        case "mobile":    drawMobile(ctx, el.size);    break;
-        case "card":      drawCard(ctx, el.size);      break;
-        case "nav":       drawNav(ctx, el.size);       break;
-        case "form":      drawForm(ctx, el.size);      break;
-        case "button":    drawButton(ctx, el.size);    break;
-        case "textblock": drawTextBlock(ctx, el.size); break;
-        case "imagebox":  drawImageBox(ctx, el.size);  break;
-        case "avatar":    drawAvatar(ctx, el.size);    break;
-        case "keyword":   drawKeyword(ctx, el);        break;
+        case "browser":    drawBrowser(ctx, el.size);    break;
+        case "mobile":     drawMobile(ctx, el.size);     break;
+        case "card":       drawCard(ctx, el.size);       break;
+        case "nav":        drawNav(ctx, el.size);        break;
+        case "form":       drawForm(ctx, el.size);       break;
+        case "button":     drawButton(ctx, el.size);     break;
+        case "textblock":  drawTextBlock(ctx, el.size);  break;
+        case "imagebox":   drawImageBox(ctx, el.size);   break;
+        case "avatar":     drawAvatar(ctx, el.size);     break;
+        case "keyword":    drawKeyword(ctx, el);         break;
+        case "barchart":   drawBarChart(ctx, el.size);   break;
+        case "linechart":  drawLineChart(ctx, el.size);  break;
+        case "piechart":   drawPieChart(ctx, el.size);   break;
+        case "datatable":  drawDataTable(ctx, el.size);  break;
+        case "dashboard":  drawDashboard(ctx, el.size);  break;
+        case "funnel":     drawFunnel(ctx, el.size);     break;
       }
 
       ctx.restore();
@@ -899,7 +988,7 @@
     /* ---- canvas loop ---- */
     function initCanvas(canvas) {
       var ctx = canvas.getContext("2d");
-      var maxAlpha = canvas.classList.contains("hero__canvas") ? 0 : 0.45;
+      var maxAlpha = canvas.classList.contains("hero__canvas") ? 0.45 : 0.45;
       var elements = [];
       var frame = 0;
       var rafId;
