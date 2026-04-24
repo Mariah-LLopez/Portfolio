@@ -701,12 +701,18 @@
       "A/B test", "visual hierarchy", "navigation", "interaction design",
       "annotation", "specification", "user story", "low-fidelity",
       "high-fidelity", "content audit", "layout grid", "typography",
+      "function()", "const", "async / await", "API", "SQL", "Python",
+      "JavaScript", "algorithm", "for loop", "array", "database",
+      "debugging", "refactoring", "recursion", "version control",
+      "machine learning", "data pipeline", "regression", "neural network",
+      "git commit", "pull request", "REST API", "JSON", "data structure",
     ];
 
     var TYPES = [
       "browser", "mobile", "card", "nav", "form",
       "button", "textblock", "imagebox", "avatar", "keyword",
       "barchart", "linechart", "piechart", "datatable", "dashboard", "funnel",
+      "terminal", "codeblock", "gitgraph", "database", "flowchart", "scatterplot",
     ];
 
     var MAX_ELEMENTS = 20;
@@ -928,6 +934,143 @@
       });
     }
 
+    function drawTerminal(ctx, s) {
+      var w = 110 * s, h = 76 * s, bh = 13 * s;
+      ctx.beginPath(); rrect(ctx, -w / 2, -h / 2, w, h, 4 * s); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(-w / 2, -h / 2 + bh); ctx.lineTo(w / 2, -h / 2 + bh); ctx.stroke();
+      [-w / 2 + 7 * s, -w / 2 + 14 * s, -w / 2 + 21 * s].forEach(function (dx) {
+        ctx.beginPath(); ctx.arc(dx, -h / 2 + bh / 2, 2.2 * s, 0, Math.PI * 2); ctx.stroke();
+      });
+      var ly = -h / 2 + bh + 10 * s;
+      var indents = [0, 1, 1, 2, 1, 0];
+      var pcts   = [0.30, 0.60, 0.45, 0.55, 0.70, 0.35];
+      pcts.forEach(function (p, i) {
+        if (ly < h / 2 - 5 * s) {
+          var ix = -w / 2 + 8 * s + indents[i] * 9 * s;
+          // prompt marker on first column of each non-indented line
+          if (indents[i] === 0) {
+            ctx.beginPath();
+            ctx.moveTo(ix, ly); ctx.lineTo(ix + 4 * s, ly);
+            ctx.stroke();
+            ix += 6 * s;
+          }
+          ctx.beginPath(); ctx.moveTo(ix, ly); ctx.lineTo(ix + (w - 22 * s) * p, ly); ctx.stroke();
+          ly += 10 * s;
+        }
+      });
+    }
+
+    function drawCodeBlock(ctx, s) {
+      var w = 110 * s, h = 80 * s, bh = 11 * s, gutter = 14 * s, pad = 5 * s;
+      ctx.beginPath(); rrect(ctx, -w / 2, -h / 2, w, h, 4 * s); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(-w / 2, -h / 2 + bh); ctx.lineTo(w / 2, -h / 2 + bh); ctx.stroke();
+      var gutterX = -w / 2 + gutter;
+      ctx.beginPath(); ctx.moveTo(gutterX, -h / 2 + bh); ctx.lineTo(gutterX, h / 2 - 2 * s); ctx.stroke();
+      var ly = -h / 2 + bh + 9 * s;
+      var indents = [0, 1, 2, 2, 1, 2, 0, 1];
+      var pcts   = [0.55, 0.70, 0.50, 0.45, 0.65, 0.40, 0.60, 0.35];
+      pcts.forEach(function (p, i) {
+        if (ly < h / 2 - 6 * s) {
+          var ix = gutterX + pad + indents[i] * 7 * s;
+          ctx.beginPath(); ctx.moveTo(ix, ly); ctx.lineTo(ix + (w - gutter - pad * 2) * p, ly); ctx.stroke();
+          ly += 9 * s;
+        }
+      });
+    }
+
+    function drawGitGraph(ctx, s) {
+      var mainY = 6 * s, branchY = -16 * s;
+      var commits = [
+        { x: -44 * s, y: mainY },
+        { x: -24 * s, y: mainY },
+        { x: -4 * s,  y: branchY },
+        { x: 16 * s,  y: branchY },
+        { x: 26 * s,  y: mainY },
+        { x: 46 * s,  y: mainY },
+      ];
+      // main branch line
+      ctx.beginPath();
+      ctx.moveTo(commits[0].x, mainY); ctx.lineTo(commits[5].x, mainY);
+      ctx.stroke();
+      // branch-off and merge lines
+      ctx.beginPath();
+      ctx.moveTo(commits[1].x, mainY);
+      ctx.lineTo(commits[2].x, branchY);
+      ctx.lineTo(commits[3].x, branchY);
+      ctx.lineTo(commits[4].x, mainY);
+      ctx.stroke();
+      // commit circles
+      commits.forEach(function (c) {
+        ctx.beginPath(); ctx.arc(c.x, c.y, 3.5 * s, 0, Math.PI * 2); ctx.stroke();
+      });
+    }
+
+    function drawDatabase(ctx, s) {
+      var rx = 36 * s, ry = 8 * s, bodyH = 56 * s;
+      var topY  = -bodyH / 2;
+      var midY1 = topY + bodyH * 0.33;
+      var midY2 = topY + bodyH * 0.66;
+      var botY  = topY + bodyH;
+      // side walls
+      ctx.beginPath(); ctx.moveTo(-rx, topY + ry); ctx.lineTo(-rx, botY); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo( rx, topY + ry); ctx.lineTo( rx, botY); ctx.stroke();
+      // bottom ellipse
+      ctx.beginPath(); ctx.ellipse(0, botY, rx, ry, 0, 0, Math.PI * 2); ctx.stroke();
+      // mid dividers (lower half arc only to simulate depth)
+      ctx.beginPath(); ctx.ellipse(0, midY1, rx, ry, 0, 0, Math.PI); ctx.stroke();
+      ctx.beginPath(); ctx.ellipse(0, midY2, rx, ry, 0, 0, Math.PI); ctx.stroke();
+      // top ellipse
+      ctx.beginPath(); ctx.ellipse(0, topY, rx, ry, 0, 0, Math.PI * 2); ctx.stroke();
+    }
+
+    function drawFlowchart(ctx, s) {
+      var bw = 72 * s, bh = 13 * s, dh = 17 * s, gap = 7 * s;
+      var totalH = bh + gap + dh * 2 + gap + bh;
+      var top = -totalH / 2;
+      // top box
+      ctx.beginPath(); rrect(ctx, -bw / 2, top, bw, bh, 3 * s); ctx.stroke();
+      // arrow down to diamond
+      ctx.beginPath(); ctx.moveTo(0, top + bh); ctx.lineTo(0, top + bh + gap); ctx.stroke();
+      // diamond
+      var dy = top + bh + gap;
+      ctx.beginPath();
+      ctx.moveTo(0, dy); ctx.lineTo(bw / 2, dy + dh); ctx.lineTo(0, dy + dh * 2); ctx.lineTo(-bw / 2, dy + dh);
+      ctx.closePath(); ctx.stroke();
+      // arrow down to bottom box
+      var bottomY = dy + dh * 2;
+      ctx.beginPath(); ctx.moveTo(0, bottomY); ctx.lineTo(0, bottomY + gap); ctx.stroke();
+      // bottom box
+      ctx.beginPath(); rrect(ctx, -bw / 2, bottomY + gap, bw, bh, 3 * s); ctx.stroke();
+      // side branch label line from diamond
+      ctx.beginPath();
+      ctx.moveTo(bw / 2, dy + dh);
+      ctx.lineTo(bw / 2 + 12 * s, dy + dh);
+      ctx.lineTo(bw / 2 + 12 * s, bottomY + gap + bh / 2);
+      ctx.lineTo(bw / 2, bottomY + gap + bh / 2);
+      ctx.stroke();
+    }
+
+    function drawScatterplot(ctx, s) {
+      var w = 96 * s, h = 70 * s, pad = 8 * s;
+      ctx.beginPath(); ctx.rect(-w / 2, -h / 2, w, h); ctx.stroke();
+      // y-axis
+      ctx.beginPath(); ctx.moveTo(-w / 2 + pad, -h / 2 + pad); ctx.lineTo(-w / 2 + pad, h / 2 - pad); ctx.stroke();
+      // x-axis
+      ctx.beginPath(); ctx.moveTo(-w / 2 + pad, h / 2 - pad); ctx.lineTo(w / 2 - pad, h / 2 - pad); ctx.stroke();
+      // scatter points (normalised 0–1 within plot area)
+      var pts = [
+        [0.15, 0.70], [0.30, 0.50], [0.45, 0.80], [0.20, 0.35],
+        [0.60, 0.65], [0.50, 0.42], [0.75, 0.88], [0.10, 0.55],
+        [0.65, 0.30], [0.85, 0.75], [0.38, 0.60],
+      ];
+      var aw = w - 2 * pad, ah = h - 2 * pad;
+      pts.forEach(function (p) {
+        var px = -w / 2 + pad + aw * p[0];
+        var py =  h / 2 - pad - ah * p[1];
+        ctx.beginPath(); ctx.arc(px, py, 2.5 * s, 0, Math.PI * 2); ctx.stroke();
+      });
+    }
+
     /* ---- element factory ---- */
     function spawnElement(cw, ch) {
       var type = TYPES[randInt(0, TYPES.length)];
@@ -974,12 +1117,18 @@
         case "imagebox":   drawImageBox(ctx, el.size);   break;
         case "avatar":     drawAvatar(ctx, el.size);     break;
         case "keyword":    drawKeyword(ctx, el);         break;
-        case "barchart":   drawBarChart(ctx, el.size);   break;
-        case "linechart":  drawLineChart(ctx, el.size);  break;
-        case "piechart":   drawPieChart(ctx, el.size);   break;
-        case "datatable":  drawDataTable(ctx, el.size);  break;
-        case "dashboard":  drawDashboard(ctx, el.size);  break;
-        case "funnel":     drawFunnel(ctx, el.size);     break;
+        case "barchart":    drawBarChart(ctx, el.size);    break;
+        case "linechart":   drawLineChart(ctx, el.size);   break;
+        case "piechart":    drawPieChart(ctx, el.size);    break;
+        case "datatable":   drawDataTable(ctx, el.size);   break;
+        case "dashboard":   drawDashboard(ctx, el.size);   break;
+        case "funnel":      drawFunnel(ctx, el.size);      break;
+        case "terminal":    drawTerminal(ctx, el.size);    break;
+        case "codeblock":   drawCodeBlock(ctx, el.size);   break;
+        case "gitgraph":    drawGitGraph(ctx, el.size);    break;
+        case "database":    drawDatabase(ctx, el.size);    break;
+        case "flowchart":   drawFlowchart(ctx, el.size);   break;
+        case "scatterplot": drawScatterplot(ctx, el.size); break;
       }
 
       ctx.restore();
