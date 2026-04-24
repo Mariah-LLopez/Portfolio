@@ -1030,6 +1030,7 @@ p:last-child {
   border-radius: var(--border-radius);
   overflow: hidden;
   box-shadow: var(--shadow-md);
+  background-color: #fff;
 }
 
 .laptop-spread-image img {
