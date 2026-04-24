@@ -366,6 +366,7 @@ p:last-child {
   font-size: var(--font-size-xl);
   color: var(--color-text-secondary);
   margin-bottom: var(--space-xl);
+  margin-left: -1rem;
   position: relative;
   z-index: 1;
   background: rgba(234, 224, 213, 0.88);
