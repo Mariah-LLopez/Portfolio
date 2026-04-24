@@ -695,7 +695,7 @@
     var KEYWORDS = [
       "wireframe", "prototype", "mockup", "user flow", "sitemap",
       "UX research", "persona", "journey map", "heuristics", "usability",
-      "information\narchitecture", "style guide", "component", "accessibility",
+      "information architecture", "style guide", "component", "accessibility",
       "content strategy", "documentation", "taxonomy", "responsive design",
       "design system", "affinity map", "task analysis", "card sort",
       "A/B test", "visual hierarchy", "navigation", "interaction design",
@@ -709,6 +709,7 @@
     ];
 
     var MAX_ELEMENTS = 18;
+    var KEYWORD_FONT_FAMILY = "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
 
     function rand(min, max) { return min + Math.random() * (max - min); }
     function randInt(min, max) { return Math.floor(rand(min, max)); }
@@ -833,7 +834,7 @@
       var s = el.size;
       var kw = el.keyword;
       var fontSize = Math.round(10 * s) + "px";
-      ctx.font = "600 " + fontSize + " -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
+      ctx.font = "600 " + fontSize + " " + KEYWORD_FONT_FAMILY;
       var tw = ctx.measureText(kw).width;
       var th = 10 * s;
       var pad = 5 * s;
