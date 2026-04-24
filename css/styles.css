@@ -29,7 +29,6 @@
   --shadow-md: 0 4px 12px rgba(0,0,0,0.10);
   --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
   --transition: 0.2s ease;
-  --max-width: 1200px;
 }
 
 /* =============================================
@@ -136,9 +135,8 @@ p:last-child {
    ============================================= */
 .container {
   width: 100%;
-  max-width: var(--max-width);
   margin-inline: auto;
-  padding-inline: var(--space-sm);
+  padding-inline: clamp(1rem, 5vw, 3rem);
 }
 
 .section {
@@ -1373,10 +1371,6 @@ textarea.form-control {
    Responsive — 1024px (Desktop)
    ============================================= */
 @media (min-width: 1024px) {
-  .container {
-    padding-inline: var(--space-lg);
-  }
-
   .highlights-grid {
     grid-template-columns: repeat(3, 1fr);
   }
