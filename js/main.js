@@ -375,19 +375,7 @@
       })
       .join("");
 
-    const laptopLayersHtml = (p.laptopImages || [])
-      .map(function (img, i) {
-        return (
-          '<img class="laptop-layer laptop-layer--' +
-          i +
-          '" src="' +
-          escapeHtml(img.src) +
-          '" alt="' +
-          escapeHtml(img.alt) +
-          '" loading="lazy">'
-        );
-      })
-      .join("");
+    const laptopImages = p.laptopImages || [];
 
     const linksHtml = (p.externalLinks || [])
       .map(function (l) {
@@ -421,12 +409,23 @@
       { key: "outcomesAndNextSteps", label: "Outcomes & Next Steps" },
     ];
 
-    const sectionsHtml = sections
-      .filter(function (s) {
-        return p[s.key];
-      })
-      .map(function (s) {
-        return (
+    const filteredSections = sections.filter(function (s) { return p[s.key]; });
+
+    // Calculate after which section indices a laptop image should be inserted,
+    // distributing them evenly across sections using equal-interval spacing.
+    const laptopInsertMap = {};
+    if (laptopImages.length > 0 && filteredSections.length > 0) {
+      laptopImages.forEach(function (img, i) {
+        let idx = Math.round((i + 1) * filteredSections.length / (laptopImages.length + 1)) - 1;
+        idx = Math.max(0, Math.min(filteredSections.length - 1, idx));
+        if (!laptopInsertMap[idx]) laptopInsertMap[idx] = [];
+        laptopInsertMap[idx].push(img);
+      });
+    }
+
+    const sectionsHtml = filteredSections
+      .map(function (s, i) {
+        var html =
           '<section class="case-study-section" aria-labelledby="section-' +
           s.key +
           '">' +
@@ -438,8 +437,20 @@
           "<p>" +
           escapeHtml(p[s.key]) +
           "</p>" +
-          "</section>"
-        );
+          "</section>";
+        if (laptopInsertMap[i]) {
+          laptopInsertMap[i].forEach(function (img) {
+            html +=
+              '<div class="laptop-spread-image">' +
+              '<img src="' +
+              escapeHtml(img.src) +
+              '" alt="' +
+              escapeHtml(img.alt) +
+              '" loading="lazy">' +
+              "</div>";
+          });
+        }
+        return html;
       })
       .join("");
 
@@ -477,8 +488,8 @@
       "</div>" +
       // Body
       '<div class="case-study-body">' +
-      '<div class="container' + (laptopLayersHtml ? " case-study-body--with-laptops" : "") + '" style="max-width:1200px;margin-inline:auto">' +
-      // Left column: all breakdown content
+      '<div class="container" style="max-width:1200px;margin-inline:auto">' +
+      // Single column: all breakdown content with laptop images interspersed
       '<div class="case-study-breakdown">' +
       // Responsibilities & Tools sidebar block
       '<section class="case-study-section" aria-labelledby="section-responsibilities">' +
@@ -511,14 +522,6 @@
           "</section>"
         : "") +
       "</div>" +
-      // Right column: layered laptop images (only when present)
-      (laptopLayersHtml
-        ? '<div class="laptop-layers-panel" aria-hidden="true">' +
-          '<div class="laptop-layers">' +
-          laptopLayersHtml +
-          "</div>" +
-          "</div>"
-        : "") +
       "</div>" +
       "</div>";
 
