@@ -363,7 +363,7 @@ p:last-child {
 .hero__layout {
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: clamp(0.5rem, 1vw, 1rem);
+  gap: clamp(2.5rem, 5vw, 5rem);
   align-items: center;
   max-width: 1050px;
   margin-inline: auto;
@@ -388,7 +388,7 @@ p:last-child {
 @media (min-width: 769px) and (max-width: 1024px) {
   .hero__layout {
     grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+    gap: 2.5rem;
   }
 
   .hero__actions {
@@ -1588,14 +1588,23 @@ html {
   transform: translateY(0);
 }
 
-.hero--intro {
+.hero--intro .hero__image {
   opacity: 0;
-  transform: translateY(24px);
-  animation: heroFadeIn 0.9s ease forwards;
-  animation-delay: 0.15s;
+  animation: heroFadeInUp 0.8s ease forwards;
+  animation-delay: 0.1s;
 }
 
-@keyframes heroFadeIn {
+.hero--intro .hero__content {
+  opacity: 0;
+  animation: heroFadeInUp 0.8s ease forwards;
+  animation-delay: 0.4s;
+}
+
+@keyframes heroFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
   to {
     opacity: 1;
     transform: translateY(0);
