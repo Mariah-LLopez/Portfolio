@@ -378,7 +378,7 @@ p:last-child {
   display: grid;
   grid-template-columns: auto 1fr;
   gap: clamp(5.5rem, 10vw, 8rem);
-  align-items: center;
+  align-items: stretch;
   max-width: 1050px;
   margin-inline: auto;
   justify-content: center;
@@ -387,14 +387,12 @@ p:last-child {
 .hero__image {
   display: flex;
   justify-content: flex-start;
-  align-items: center;
+  align-items: stretch;
 }
 
 .hero__image img {
-  width: 100%;
-  max-width: clamp(300px, 42vw, 520px);
-  height: auto;
-  aspect-ratio: 3 / 4;
+  width: clamp(300px, 42vw, 520px);
+  height: 100%;
   object-fit: cover;
   border-radius: 140px 140px 0 0;
 }
@@ -1264,12 +1262,12 @@ textarea.form-control {
   color: #c26a4a;
 }
 .footer-brand__tagline {
-  font-size: 0.9375rem;
+  font-size: 1.125rem;
   color: #fff;
 }
 
 .footer-nav__heading {
-  font-size: 0.875rem;
+  font-size: 1.0625rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -1287,7 +1285,7 @@ textarea.form-control {
 .footer-nav__link {
   color: #fff;
   text-decoration: none;
-  font-size: 0.9375rem;
+  font-size: 1.125rem;
   transition: color var(--transition);
 }
 
@@ -1298,7 +1296,7 @@ textarea.form-control {
 }
 
 .footer-contact__heading {
-  font-size: 0.875rem;
+  font-size: 1.0625rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -1309,7 +1307,7 @@ textarea.form-control {
 .footer-contact__email {
   color: #fff;
   text-decoration: none;
-  font-size: 0.9375rem;
+  font-size: 1.125rem;
   display: block;
   margin-bottom: var(--space-sm);
 }
@@ -1327,7 +1325,7 @@ textarea.form-control {
 .footer-social__link {
   color: #fff;
   text-decoration: none;
-  font-size: 0.9375rem;
+  font-size: 1.125rem;
   font-weight: 500;
   padding: 0.3em 0.8em;
   border: 1px solid #fff;
@@ -1344,7 +1342,7 @@ textarea.form-control {
   border-top: 1px solid #3e2f25;
   margin-top: var(--space-lg);
   padding-top: var(--space-md);
-  font-size: 0.875rem;
+  font-size: 1rem;
   color: #7F9FA8;
   text-align: center;
 }
@@ -1354,7 +1352,7 @@ textarea.form-control {
   margin-top: var(--space-sm);
   color: #7F9FA8;
   text-decoration: none;
-  font-size: 1.0625rem;
+  font-size: 1.25rem;
   font-weight: 500;
   transition: color var(--transition);
 }
@@ -1578,6 +1576,7 @@ textarea.form-control {
 .footer-nav a {
   color: #fff;
   text-decoration: none;
+  font-size: 1.125rem;
 }
 html {
   scroll-snap-type: y mandatory;
