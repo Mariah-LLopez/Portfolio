@@ -365,6 +365,9 @@ p:last-child {
   grid-template-columns: auto 1fr;
   gap: clamp(0.5rem, 1vw, 1rem);
   align-items: center;
+  max-width: 1050px;
+  margin-inline: auto;
+  justify-content: center;
 }
 
 .hero__image {
