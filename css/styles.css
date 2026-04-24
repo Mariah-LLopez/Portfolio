@@ -1496,6 +1496,19 @@ textarea.form-control {
     border-bottom: 1px solid var(--color-border);
   }
 
+  .site-logo__img {
+    display: none;
+  }
+
+  .site-logo__text {
+    text-align: left;
+  }
+
+  .footer-brand__name,
+  .footer-brand__tagline {
+    text-align: left;
+  }
+
   .hero__name {
     font-size: clamp(2rem, 10vw, 3rem);
   }
