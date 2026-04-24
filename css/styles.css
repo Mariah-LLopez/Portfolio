@@ -17,7 +17,7 @@
   --color-secondary-hover: #2d2d4a;
   --color-footer-bottom-border: #3e2f25;
   --color-footer-muted: #7F9FA8;
-  --color-hero-desc-bg: rgba(234, 224, 213, 0.88);
+  --color-hero-desc-bg: rgba(234, 224, 213, 0.96);
   --color-mobile-nav-bg: rgba(234, 224, 213, 0.97);
   --font-size-base: 1rem;
   --font-size-lg: 1.2rem;
@@ -1945,7 +1945,7 @@ html.moon-mode {
   --color-secondary-hover: #2D2D2D;
   --color-footer-bottom-border: #1A1A1A;
   --color-footer-muted: #7F9FA8;
-  --color-hero-desc-bg: rgba(255, 255, 255, 0.08);
+  --color-hero-desc-bg: rgba(255, 255, 255, 0.92);
   --color-mobile-nav-bg: rgba(255, 255, 255, 0.97);
   --shadow-rgb: 26, 26, 26;
 }
