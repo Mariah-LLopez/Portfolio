@@ -713,6 +713,7 @@
       "button", "textblock", "imagebox", "avatar", "keyword",
       "barchart", "linechart", "piechart", "datatable", "dashboard", "funnel",
       "terminal", "codeblock", "gitgraph", "database", "flowchart", "scatterplot",
+      "codetag", "curlycode", "laptop",
     ];
 
     var MAX_ELEMENTS = 20;
@@ -1050,6 +1051,53 @@
       ctx.stroke();
     }
 
+    function drawCodeTag(ctx, s) {
+      var fontSize = Math.round(22 * s) + "px";
+      ctx.font = "700 " + fontSize + " " + KEYWORD_FONT_FAMILY;
+      ctx.fillStyle = ctx.strokeStyle;
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillText("</>" , 0, 0);
+    }
+
+    function drawCurlyCode(ctx, s) {
+      var fontSize = Math.round(13 * s) + "px";
+      ctx.font = "700 " + fontSize + " " + KEYWORD_FONT_FAMILY;
+      var text = "{ Code }";
+      var tw = ctx.measureText(text).width;
+      var th = 13 * s;
+      var pad = 5 * s;
+      ctx.beginPath(); rrect(ctx, -tw / 2 - pad, -th / 2 - pad * 0.6, tw + pad * 2, th + pad * 1.2, 3 * s); ctx.stroke();
+      ctx.fillStyle = ctx.strokeStyle;
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillText(text, 0, 0);
+    }
+
+    function drawLaptop(ctx, s) {
+      var sw = 96 * s, sh = 62 * s, basePad = 6 * s;
+      // screen body
+      ctx.beginPath(); rrect(ctx, -sw / 2, -sh / 2, sw, sh, 4 * s); ctx.stroke();
+      // inner screen bezel
+      var bz = 6 * s;
+      ctx.beginPath(); ctx.rect(-sw / 2 + bz, -sh / 2 + bz, sw - 2 * bz, sh - 2 * bz); ctx.stroke();
+      // simple code lines inside screen
+      var ly = -sh / 2 + bz + 8 * s;
+      [0.6, 0.8, 0.5, 0.7].forEach(function (p) {
+        if (ly < sh / 2 - bz - 4 * s) {
+          ctx.beginPath(); ctx.moveTo(-sw / 2 + bz + 4 * s, ly); ctx.lineTo(-sw / 2 + bz + 4 * s + (sw - 2 * bz - 8 * s) * p, ly); ctx.stroke();
+          ly += 9 * s;
+        }
+      });
+      // base / hinge line
+      var baseY = sh / 2;
+      ctx.beginPath(); ctx.moveTo(-sw / 2 - basePad, baseY); ctx.lineTo(sw / 2 + basePad, baseY); ctx.stroke();
+      // base keyboard surface
+      ctx.beginPath(); rrect(ctx, -sw / 2 - basePad, baseY, sw + 2 * basePad, 7 * s, 2 * s); ctx.stroke();
+      // trackpad
+      ctx.beginPath(); rrect(ctx, -14 * s, baseY + 1.5 * s, 28 * s, 4 * s, 1.5 * s); ctx.stroke();
+    }
+
     function drawScatterplot(ctx, s) {
       var w = 96 * s, h = 70 * s, pad = 8 * s;
       ctx.beginPath(); ctx.rect(-w / 2, -h / 2, w, h); ctx.stroke();
@@ -1129,6 +1177,9 @@
         case "database":    drawDatabase(ctx, el.size);    break;
         case "flowchart":   drawFlowchart(ctx, el.size);   break;
         case "scatterplot": drawScatterplot(ctx, el.size); break;
+        case "codetag":     drawCodeTag(ctx, el.size);     break;
+        case "curlycode":   drawCurlyCode(ctx, el.size);   break;
+        case "laptop":      drawLaptop(ctx, el.size);      break;
       }
 
       ctx.restore();
