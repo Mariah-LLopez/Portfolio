@@ -1320,6 +1320,22 @@ textarea.form-control {
   text-align: center;
 }
 
+.back-to-top {
+  display: inline-block;
+  margin-top: var(--space-sm);
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: color var(--transition);
+}
+
+.back-to-top:hover,
+.back-to-top:focus {
+  color: #c26a4a;
+  text-decoration: underline;
+}
+
 /* =============================================
    Responsive — 768px (Tablet)
    ============================================= */
