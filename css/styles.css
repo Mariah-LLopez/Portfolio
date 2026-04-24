@@ -1945,7 +1945,7 @@ html.moon-mode {
   --color-secondary-hover: #2D2D2D;
   --color-footer-bottom-border: #1A1A1A;
   --color-footer-muted: #7F9FA8;
-  --color-hero-desc-bg: #FFFFFF;
+  --color-hero-desc-bg: transparent;
   --color-mobile-nav-bg: rgba(255, 255, 255, 0.97);
   --shadow-rgb: 26, 26, 26;
 }
