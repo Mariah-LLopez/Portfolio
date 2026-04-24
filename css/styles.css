@@ -207,6 +207,9 @@ p:last-child {
 }
 
 .site-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
   font-size: var(--font-size-xl);
   font-weight: 700;
   color: #fff;
@@ -217,6 +220,17 @@ p:last-child {
 
 .site-logo:hover {
   color: #fff;
+}
+
+.site-logo__img {
+  height: 44px;
+  width: auto;
+  display: block;
+  flex-shrink: 0;
+}
+
+.site-logo__text {
+  display: block;
 }
 
 .site-nav {
