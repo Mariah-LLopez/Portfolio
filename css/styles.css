@@ -11,20 +11,20 @@
   --color-border: #D4C8BB;
   --color-accent: #fff;
   --font-size-base: 1rem;
-  --font-size-lg: 1.125rem;
-  --font-size-xl: 1.25rem;
-  --font-size-2xl: 1.5rem;
-  --font-size-3xl: 2rem;
-  --font-size-4xl: 2.5rem;
-  --font-size-hero: 3.5rem;
-  --space-xs: 0.5rem;
-  --space-sm: 1rem;
-  --space-md: 1.5rem;
-  --space-lg: 2rem;
-  --space-xl: 3rem;
-  --space-2xl: 5rem;
-  --border-radius: 8px;
-  --border-radius-lg: 12px;
+  --font-size-lg: 1.2rem;
+  --font-size-xl: 1.35rem;
+  --font-size-2xl: 1.65rem;
+  --font-size-3xl: 2.2rem;
+  --font-size-4xl: 2.75rem;
+  --font-size-hero: 3.75rem;
+  --space-xs: 0.6rem;
+  --space-sm: 1.1rem;
+  --space-md: 1.75rem;
+  --space-lg: 2.25rem;
+  --space-xl: 3.5rem;
+  --space-2xl: 6rem;
+  --border-radius: 10px;
+  --border-radius-lg: 16px;
   --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
   --shadow-md: 0 4px 12px rgba(0,0,0,0.10);
   --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
@@ -42,7 +42,7 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 16px;
+  font-size: 17px;
 }
 
 body {
@@ -203,7 +203,7 @@ p:last-child {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 64px;
+  height: 82px;
 }
 
 .site-logo {
@@ -223,7 +223,7 @@ p:last-child {
 }
 
 .site-logo__img {
-  height: 44px;
+  height: 66px;
   width: auto;
   display: block;
   flex-shrink: 0;
@@ -392,7 +392,7 @@ p:last-child {
 
 .hero__image img {
   width: 100%;
-  max-width: clamp(220px, 25vw, 360px);
+  max-width: clamp(240px, 27vw, 400px);
   height: auto;
   aspect-ratio: 3 / 4;
   object-fit: cover;
@@ -448,7 +448,7 @@ p:last-child {
   display: inline-flex;
   align-items: center;
   gap: var(--space-xs);
-  padding: 0.625rem var(--space-md);
+  padding: 0.75rem var(--space-md);
   font-size: var(--font-size-base);
   font-weight: 600;
   border-radius: var(--border-radius);
@@ -503,7 +503,7 @@ p:last-child {
 }
 
 .btn--lg {
-  padding: 0.875rem var(--space-lg);
+  padding: 1rem var(--space-xl);
   font-size: var(--font-size-lg);
 }
 
@@ -565,7 +565,7 @@ p:last-child {
   background: var(--color-bg);
   border: 1px solid var(--color-border);
   border-radius: var(--border-radius-lg);
-  padding: var(--space-md);
+  padding: var(--space-lg);
   box-shadow: var(--shadow-sm);
   transition: box-shadow var(--transition), transform var(--transition);
 }
@@ -576,7 +576,7 @@ p:last-child {
 }
 
 .highlight-tile__icon {
-  font-size: 2rem;
+  font-size: 2.5rem;
   margin-bottom: var(--space-sm);
   display: block;
 }
@@ -628,7 +628,7 @@ p:last-child {
 }
 
 .project-card__body {
-  padding: var(--space-md);
+  padding: var(--space-lg);
   flex: 1;
   display: flex;
   flex-direction: column;
