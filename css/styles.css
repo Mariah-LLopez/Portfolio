@@ -326,7 +326,7 @@ p:last-child {
 
 .hero__layout {
   display: grid;
-  grid-template-columns: 2fr 3fr;
+  grid-template-columns: auto 1fr;
   gap: clamp(0.5rem, 1vw, 1rem);
   align-items: center;
 }
