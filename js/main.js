@@ -1283,9 +1283,9 @@
     for (var c = 0; c < canvases.length; c++) {
       var isHero = canvases[c].classList.contains("hero__canvas");
       // Hero canvas: bias illustrations to the left-edge strip and right half,
-      // keeping the centre-left text area free. Two left entries vs one right
+      // keeping the center-left text area free. Two left entries vs one right
       // entry means ~67 % of elements appear on the left side as requested.
-      var heroZones = [[0, 0.22], [0, 0.22], [0.50, 1.0]];
+      var heroZones = [[0, 0.22], [0, 0.22], [0.50, 1.0]]; // left:left:right = 2:1 weighting
       initCanvas(canvases[c], isHero ? heroZones : null);
     }
 
@@ -1313,7 +1313,7 @@
     var SHIRT_HUE_MIN = 0.10;  // 36° – lower bound of olive/green hue range
     var SHIRT_HUE_MAX = 0.22;  // 80° – upper bound of olive/green hue range
     var SHIRT_SAT_MIN = 0.10;  // 10% – minimum saturation (excludes near-neutral)
-    var HUE_SHIFT     = 0.25;  // ~90° shift: moves olive (40-80°) to vivid green (130-170°)
+    var HUE_SHIFT     = 0.25;  // ~90° shift: moves olive (40-80°) to vivid green (126-169°)
 
     function hsvToRgb(h, s, v) {
       var i = Math.floor(h * 6);
