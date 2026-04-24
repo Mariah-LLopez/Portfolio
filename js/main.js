@@ -678,165 +678,162 @@
     });
   }
   /* ------------------------------------------
-     12. Hero Canvas: Racing Strips Animation
+     12. Falling Leaves Canvas Animation
      ------------------------------------------ */
-  (function initHeroStrips() {
-    var canvas = document.querySelector(".hero__canvas");
-    if (!canvas) return;
-
+  (function initFallingLeaves() {
     // Respect user's motion preference (initial check + live listener)
     var motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     if (motionQuery.matches) return;
-
-    var ctx = canvas.getContext("2d");
 
     var COLORS = [
       "#6F7D5A", // sage green
       "#8A9870", // light sage
       "#556047", // dark sage
       "#7A6055", // warm brown
-      "#9E8070", // dusty rose-brown
+      "#C26A4A", // terra cotta
+      "#D4874E", // amber-orange
       "#A89880", // warm tan
       "#C4A882", // sand
-      "#B8A99A", // pale rose
-      "#6B8C6F", // muted teal-green
+      "#9E8070", // dusty rose-brown
+      "#B5562E", // rust
     ];
 
-    var MAX_STRIPS = 65;
-    var strips = [];
-    var frame = 0;
-    var rafId;
-
-    function resize() {
-      canvas.width = canvas.offsetWidth;
-      canvas.height = canvas.offsetHeight;
-    }
+    var MAX_LEAVES = 45;
 
     function rand(min, max) {
       return min + Math.random() * (max - min);
     }
 
-    function spawnStrip() {
-      // Spawn from any of the four edges (or random interior spawn for variety)
-      var edge = Math.random();
-      var x, y;
-      if (edge < 0.25) {
-        x = rand(0, canvas.width);
-        y = rand(-40, -10);
-      } else if (edge < 0.5) {
-        x = rand(canvas.width + 10, canvas.width + 40);
-        y = rand(0, canvas.height);
-      } else if (edge < 0.75) {
-        x = rand(0, canvas.width);
-        y = rand(canvas.height + 10, canvas.height + 40);
-      } else {
-        x = rand(-40, -10);
-        y = rand(0, canvas.height);
-      }
-
-      var speed = rand(1.2, 3.8);
-      var dir = Math.random() * Math.PI * 2;
-
+    function spawnLeaf(canvasWidth, canvasHeight) {
       return {
-        x: x,
-        y: y,
-        vx: Math.cos(dir) * speed,
-        vy: Math.sin(dir) * speed,
-        // Curvature makes the path arc/swirl over time
-        curve: rand(-0.035, 0.035),
-        // The drawn angle of the strip rotates independently (twirl)
+        x: rand(-20, canvasWidth + 20),
+        y: rand(-60, -10),
+        vy: rand(0.8, 2.2),        // falling speed
+        vx: rand(-0.6, 0.6),       // gentle horizontal drift
+        sway: rand(0.012, 0.032),  // sway frequency
+        swayAmp: rand(0.6, 1.8),   // sway amplitude
+        swayOffset: Math.random() * Math.PI * 2,
         angle: Math.random() * Math.PI * 2,
-        spin: rand(-0.09, 0.09),
-        length: rand(22, 70),
-        thick: rand(2, 5),
+        spin: rand(-0.03, 0.03),
+        size: rand(10, 22),
         color: COLORS[Math.floor(Math.random() * COLORS.length)],
         life: 0,
-        maxLife: Math.round(rand(90, 180)),
+        maxLife: Math.round(rand(220, 420)),
       };
     }
 
-    function drawStrip(s) {
+    function drawLeaf(ctx, s) {
       var t = s.life / s.maxLife;
-      // Fade-in for first 20%, hold, then fade-out
       var alpha;
-      if (t < 0.2) {
-        alpha = (t / 0.2) * 0.6;
+      if (t < 0.15) {
+        alpha = (t / 0.15) * 0.55;
+      } else if (t > 0.8) {
+        alpha = ((1 - t) / 0.2) * 0.55;
       } else {
-        alpha = (1 - t) * 0.6;
+        alpha = 0.55;
       }
       if (alpha <= 0) return;
 
+      var sz = s.size;
       ctx.save();
       ctx.globalAlpha = alpha;
       ctx.translate(s.x, s.y);
       ctx.rotate(s.angle);
       ctx.fillStyle = s.color;
-      // Rounded pill shape for each strip
-      var rx = s.thick / 2;
+
+      // Leaf silhouette: two mirrored cubic bezier arcs meeting at top & bottom tips
       ctx.beginPath();
-      if (ctx.roundRect) {
-        ctx.roundRect(-s.length / 2, -rx, s.length, s.thick, rx);
-      } else {
-        ctx.rect(-s.length / 2, -rx, s.length, s.thick);
-      }
+      ctx.moveTo(0, -sz * 0.5);                           // top tip
+      ctx.bezierCurveTo(
+        sz * 0.55, -sz * 0.3,
+        sz * 0.55,  sz * 0.3,
+        0, sz * 0.5                                        // bottom tip
+      );
+      ctx.bezierCurveTo(
+        -sz * 0.55,  sz * 0.3,
+        -sz * 0.55, -sz * 0.3,
+        0, -sz * 0.5
+      );
       ctx.fill();
+
+      // Midrib vein
+      ctx.strokeStyle = s.color;
+      ctx.globalAlpha = alpha * 0.35;
+      ctx.lineWidth = Math.max(0.5, sz * 0.06);
+      ctx.beginPath();
+      ctx.moveTo(0, -sz * 0.5);
+      ctx.lineTo(0,  sz * 0.5);
+      ctx.stroke();
+
       ctx.restore();
     }
 
-    function tick() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    function initCanvas(canvas) {
+      var ctx = canvas.getContext("2d");
+      var leaves = [];
+      var frame = 0;
+      var rafId;
 
-      // Spawn a new strip every 3 frames while under cap
-      if (frame % 3 === 0 && strips.length < MAX_STRIPS) {
-        strips.push(spawnStrip());
+      function resize() {
+        canvas.width  = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
       }
 
-      var alive = [];
-      for (var i = 0; i < strips.length; i++) {
-        var s = strips[i];
-        s.life++;
-        if (s.life >= s.maxLife) continue;
+      function tick() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        // Rotate velocity direction gradually → curved, twirling path
-        var velDir = Math.atan2(s.vy, s.vx) + s.curve;
-        var spd = Math.sqrt(s.vx * s.vx + s.vy * s.vy);
-        s.vx = Math.cos(velDir) * spd;
-        s.vy = Math.sin(velDir) * spd;
+        if (frame % 4 === 0 && leaves.length < MAX_LEAVES) {
+          leaves.push(spawnLeaf(canvas.width, canvas.height));
+        }
 
-        s.x += s.vx;
-        s.y += s.vy;
-        s.angle += s.spin;
+        var alive = [];
+        for (var i = 0; i < leaves.length; i++) {
+          var s = leaves[i];
+          s.life++;
+          if (s.life >= s.maxLife) continue;
 
-        drawStrip(s);
-        alive.push(s);
+          // Sway left-right as leaf falls
+          s.x += s.vx + Math.sin(s.life * s.sway + s.swayOffset) * s.swayAmp;
+          s.y += s.vy;
+          s.angle += s.spin;
+
+          drawLeaf(ctx, s);
+          alive.push(s);
+        }
+        leaves = alive;
+
+        frame++;
+        rafId = requestAnimationFrame(tick);
       }
-      strips = alive;
 
-      frame++;
+      resize();
+      window.addEventListener("resize", resize, { passive: true });
       rafId = requestAnimationFrame(tick);
+
+      document.addEventListener("visibilitychange", function () {
+        if (document.hidden) {
+          if (rafId) cancelAnimationFrame(rafId);
+        } else {
+          frame = 0;
+          rafId = requestAnimationFrame(tick);
+        }
+      });
+
+      motionQuery.addEventListener("change", function (e) {
+        if (e.matches) {
+          if (rafId) cancelAnimationFrame(rafId);
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+        } else {
+          rafId = requestAnimationFrame(tick);
+        }
+      });
     }
 
-    resize();
-    window.addEventListener("resize", resize, { passive: true });
-    rafId = requestAnimationFrame(tick);
-
-    document.addEventListener("visibilitychange", function () {
-      if (document.hidden) {
-        if (rafId) cancelAnimationFrame(rafId);
-      } else {
-        frame = 0;
-        rafId = requestAnimationFrame(tick);
-      }
-    });
-
-    motionQuery.addEventListener("change", function (e) {
-      if (e.matches) {
-        if (rafId) cancelAnimationFrame(rafId);
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-      } else {
-        rafId = requestAnimationFrame(tick);
-      }
-    });
+    // Initialise on every canvas in the page (.hero__canvas for hero section, .section__canvas for other sections)
+    var canvases = document.querySelectorAll(".hero__canvas, .section__canvas");
+    for (var c = 0; c < canvases.length; c++) {
+      initCanvas(canvases[c]);
+    }
   })();
 
 })();
