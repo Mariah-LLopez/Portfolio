@@ -931,6 +931,8 @@ p:last-child {
   background: var(--color-bg-alt);
   border-bottom: 1px solid var(--color-border);
   padding-block: var(--space-sm);
+  position: relative;
+  overflow: hidden;
 }
 
 .resume-download-bar .container {
@@ -939,6 +941,8 @@ p:last-child {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: var(--space-sm);
+  position: relative;
+  z-index: 1;
 }
 
 .resume-download-bar h1 {
@@ -1197,6 +1201,13 @@ textarea.form-control {
   background: var(--color-bg-alt);
   border-bottom: 1px solid var(--color-border);
   padding-block: var(--space-xl);
+  position: relative;
+  overflow: hidden;
+}
+
+.page-header .container {
+  position: relative;
+  z-index: 1;
 }
 
 .page-header__title {
