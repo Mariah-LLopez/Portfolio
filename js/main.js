@@ -684,8 +684,9 @@
     var canvas = document.querySelector(".hero__canvas");
     if (!canvas) return;
 
-    // Respect user's motion preference
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    // Respect user's motion preference (initial check + live listener)
+    var motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (motionQuery.matches) return;
 
     var ctx = canvas.getContext("2d");
 
@@ -817,14 +818,23 @@
 
     resize();
     window.addEventListener("resize", resize, { passive: true });
-    tick();
+    rafId = requestAnimationFrame(tick);
 
     document.addEventListener("visibilitychange", function () {
       if (document.hidden) {
-        cancelAnimationFrame(rafId);
+        if (rafId) cancelAnimationFrame(rafId);
       } else {
         frame = 0;
-        tick();
+        rafId = requestAnimationFrame(tick);
+      }
+    });
+
+    motionQuery.addEventListener("change", function (e) {
+      if (e.matches) {
+        if (rafId) cancelAnimationFrame(rafId);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      } else {
+        rafId = requestAnimationFrame(tick);
       }
     });
   })();
