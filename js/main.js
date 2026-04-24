@@ -1309,7 +1309,7 @@
     var MOON_CLASS = "moon-mode";
 
     // Shared thresholds
-    var MIN_DELTA     = 0.03;  // minimum channel spread to skip near-gray pixels
+    var MIN_DELTA     = 0.02;  // minimum channel spread to skip near-gray pixels
     var MIN_VAL       = 0.08;  // minimum brightness to skip near-black pixels
 
     // Shirt thresholds: olive/army-green range (hue 36°–80°)
