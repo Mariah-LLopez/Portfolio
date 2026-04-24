@@ -1294,26 +1294,37 @@
   })();
 
   /* ------------------------------------------
-     Hero Shirt: selective olive-to-green recolor
-     Only shifts olive/green shirt pixels (~40-80° hue) to green when
-     moon-mode is active, leaving face, hair, and background unchanged.
+     Hero image: selective recolor in moon-mode
+     – Shirt: shifts olive/yellow-green pixels (~36–80° hue) to blue (~194–240°)
+     – Background: shifts blue-gray pixels (~180–270° hue) to pink (~324°)
+     Face, hair, and near-black shadows are left unchanged.
      ------------------------------------------ */
   (function () {
     var heroImg = document.querySelector(".hero__image img");
     if (!heroImg) return;
 
     var originalSrc = heroImg.getAttribute("src");
-    var greenSrc = null;
+    var moonSrc = null;
     var currentMode = "sun";
     var MOON_CLASS = "moon-mode";
 
-    // Color thresholds for isolating the olive/green shirt
+    // Shared thresholds
     var MIN_DELTA     = 0.04;  // minimum channel spread to skip near-gray pixels
     var MIN_VAL       = 0.08;  // minimum brightness to skip near-black pixels
-    var SHIRT_HUE_MIN = 0.10;  // 36° – lower bound of olive/green hue range
-    var SHIRT_HUE_MAX = 0.22;  // 80° – upper bound of olive/green hue range
-    var SHIRT_SAT_MIN = 0.10;  // 10% – minimum saturation (excludes near-neutral)
-    var HUE_SHIFT     = 0.25;  // ~90° shift: moves olive (40-80°) to vivid green (126-169°)
+
+    // Shirt thresholds: olive/army-green range (hue 36°–80°)
+    // Face skin tones sit at 0–32° so they are excluded.
+    var SHIRT_HUE_MIN = 0.10;  // 36°
+    var SHIRT_HUE_MAX = 0.22;  // 80°
+    var SHIRT_SAT_MIN = 0.10;  // exclude near-neutral olive shadows
+    var HUE_SHIFT     = 0.44;  // ~158° shift: moves olive (36–80°) to blue (194–238°)
+
+    // Background thresholds: blue-gray range (hue 180°–270°)
+    var BG_HUE_MIN      = 0.50;  // 180°
+    var BG_HUE_MAX      = 0.75;  // 270°
+    var BG_SAT_MIN      = 0.04;  // catch lightly-tinted blue-gray pixels
+    var BG_HUE_TARGET   = 0.91;  // 328° – rose-pink target hue
+    var BG_SAT_MIN_OUT  = 0.15;  // boost saturation so the pink is visible
 
     function hsvToRgb(h, s, v) {
       var i = Math.floor(h * 6);
@@ -1333,7 +1344,7 @@
       return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
     }
 
-    function buildGreenShirtSrc(img) {
+    function buildMoonModeSrc(img) {
       var canvas = document.createElement("canvas");
       canvas.width = img.naturalWidth;
       canvas.height = img.naturalHeight;
@@ -1364,12 +1375,18 @@
         hue /= 6;
         var sat = delta / max;
 
-        // Olive/army-green shirt range: hue 0.10–0.22 (36°–80°), sat ≥ 10%
-        // Face skin tones sit at 0–0.09 (0°–32°), so they are not affected.
         if (hue >= SHIRT_HUE_MIN && hue <= SHIRT_HUE_MAX && sat >= SHIRT_SAT_MIN) {
-          var newHue = hue + HUE_SHIFT; // shift toward vivid green
+          // Shift olive shirt pixels to blue
+          var newHue = hue + HUE_SHIFT;
           if (newHue >= 1) newHue -= 1;
           var rgb = hsvToRgb(newHue, sat, max);
+          data[i]     = rgb[0];
+          data[i + 1] = rgb[1];
+          data[i + 2] = rgb[2];
+        } else if (hue >= BG_HUE_MIN && hue <= BG_HUE_MAX && sat >= BG_SAT_MIN) {
+          // Shift blue-gray background pixels to pink
+          var satOut = Math.max(sat, BG_SAT_MIN_OUT);
+          var rgb = hsvToRgb(BG_HUE_TARGET, satOut, max);
           data[i]     = rgb[0];
           data[i + 1] = rgb[1];
           data[i + 2] = rgb[2];
@@ -1394,22 +1411,22 @@
 
       if (currentMode === "moon") return;
 
-      if (greenSrc) {
-        heroImg.src = greenSrc;
+      if (moonSrc) {
+        heroImg.src = moonSrc;
         currentMode = "moon";
         return;
       }
 
       if (heroImg.complete && heroImg.naturalWidth > 0) {
-        greenSrc = buildGreenShirtSrc(heroImg);
-        heroImg.src = greenSrc;
+        moonSrc = buildMoonModeSrc(heroImg);
+        heroImg.src = moonSrc;
         currentMode = "moon";
       } else {
         heroImg.addEventListener("load", function onLoad() {
           heroImg.removeEventListener("load", onLoad);
           if (document.documentElement.classList.contains(MOON_CLASS)) {
-            greenSrc = buildGreenShirtSrc(heroImg);
-            heroImg.src = greenSrc;
+            moonSrc = buildMoonModeSrc(heroImg);
+            heroImg.src = moonSrc;
             currentMode = "moon";
           }
         });
