@@ -26,6 +26,7 @@
   --border-radius: 10px;
   --border-radius-lg: 16px;
   --shadow-rgb: 62, 47, 37;
+  /* Seamlessly-tiling SVG fractal-noise used as a subtle film-grain texture overlay */
   --grain-texture: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
   --shadow-sm: 0 1px 3px rgba(var(--shadow-rgb), 0.10), 0 1px 2px rgba(var(--shadow-rgb), 0.06);
   --shadow-md: 0 4px 12px rgba(var(--shadow-rgb), 0.13), 0 2px 4px rgba(var(--shadow-rgb), 0.08);
@@ -219,6 +220,7 @@ p:last-child {
   opacity: 0.045;
   pointer-events: none;
   z-index: -1;
+  will-change: background-position;
   animation: grain 10s linear infinite;
 }
 
@@ -632,8 +634,8 @@ p:last-child {
 
 #backToTop:hover {
   background: #c26a4a;
-  transform: translateY(-3px);
-  box-shadow: 0 7px 0 #a9553b, 0 10px 20px rgba(194,106,74,0.35),
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #a9553b, 0 10px 20px rgba(194,106,74,0.35),
     inset 0 1px 0 rgba(255,255,255,0.18);
 }
 
@@ -1313,6 +1315,7 @@ textarea.form-control {
   opacity: 0.025;
   pointer-events: none;
   z-index: 0;
+  will-change: background-position;
   animation: grain 14s linear infinite;
 }
 
@@ -1821,5 +1824,26 @@ html {
   opacity: 0.028;
   pointer-events: none;
   z-index: 0;
+  will-change: background-position;
   animation: grain 12s linear infinite;
+}
+
+/* =============================================
+   Reduced Motion — disable grain animations
+   ============================================= */
+@media (prefers-reduced-motion: reduce) {
+  .site-header::before,
+  .hero::before,
+  .page-header::before {
+    animation: none;
+    will-change: auto;
+  }
+
+  .btn,
+  .filter-btn,
+  #backToTop {
+    transition: background var(--transition), color var(--transition),
+      border-color var(--transition), box-shadow var(--transition);
+    will-change: auto;
+  }
 }
