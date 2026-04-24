@@ -1263,6 +1263,132 @@
   })();
 
   /* ------------------------------------------
+     Hero Shirt: selective olive-to-blue recolor
+     Only shifts olive/green shirt pixels (~40-80° hue) to blue when
+     moon-mode is active, leaving face, hair, and background unchanged.
+     ------------------------------------------ */
+  (function () {
+    var heroImg = document.querySelector(".hero__image img");
+    if (!heroImg) return;
+
+    var originalSrc = heroImg.getAttribute("src");
+    var blueSrc = null;
+    var currentMode = "sun";
+    var MOON_CLASS = "moon-mode";
+
+    // Color thresholds for isolating the olive/green shirt
+    var MIN_DELTA     = 0.04;  // minimum channel spread to skip near-gray pixels
+    var MIN_VAL       = 0.08;  // minimum brightness to skip near-black pixels
+    var SHIRT_HUE_MIN = 0.10;  // 36° – lower bound of olive/green hue range
+    var SHIRT_HUE_MAX = 0.22;  // 80° – upper bound of olive/green hue range
+    var SHIRT_SAT_MIN = 0.10;  // 10% – minimum saturation (excludes near-neutral)
+    var HUE_SHIFT     = 0.47;  // ~170° shift: moves olive (40-80°) to blue (210-250°)
+
+    function hsvToRgb(h, s, v) {
+      var i = Math.floor(h * 6);
+      var f = h * 6 - i;
+      var p = v * (1 - s);
+      var q = v * (1 - f * s);
+      var t = v * (1 - (1 - f) * s);
+      var r, g, b;
+      switch (i % 6) {
+        case 0: r = v; g = t; b = p; break;
+        case 1: r = q; g = v; b = p; break;
+        case 2: r = p; g = v; b = t; break;
+        case 3: r = p; g = q; b = v; break;
+        case 4: r = t; g = p; b = v; break;
+        default: r = v; g = p; b = q; break;
+      }
+      return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
+    }
+
+    function buildBlueShirtSrc(img) {
+      var canvas = document.createElement("canvas");
+      canvas.width = img.naturalWidth;
+      canvas.height = img.naturalHeight;
+      var ctx = canvas.getContext("2d");
+      ctx.drawImage(img, 0, 0);
+      var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      var data = imageData.data;
+      var len = data.length;
+
+      for (var i = 0; i < len; i += 4) {
+        var r = data[i] / 255;
+        var g = data[i + 1] / 255;
+        var b = data[i + 2] / 255;
+        var max = r > g ? (r > b ? r : b) : (g > b ? g : b);
+        var min = r < g ? (r < b ? r : b) : (g < b ? g : b);
+        var delta = max - min;
+        // Skip near-gray or near-black pixels
+        if (delta < MIN_DELTA || max < MIN_VAL) continue;
+
+        var hue;
+        if (max === r) {
+          hue = ((g - b) / delta + 6) % 6;
+        } else if (max === g) {
+          hue = (b - r) / delta + 2;
+        } else {
+          hue = (r - g) / delta + 4;
+        }
+        hue /= 6;
+        var sat = delta / max;
+
+        // Olive/army-green shirt range: hue 0.10–0.22 (36°–80°), sat ≥ 10%
+        // Face skin tones sit at 0–0.09 (0°–32°), so they are not affected.
+        if (hue >= SHIRT_HUE_MIN && hue <= SHIRT_HUE_MAX && sat >= SHIRT_SAT_MIN) {
+          var newHue = hue + HUE_SHIFT; // shift toward blue
+          if (newHue >= 1) newHue -= 1;
+          var rgb = hsvToRgb(newHue, sat, max);
+          data[i]     = rgb[0];
+          data[i + 1] = rgb[1];
+          data[i + 2] = rgb[2];
+        }
+      }
+
+      ctx.putImageData(imageData, 0, 0);
+      // Source image is JPEG so encode as JPEG to match format (no transparency)
+      return canvas.toDataURL("image/jpeg", 0.92);
+    }
+
+    function syncShirtColor() {
+      var isMoon = document.documentElement.classList.contains(MOON_CLASS);
+
+      if (!isMoon) {
+        if (currentMode !== "sun") {
+          heroImg.src = originalSrc;
+          currentMode = "sun";
+        }
+        return;
+      }
+
+      if (currentMode === "moon") return;
+
+      if (blueSrc) {
+        heroImg.src = blueSrc;
+        currentMode = "moon";
+        return;
+      }
+
+      if (heroImg.complete && heroImg.naturalWidth > 0) {
+        blueSrc = buildBlueShirtSrc(heroImg);
+        heroImg.src = blueSrc;
+        currentMode = "moon";
+      } else {
+        heroImg.addEventListener("load", function onLoad() {
+          heroImg.removeEventListener("load", onLoad);
+          if (document.documentElement.classList.contains(MOON_CLASS)) {
+            blueSrc = buildBlueShirtSrc(heroImg);
+            heroImg.src = blueSrc;
+            currentMode = "moon";
+          }
+        });
+      }
+    }
+
+    window.heroSyncShirtColor = syncShirtColor;
+  })();
+
+  /* ------------------------------------------
      Theme Toggle: Sun / Moon
      ------------------------------------------ */
   (function () {
@@ -1281,6 +1407,7 @@
         btn.textContent = "☀️";
         btn.setAttribute("aria-label", "Switch to moon mode");
       }
+      if (window.heroSyncShirtColor) window.heroSyncShirtColor();
     }
 
     var stored = localStorage.getItem(STORAGE_KEY);

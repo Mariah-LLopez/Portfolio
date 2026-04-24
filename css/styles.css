@@ -1930,6 +1930,4 @@ html.moon-mode .site-header {
   background: linear-gradient(180deg, #2a2a2a 0%, #1A1A1A 55%, #111111 100%);
 }
 
-html.moon-mode .hero__image img {
-  filter: hue-rotate(125deg) saturate(1.15);
-}
+
