@@ -458,7 +458,7 @@
       "</div>" +
       // Body
       '<div class="case-study-body">' +
-      '<div class="container" style="max-width:900px;margin-inline:auto">' +
+      '<div class="container" style="max-width:1200px;margin-inline:auto">' +
       // Responsibilities & Tools sidebar block
       '<section class="case-study-section" aria-labelledby="section-responsibilities">' +
       '<h2 class="case-study-section__title" id="section-responsibilities">Responsibilities</h2>' +

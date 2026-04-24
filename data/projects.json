@@ -7,7 +7,7 @@
     "responsibilities": ["Feedback sessions with stakeholders", "Conducted user testing of site structure", "Developed user flow maps", "Created user flows for primary task scenarios", "Documented requirements and acceptance criteria", "Followed Brand and Style Guidelines"],
     "tags": ["UX Strategy", "Information Architecture", "Discovery", "Documentation"],
     "tools": ["Figma", "Adobe XD"],
-    "heroImage": "assets/hifidelity.png",
+    "heroImage": "https://github.com/user-attachments/assets/1b9ca014-3c3a-4470-83c3-c1993b6f45aa",
     "galleryImages": [{"src": "assets/persona.png", "alt": "OPPI Data Hub Persona"}, {"src": "assets/journeymap.png", "alt": "OPPI Data Hub persona journey"}],
     "externalLinks": [{"label": "View Project", "url": "https://www.figma.com/proto/F8oHCe193wTF6eM8ug1Dbq/High-Fidelity-Prototype?node-id=15-2&starting-point-node-id=15%3A2&t=czIeDsVRafqJPArQ-1"}],
     "videoEmbed": "",
