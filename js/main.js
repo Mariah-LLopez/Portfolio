@@ -988,7 +988,7 @@
     /* ---- canvas loop ---- */
     function initCanvas(canvas) {
       var ctx = canvas.getContext("2d");
-      var maxAlpha = canvas.classList.contains("hero__canvas") ? 0.45 : 0.45;
+      var maxAlpha = 0.45;
       var elements = [];
       var frame = 0;
       var rafId;
