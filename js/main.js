@@ -1262,4 +1262,35 @@
     }
   })();
 
+  /* ------------------------------------------
+     Theme Toggle: Sun / Moon
+     ------------------------------------------ */
+  (function () {
+    var MOON_CLASS = "moon-mode";
+    var STORAGE_KEY = "portfolio-theme";
+    var btn = document.getElementById("theme-toggle");
+    if (!btn) return;
+
+    function applyTheme(isMoon) {
+      if (isMoon) {
+        document.documentElement.classList.add(MOON_CLASS);
+        btn.textContent = "🌙";
+        btn.setAttribute("aria-label", "Switch to sun mode");
+      } else {
+        document.documentElement.classList.remove(MOON_CLASS);
+        btn.textContent = "☀️";
+        btn.setAttribute("aria-label", "Switch to moon mode");
+      }
+    }
+
+    var stored = localStorage.getItem(STORAGE_KEY);
+    applyTheme(stored === "moon");
+
+    btn.addEventListener("click", function () {
+      var isMoon = !document.documentElement.classList.contains(MOON_CLASS);
+      applyTheme(isMoon);
+      localStorage.setItem(STORAGE_KEY, isMoon ? "moon" : "sun");
+    });
+  })();
+
 })();
