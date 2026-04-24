@@ -865,12 +865,12 @@
       };
     }
 
-    function drawElement(ctx, el) {
+    function drawElement(ctx, el, maxAlpha) {
       var t = el.life / el.maxLife;
       var alpha;
-      if (t < 0.12)       { alpha = (t / 0.12) * 0.28; }
-      else if (t > 0.85)  { alpha = ((1 - t) / 0.15) * 0.28; }
-      else                { alpha = 0.28; }
+      if (t < 0.12)       { alpha = (t / 0.12) * maxAlpha; }
+      else if (t > 0.85)  { alpha = ((1 - t) / 0.15) * maxAlpha; }
+      else                { alpha = maxAlpha; }
       if (alpha <= 0) return;
 
       ctx.save();
@@ -899,6 +899,7 @@
     /* ---- canvas loop ---- */
     function initCanvas(canvas) {
       var ctx = canvas.getContext("2d");
+      var maxAlpha = canvas.classList.contains("hero__canvas") ? 0.8 : 0.28;
       var elements = [];
       var frame = 0;
       var rafId;
@@ -923,7 +924,7 @@
           el.x += el.vx;
           el.y += el.vy;
           el.angle += el.spin;
-          drawElement(ctx, el);
+          drawElement(ctx, el, maxAlpha);
           alive.push(el);
         }
         elements = alive;
