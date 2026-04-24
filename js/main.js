@@ -1131,12 +1131,23 @@
     }
 
     /* ---- element factory ---- */
-    function spawnElement(cw, ch) {
+    /* zones: optional array of [xMin_fraction, xMax_fraction] pairs.
+       When provided, x is picked randomly from one of those fractional bands.
+       Used by the hero canvas so illustrations appear on the left edge and
+       right half but not directly behind the text content. */
+    function spawnElement(cw, ch, zones) {
       var type = TYPES[randInt(0, TYPES.length)];
       var color = STROKE_COLORS[randInt(0, STROKE_COLORS.length)];
+      var x;
+      if (zones && zones.length > 0) {
+        var zone = zones[randInt(0, zones.length)];
+        x = rand(cw * zone[0], cw * zone[1]);
+      } else {
+        x = rand(0, cw);
+      }
       return {
         type: type,
-        x: rand(0, cw),
+        x: x,
         y: rand(-150, ch + 150),
         vx: rand(-0.28, 0.28),
         vy: rand(0.18, 0.55),
@@ -1197,7 +1208,8 @@
     }
 
     /* ---- canvas loop ---- */
-    function initCanvas(canvas) {
+    /* zones: optional spawn-zone array forwarded to spawnElement (see above). */
+    function initCanvas(canvas, zones) {
       var ctx = canvas.getContext("2d");
       var maxAlpha = 0.45;
       var elements = [];
@@ -1213,7 +1225,7 @@
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         if (frame % 6 === 0 && elements.length < MAX_ELEMENTS) {
-          elements.push(spawnElement(canvas.width, canvas.height));
+          elements.push(spawnElement(canvas.width, canvas.height, zones));
         }
 
         var alive = [];
@@ -1241,7 +1253,7 @@
       // ramp and spread across various stages of their lifespan.
       var preCount = Math.min(8, MAX_ELEMENTS);
       for (var p = 0; p < preCount; p++) {
-        var el = spawnElement(canvas.width, canvas.height);
+        var el = spawnElement(canvas.width, canvas.height, zones);
         el.life = Math.round(rand(el.maxLife * 0.08, el.maxLife * 0.45));
         elements.push(el);
       }
@@ -1269,7 +1281,12 @@
 
     var canvases = document.querySelectorAll(".hero__canvas, .section__canvas");
     for (var c = 0; c < canvases.length; c++) {
-      initCanvas(canvases[c]);
+      var isHero = canvases[c].classList.contains("hero__canvas");
+      // Hero canvas: bias illustrations to the left-edge strip and right half,
+      // keeping the center-left text area free. Two left entries vs one right
+      // entry means ~67 % of elements appear on the left side as requested.
+      var heroZones = [[0, 0.22], [0, 0.22], [0.50, 1.0]]; // left:left:right = 2:1 weighting
+      initCanvas(canvases[c], isHero ? heroZones : null);
     }
 
     // Expose for use by renderCaseStudy after dynamic content injection
@@ -1277,8 +1294,8 @@
   })();
 
   /* ------------------------------------------
-     Hero Shirt: selective olive-to-blue recolor
-     Only shifts olive/green shirt pixels (~40-80° hue) to blue when
+     Hero Shirt: selective olive-to-green recolor
+     Only shifts olive/green shirt pixels (~40-80° hue) to green when
      moon-mode is active, leaving face, hair, and background unchanged.
      ------------------------------------------ */
   (function () {
@@ -1286,7 +1303,7 @@
     if (!heroImg) return;
 
     var originalSrc = heroImg.getAttribute("src");
-    var blueSrc = null;
+    var greenSrc = null;
     var currentMode = "sun";
     var MOON_CLASS = "moon-mode";
 
@@ -1296,7 +1313,7 @@
     var SHIRT_HUE_MIN = 0.10;  // 36° – lower bound of olive/green hue range
     var SHIRT_HUE_MAX = 0.22;  // 80° – upper bound of olive/green hue range
     var SHIRT_SAT_MIN = 0.10;  // 10% – minimum saturation (excludes near-neutral)
-    var HUE_SHIFT     = 0.47;  // ~170° shift: moves olive (40-80°) to blue (210-250°)
+    var HUE_SHIFT     = 0.25;  // ~90° shift: moves olive (40-80°) to vivid green (126-169°)
 
     function hsvToRgb(h, s, v) {
       var i = Math.floor(h * 6);
@@ -1316,7 +1333,7 @@
       return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
     }
 
-    function buildBlueShirtSrc(img) {
+    function buildGreenShirtSrc(img) {
       var canvas = document.createElement("canvas");
       canvas.width = img.naturalWidth;
       canvas.height = img.naturalHeight;
@@ -1350,7 +1367,7 @@
         // Olive/army-green shirt range: hue 0.10–0.22 (36°–80°), sat ≥ 10%
         // Face skin tones sit at 0–0.09 (0°–32°), so they are not affected.
         if (hue >= SHIRT_HUE_MIN && hue <= SHIRT_HUE_MAX && sat >= SHIRT_SAT_MIN) {
-          var newHue = hue + HUE_SHIFT; // shift toward blue
+          var newHue = hue + HUE_SHIFT; // shift toward vivid green
           if (newHue >= 1) newHue -= 1;
           var rgb = hsvToRgb(newHue, sat, max);
           data[i]     = rgb[0];
@@ -1377,22 +1394,22 @@
 
       if (currentMode === "moon") return;
 
-      if (blueSrc) {
-        heroImg.src = blueSrc;
+      if (greenSrc) {
+        heroImg.src = greenSrc;
         currentMode = "moon";
         return;
       }
 
       if (heroImg.complete && heroImg.naturalWidth > 0) {
-        blueSrc = buildBlueShirtSrc(heroImg);
-        heroImg.src = blueSrc;
+        greenSrc = buildGreenShirtSrc(heroImg);
+        heroImg.src = greenSrc;
         currentMode = "moon";
       } else {
         heroImg.addEventListener("load", function onLoad() {
           heroImg.removeEventListener("load", onLoad);
           if (document.documentElement.classList.contains(MOON_CLASS)) {
-            blueSrc = buildBlueShirtSrc(heroImg);
-            heroImg.src = blueSrc;
+            greenSrc = buildGreenShirtSrc(heroImg);
+            heroImg.src = greenSrc;
             currentMode = "moon";
           }
         });

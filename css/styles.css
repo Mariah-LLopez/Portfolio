@@ -390,6 +390,7 @@ p:last-child {
   letter-spacing: -0.03em;
   line-height: 1.1;
   margin-bottom: var(--space-xs);
+  text-shadow: 0 0 28px var(--color-bg-alt), 0 0 52px var(--color-bg-alt);
 }
 
 .hero__title {
@@ -398,6 +399,7 @@ p:last-child {
   color: var(--color-primary);
   margin-bottom: var(--space-xs);
   white-space: normal;
+  text-shadow: 0 0 20px var(--color-bg-alt), 0 0 40px var(--color-bg-alt);
 }
 
 .hero__supporting {
@@ -405,6 +407,7 @@ p:last-child {
   color: var(--color-text-secondary);
   font-style: italic;
   margin-bottom: var(--space-md);
+  text-shadow: 0 0 18px var(--color-bg-alt), 0 0 36px var(--color-bg-alt);
 }
 
 .hero__description {
@@ -1862,6 +1865,24 @@ html {
 }
 
 /* =============================================
+   Image Drop-Shadow Pulse Animation
+   ============================================= */
+@keyframes img-shadow-pulse {
+  0%, 100% {
+    box-shadow: 0 4px 18px rgba(var(--shadow-rgb), 0.13),
+                0 2px 6px  rgba(var(--shadow-rgb), 0.08);
+  }
+  50% {
+    box-shadow: 0 10px 36px rgba(var(--shadow-rgb), 0.26),
+                0 4px 14px  rgba(var(--shadow-rgb), 0.16);
+  }
+}
+
+img {
+  animation: img-shadow-pulse 4s ease-in-out infinite;
+}
+
+/* =============================================
    Reduced Motion — disable grain animations
    ============================================= */
 @media (prefers-reduced-motion: reduce) {
@@ -1871,6 +1892,10 @@ html {
   .case-study-hero::before {
     animation: none;
     will-change: auto;
+  }
+
+  img {
+    animation: none;
   }
 
   .btn,
