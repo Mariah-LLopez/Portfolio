@@ -26,10 +26,11 @@
   --border-radius: 10px;
   --border-radius-lg: 16px;
   --shadow-rgb: 62, 47, 37;
-  --shadow-sm: 0 1px 3px rgba(62,47,37,0.10), 0 1px 2px rgba(62,47,37,0.06);
-  --shadow-md: 0 4px 12px rgba(62,47,37,0.13), 0 2px 4px rgba(62,47,37,0.08);
-  --shadow-lg: 0 10px 28px rgba(62,47,37,0.16), 0 4px 8px rgba(62,47,37,0.09);
-  --shadow-xl: 0 20px 48px rgba(62,47,37,0.20), 0 8px 16px rgba(62,47,37,0.10);
+  --grain-texture: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  --shadow-sm: 0 1px 3px rgba(var(--shadow-rgb), 0.10), 0 1px 2px rgba(var(--shadow-rgb), 0.06);
+  --shadow-md: 0 4px 12px rgba(var(--shadow-rgb), 0.13), 0 2px 4px rgba(var(--shadow-rgb), 0.08);
+  --shadow-lg: 0 10px 28px rgba(var(--shadow-rgb), 0.16), 0 4px 8px rgba(var(--shadow-rgb), 0.09);
+  --shadow-xl: 0 20px 48px rgba(var(--shadow-rgb), 0.20), 0 8px 16px rgba(var(--shadow-rgb), 0.10);
   --shadow-btn: 0 4px 0 rgba(var(--shadow-rgb), 0.30), 0 6px 14px rgba(var(--shadow-rgb), 0.18);
   --shadow-btn-hover: 0 6px 0 rgba(var(--shadow-rgb), 0.26), 0 10px 20px rgba(var(--shadow-rgb), 0.20);
   --shadow-btn-active: 0 1px 0 rgba(var(--shadow-rgb), 0.22), 0 2px 6px rgba(var(--shadow-rgb), 0.12);
@@ -213,7 +214,7 @@ p:last-child {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-image: var(--grain-texture);
   background-size: 200px 200px;
   opacity: 0.045;
   pointer-events: none;
@@ -512,12 +513,6 @@ p:last-child {
   will-change: transform, box-shadow;
 }
 
-.btn:active {
-  transform: translateY(3px);
-  box-shadow: var(--shadow-btn-active);
-  transition-duration: 0.06s;
-}
-
 .btn--primary {
   background: var(--color-primary);
   color: #fff;
@@ -533,12 +528,6 @@ p:last-child {
   transform: translateY(-2px);
   box-shadow: 0 6px 0 #445039, 0 10px 20px rgba(62,47,37,0.26),
     inset 0 1px 0 rgba(255,255,255,0.15);
-}
-
-.btn--primary:active {
-  transform: translateY(3px);
-  box-shadow: var(--shadow-btn-active);
-  transition-duration: 0.06s;
 }
 
 .btn--secondary {
@@ -558,12 +547,6 @@ p:last-child {
     inset 0 1px 0 rgba(255,255,255,0.10);
 }
 
-.btn--secondary:active {
-  transform: translateY(3px);
-  box-shadow: var(--shadow-btn-active);
-  transition-duration: 0.06s;
-}
-
 .btn--outline {
   background: transparent;
   color: var(--color-primary);
@@ -578,12 +561,6 @@ p:last-child {
   transform: translateY(-2px);
   box-shadow: 0 6px 0 #a9553b, 0 10px 20px rgba(194,106,74,0.28),
     inset 0 1px 0 rgba(255,255,255,0.15);
-}
-
-.btn--outline:active {
-  transform: translateY(3px);
-  box-shadow: var(--shadow-btn-active);
-  transition-duration: 0.06s;
 }
 
 .btn--sm {
@@ -613,6 +590,10 @@ p:last-child {
     inset 0 1px 0 rgba(255,255,255,0.15);
 }
 
+/* Active press state — placed after all hover rules so equal-specificity cascade wins */
+.btn--primary:active,
+.btn--secondary:active,
+.btn--outline:active,
 .btn--projects:active {
   transform: translateY(3px);
   box-shadow: var(--shadow-btn-active);
@@ -1327,7 +1308,7 @@ textarea.form-control {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-image: var(--grain-texture);
   background-size: 200px 200px;
   opacity: 0.025;
   pointer-events: none;
@@ -1835,7 +1816,7 @@ html {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-image: var(--grain-texture);
   background-size: 200px 200px;
   opacity: 0.028;
   pointer-events: none;
