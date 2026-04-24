@@ -167,11 +167,17 @@ p:last-child {
 
 .section__header {
   margin-bottom: var(--space-lg);
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: var(--space-md);
+  flex-wrap: wrap;
 }
 
 .section__title {
   font-size: var(--font-size-3xl);
-  margin-bottom: var(--space-xs);
+  margin-bottom: 0;
+  flex-shrink: 0;
 }
 
 .section__subtitle {
@@ -365,7 +371,7 @@ p:last-child {
   font-size: var(--font-size-lg);
   color: var(--color-text-secondary);
   max-width: 60ch;
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-xl);
 }
 
 .hero__actions {
@@ -1497,7 +1503,8 @@ textarea.form-control {
   }
 
   .site-logo__img {
-    display: none;
+    height: 55px;
+    display: block;
   }
 
   .site-logo__text {
