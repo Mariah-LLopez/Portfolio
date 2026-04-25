@@ -1029,17 +1029,17 @@ p:last-child {
 
 /* Individual laptop image spread throughout the page */
 .laptop-spread-image {
-  border-radius: var(--border-radius);
-  overflow: hidden;
-  box-shadow: var(--shadow-md);
-  background-color: #fff;
+  background-color: transparent;
+  margin-inline: -2rem;
 }
 
 .laptop-spread-image img {
-  width: 100%;
+  width: calc(100% + 4rem);
+  max-width: none;
   height: auto;
   display: block;
-  object-fit: cover;
+  object-fit: contain;
+  animation: none;
 }
 
 /* Gallery images spread inline through content — no background for translucent/layered images */
