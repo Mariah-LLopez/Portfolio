@@ -409,7 +409,7 @@
     const spreadInsertMap = {};
     if (spreadImages.length > 0 && filteredSections.length > 0) {
       spreadImages.forEach(function (img, i) {
-        var idx = Math.round((i + 1) * filteredSections.length / (spreadImages.length + 1)) - 1;
+        let idx = Math.round((i + 1) * filteredSections.length / (spreadImages.length + 1)) - 1;
         idx = Math.max(0, Math.min(filteredSections.length - 1, idx));
         if (!spreadInsertMap[idx]) spreadInsertMap[idx] = [];
         spreadInsertMap[idx].push(img);
