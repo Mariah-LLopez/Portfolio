@@ -358,23 +358,7 @@
       })
       .join("");
 
-    const galleryHtml = (p.galleryImages || [])
-      .map(function (img) {
-        return (
-          "<figure>" +
-          '<img src="' +
-          escapeHtml(img.src) +
-          '" alt="' +
-          escapeHtml(img.alt) +
-          '" loading="lazy">' +
-          "<figcaption>" +
-          escapeHtml(img.alt) +
-          "</figcaption>" +
-          "</figure>"
-        );
-      })
-      .join("");
-
+    const galleryImages = p.galleryImages || [];
     const laptopImages = p.laptopImages || [];
 
     const linksHtml = (p.externalLinks || [])
@@ -411,15 +395,24 @@
 
     const filteredSections = sections.filter(function (s) { return p[s.key]; });
 
-    // Calculate after which section indices a laptop image should be inserted,
-    // distributing them evenly across sections using equal-interval spacing.
-    const laptopInsertMap = {};
-    if (laptopImages.length > 0 && filteredSections.length > 0) {
-      laptopImages.forEach(function (img, i) {
-        let idx = Math.round((i + 1) * filteredSections.length / (laptopImages.length + 1)) - 1;
+    // Build a combined spread list: gallery images (translucent, no background) first,
+    // then laptop images, each tagged with their CSS class.
+    const spreadImages = [];
+    galleryImages.forEach(function (img) {
+      spreadImages.push({ src: img.src, alt: img.alt, cls: "gallery-spread-image" });
+    });
+    laptopImages.forEach(function (img) {
+      spreadImages.push({ src: img.src, alt: img.alt, cls: "laptop-spread-image" });
+    });
+
+    // Distribute all spread images evenly across sections using equal-interval spacing.
+    const spreadInsertMap = {};
+    if (spreadImages.length > 0 && filteredSections.length > 0) {
+      spreadImages.forEach(function (img, i) {
+        let idx = Math.round((i + 1) * filteredSections.length / (spreadImages.length + 1)) - 1;
         idx = Math.max(0, Math.min(filteredSections.length - 1, idx));
-        if (!laptopInsertMap[idx]) laptopInsertMap[idx] = [];
-        laptopInsertMap[idx].push(img);
+        if (!spreadInsertMap[idx]) spreadInsertMap[idx] = [];
+        spreadInsertMap[idx].push(img);
       });
     }
 
@@ -438,10 +431,12 @@
           escapeHtml(p[s.key]) +
           "</p>" +
           "</section>";
-        if (laptopInsertMap[i]) {
-          laptopInsertMap[i].forEach(function (img) {
+        if (spreadInsertMap[i]) {
+          spreadInsertMap[i].forEach(function (img) {
             html +=
-              '<div class="laptop-spread-image">' +
+              '<div class="' +
+              img.cls +
+              '">' +
               '<img src="' +
               escapeHtml(img.src) +
               '" alt="' +
@@ -505,15 +500,6 @@
         : "") +
       "</section>" +
       sectionsHtml +
-      // Gallery
-      (galleryHtml
-        ? '<section class="case-study-section" aria-labelledby="section-gallery">' +
-          '<h2 class="case-study-section__title" id="section-gallery">Project Gallery</h2>' +
-          '<div class="case-study-gallery">' +
-          galleryHtml +
-          "</div>" +
-          "</section>"
-        : "") +
       // Video
       (videoHtml
         ? '<section class="case-study-section" aria-labelledby="section-video">' +
