@@ -395,30 +395,26 @@
 
     const filteredSections = sections.filter(function (s) { return p[s.key]; });
 
-    // Build a combined spread list: gallery images (translucent, no background) first,
-    // then laptop images, each tagged with their CSS class.
-    const spreadImages = [];
+    // Build left-column images HTML: gallery images first, then laptop images.
+    const bodyImagesHtml = [];
     galleryImages.forEach(function (img) {
-      spreadImages.push({ src: img.src, alt: img.alt, cls: "gallery-spread-image" });
+      bodyImagesHtml.push(
+        '<div class="case-study-body__image-item gallery-spread-image">' +
+        '<img src="' + escapeHtml(img.src) + '" alt="' + escapeHtml(img.alt) + '" loading="lazy">' +
+        "</div>"
+      );
     });
     laptopImages.forEach(function (img) {
-      spreadImages.push({ src: img.src, alt: img.alt, cls: "laptop-spread-image" });
+      bodyImagesHtml.push(
+        '<div class="case-study-body__image-item laptop-spread-image">' +
+        '<img src="' + escapeHtml(img.src) + '" alt="' + escapeHtml(img.alt) + '" loading="lazy">' +
+        "</div>"
+      );
     });
 
-    // Distribute all spread images evenly across sections using equal-interval spacing.
-    const spreadInsertMap = {};
-    if (spreadImages.length > 0 && filteredSections.length > 0) {
-      spreadImages.forEach(function (img, i) {
-        let idx = Math.round((i + 1) * filteredSections.length / (spreadImages.length + 1)) - 1;
-        idx = Math.max(0, Math.min(filteredSections.length - 1, idx));
-        if (!spreadInsertMap[idx]) spreadInsertMap[idx] = [];
-        spreadInsertMap[idx].push(img);
-      });
-    }
-
     const sectionsHtml = filteredSections
-      .map(function (s, i) {
-        var html =
+      .map(function (s) {
+        return (
           '<section class="case-study-section" aria-labelledby="section-' +
           s.key +
           '">' +
@@ -430,22 +426,8 @@
           "<p>" +
           escapeHtml(p[s.key]) +
           "</p>" +
-          "</section>";
-        if (spreadInsertMap[i]) {
-          spreadInsertMap[i].forEach(function (img) {
-            html +=
-              '<div class="' +
-              img.cls +
-              '">' +
-              '<img src="' +
-              escapeHtml(img.src) +
-              '" alt="' +
-              escapeHtml(img.alt) +
-              '" loading="lazy">' +
-              "</div>";
-          });
-        }
-        return html;
+          "</section>"
+        );
       })
       .join("");
 
@@ -490,9 +472,17 @@
       // Body
       '<div class="case-study-body">' +
       '<div class="container" style="max-width:1200px;margin-inline:auto">' +
-      // Single column: all breakdown content with laptop images interspersed
+      '<div class="case-study-body__layout">' +
+      // Left column: all images
+      (bodyImagesHtml.length
+        ? '<aside class="case-study-body__images" aria-label="Project images">' +
+          bodyImagesHtml.join("") +
+          "</aside>"
+        : "") +
+      // Right column: text content
+      '<div class="case-study-body__content">' +
       '<div class="case-study-breakdown">' +
-      // Responsibilities & Tools sidebar block
+      // Responsibilities & Tools block
       '<section class="case-study-section" aria-labelledby="section-responsibilities">' +
       '<h2 class="case-study-section__title" id="section-responsibilities">Responsibilities</h2>' +
       '<ul class="responsibilities-list">' +
@@ -513,6 +503,8 @@
           videoHtml +
           "</section>"
         : "") +
+      "</div>" +
+      "</div>" +
       "</div>" +
       "</div>" +
       "</div>";
