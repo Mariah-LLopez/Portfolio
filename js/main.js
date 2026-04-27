@@ -1542,12 +1542,10 @@
     function applyTheme(isMoon) {
       if (isMoon) {
         document.documentElement.classList.add(MOON_CLASS);
-        btn.textContent = "🌙";
-        btn.setAttribute("aria-label", "Switch to sun mode");
+        btn.setAttribute("aria-label", "Switch to light mode");
       } else {
         document.documentElement.classList.remove(MOON_CLASS);
-        btn.textContent = "☀️";
-        btn.setAttribute("aria-label", "Switch to moon mode");
+        btn.setAttribute("aria-label", "Switch to dark mode");
       }
       if (window.heroSyncShirtColor) window.heroSyncShirtColor();
     }
