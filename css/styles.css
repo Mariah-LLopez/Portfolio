@@ -855,148 +855,201 @@ p:last-child {
 }
 
 /* =============================================
-   FINAL CASE STUDY LAYOUT FIX
-   Full-screen, spacious, centered, responsive
+   FINAL LAYOUT FIX — SIDE BY SIDE + FULL WIDTH
    ============================================= */
 
-/* Full screen section behavior */
-.case-study-hero,
-.cs-section-band,
-.cs-images-strip {
-  width: 100%;
-  overflow: hidden;
-}
-
-/* Use the screen without pushing content into corners */
+/* Use full screen but keep clean margins */
 .case-study-hero .container,
 .case-study-body .container,
 .cs-section-band .container,
 .cs-images-strip .container {
-  width: min(88vw, 1500px);
+  width: min(92vw, 1500px);
   max-width: 1500px;
   margin-inline: auto;
 }
 
 /* ---------------------------------------------
-   HERO SECTION
+   HERO FIX (no corner cramming)
 ---------------------------------------------- */
 
 .case-study-hero {
-  min-height: 88vh;
-  padding-block: clamp(5rem, 9vw, 9rem);
-  background:
-    radial-gradient(circle at 20% 20%, rgba(105, 119, 86, 0.12), transparent 30%),
-    radial-gradient(circle at 82% 28%, rgba(255, 130, 88, 0.14), transparent 34%),
-    var(--color-bg-alt);
+  min-height: 85vh;
   display: flex;
   align-items: center;
+  padding-block: clamp(5rem, 8vw, 9rem);
 }
 
-/* Hero content should not be stuck in the corner */
 .case-study-hero .container {
   display: grid;
-  grid-template-columns: minmax(320px, 0.9fr) minmax(420px, 1.1fr);
+  grid-template-columns: 1fr 1fr;
   gap: clamp(4rem, 8vw, 9rem);
   align-items: center;
 }
 
-/* Hero text spacing */
 .case-study-hero__content {
-  max-width: 680px;
-}
-
-.case-study-hero__meta {
-  gap: 0.75rem;
-  margin-bottom: 1.5rem;
-}
-
-.case-study-hero__role {
-  margin-bottom: 0.75rem;
-  line-height: 1.4;
+  max-width: 650px;
 }
 
 .case-study-hero__title {
-  font-size: clamp(3.25rem, 6vw, 6.75rem);
-  line-height: 0.98;
-  letter-spacing: -0.055em;
+  font-size: clamp(3rem, 6vw, 6.5rem);
+  line-height: 1;
   margin-bottom: 1.5rem;
-  max-width: 12ch;
 }
 
 .case-study-hero__summary {
-  font-size: clamp(1.05rem, 1.25vw, 1.35rem);
   line-height: 1.8;
-  max-width: 58ch;
   margin-bottom: 2rem;
 }
 
-/* Tags need breathing room */
-.tools-list,
-.case-study-hero__meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-
-.tools-list li,
-.tools-list span,
-.tools-list a,
-.case-study-hero__meta span {
-  padding: 0.55rem 0.85rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.5);
-  border: 1px solid rgba(var(--shadow-rgb), 0.14);
-  line-height: 1.2;
-}
-
-/* Buttons need space */
-.case-study-links {
-  gap: 1rem;
-  margin-top: 2rem;
-}
-
-/* ---------------------------------------------
-   IMPORTANT: Do NOT show big images in hero/top
----------------------------------------------- */
-
+/* Remove big image at top */
 .case-study-hero-image-full {
   display: none;
 }
 
 /* ---------------------------------------------
-   BODY / MIDDLE SECTIONS
+   SECTION LAYOUT (THIS FIXES YOUR MAIN ISSUE)
 ---------------------------------------------- */
 
 .cs-section-band {
-  padding-block: clamp(6rem, 9vw, 10rem);
-  background:
-    radial-gradient(circle at 18% 20%, rgba(105, 119, 86, 0.1), transparent 30%),
-    radial-gradient(circle at 86% 18%, rgba(255, 130, 88, 0.11), transparent 34%),
-    var(--color-bg-alt);
+  padding-block: clamp(5rem, 8vw, 9rem);
 }
 
-/* Main layout: text uses both sides, not cramped */
+/* SIDE BY SIDE LAYOUT */
 .cs-section-band__inner {
   display: grid;
-  grid-template-columns: minmax(260px, 0.75fr) minmax(0, 2.25fr);
+  grid-template-columns: 1fr 1.2fr;
   gap: clamp(4rem, 8vw, 10rem);
-  align-items: start;
+  align-items: center;
 }
 
-/* Remove forced flipping */
-.cs-section-band--image-right .cs-section-band__inner,
-.cs-section-band--image-left .cs-section-band__inner {
-  grid-template-columns: minmax(260px, 0.75fr) minmax(0, 2.25fr);
-  direction: ltr;
+/* TEXT SIDE */
+.cs-section-band__content {
+  max-width: 650px;
 }
 
-/* Left title column */
+/* IMAGE SIDE */
+.cs-section-band__image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Image sizing */
+.cs-section-band__image img {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  object-fit: contain;
+
+  /* IMPORTANT FIXES */
+  transform: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* ---------------------------------------------
+   TEXT SPACING FIX (not cramped)
+---------------------------------------------- */
+
 .cs-section-band .case-study-section__title {
-  font-size: clamp(2.4rem, 4.2vw, 5rem);
-  line-height: 1;
-  letter-spacing: -0.055em;
-  max-width: 10ch;
+  font-size: clamp(2.5rem, 4vw, 4.5rem);
+  line-height: 1.05;
   margin-bottom: 1.5rem;
+  max-width: 10ch;
+}
+
+.cs-section-band .case-study-section p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  max-width: 70ch;
+}
+
+/* Tags spacing */
+.tools-list,
+.case-study-hero__meta {
+  gap: 0.75rem;
+}
+
+.tools-list li,
+.tools-list span,
+.tools-list a {
+  padding: 0.5rem 0.8rem;
+  border-radius: 999px;
+}
+
+/* Buttons spacing */
+.case-study-links {
+  margin-top: 2rem;
+  gap: 1rem;
+}
+
+/* ---------------------------------------------
+   OPTIONAL: ALTERNATING LAYOUT
+---------------------------------------------- */
+
+.cs-section-band--image-left .cs-section-band__inner {
+  grid-template-columns: 1.2fr 1fr;
+}
+
+.cs-section-band--image-left .cs-section-band__content {
+  order: 2;
+}
+
+.cs-section-band--image-left .cs-section-band__image {
+  order: 1;
+}
+
+/* ---------------------------------------------
+   IMAGE GRID (middle sections only)
+---------------------------------------------- */
+
+.cs-images-strip {
+  padding-block: clamp(5rem, 8vw, 9rem);
+}
+
+.cs-images-strip__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: center;
+}
+
+/* Clean images everywhere */
+.cs-images-strip__grid img,
+.case-study-body__image-item img,
+.gallery-spread-image img,
+.laptop-spread-image img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* ---------------------------------------------
+   RESPONSIVENESS (VERY IMPORTANT)
+---------------------------------------------- */
+
+@media (max-width: 900px) {
+  .case-study-hero .container,
+  .cs-section-band__inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .case-study-hero,
+  .cs-section-band,
+  .cs-images-strip {
+    padding-block: 4rem;
+  }
+
+  .case-study-hero__title,
+  .cs-section-band .case-study-section__title {
+    max-width: 100%;
+  }
 }
 
 .cs-section-band .case-study-section__title::before {
