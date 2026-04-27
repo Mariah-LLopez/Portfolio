@@ -2183,7 +2183,6 @@ select {
   border-radius: 50%;
   width: 50px;
   height: 50px;
-  font-size: 22px;
   line-height: 1;
   cursor: pointer;
   box-shadow: var(--shadow-md);
@@ -2191,6 +2190,23 @@ select {
   align-items: center;
   justify-content: center;
   transition: background var(--transition), transform 0.2s ease;
+}
+
+.color-wheel {
+  display: block;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: conic-gradient(
+    red,
+    yellow,
+    lime,
+    cyan,
+    blue,
+    magenta,
+    red
+  );
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
 }
 
 #theme-toggle:hover {
