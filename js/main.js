@@ -432,21 +432,13 @@
       .join("");
 
     container.innerHTML =
-      // Hero
+      // Hero — text only, full-width; image moved below
       '<div class="case-study-hero">' +
       '<canvas class="section__canvas" aria-hidden="true"></canvas>' +
       '<div class="container">' +
       '<nav aria-label="Breadcrumb" style="margin-bottom:1rem;font-size:0.9375rem">' +
       '<a href="projects.html">← Back to Projects</a>' +
       "</nav>" +
-      '<div class="case-study-hero__inner">' +
-      '<div class="case-study-hero__images">' +
-      '<img class="case-study-hero__image" src="' +
-      escapeHtml(p.heroImage || "assets/placeholder.svg") +
-      '" alt="' +
-      escapeHtml(p.title) +
-      ' hero image" loading="eager">' +
-      "</div>" +
       '<div class="case-study-hero__content">' +
       '<div class="case-study-hero__meta">' +
       '<span class="case-study-hero__role">' +
@@ -468,7 +460,16 @@
       "</div>" +
       "</div>" +
       "</div>" +
-      "</div>" +
+      // Full-width hero image directly below the hero section
+      (p.heroImage
+        ? '<div class="case-study-hero-image-full">' +
+          '<img class="case-study-hero__image" src="' +
+          escapeHtml(p.heroImage) +
+          '" alt="' +
+          escapeHtml(p.title) +
+          ' hero image" loading="eager">' +
+          "</div>"
+        : "") +
       // Body
       '<div class="case-study-body">' +
       '<div class="container" style="max-width:1200px;margin-inline:auto">' +
