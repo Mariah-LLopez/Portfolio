@@ -855,441 +855,168 @@ p:last-child {
 }
 
 /* =============================================
-   Case Study Layout
+   Artistic / Marketing Case Study Upgrade
+   Add existing case study CSS below
    ============================================= */
+
+/* Softer editorial background */
 .case-study-hero {
-  background: var(--color-bg-alt);
-  border-bottom: 1px solid var(--color-border);
-  box-shadow: 0 4px 16px rgba(var(--shadow-rgb),0.08), 0 1px 4px rgba(var(--shadow-rgb),0.05);
-  padding-block: var(--space-xl);
-  position: relative;
-  overflow: hidden;
-}
-
-/* Subtle grain on case study hero (matches .page-header::before) */
-.case-study-hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: var(--grain-texture);
-  background-size: 200px 200px;
-  opacity: 0.025;
-  pointer-events: none;
-  z-index: 0;
-  will-change: background-position;
-  animation: grain 14s linear infinite;
-}
-
-.case-study-hero .container {
-  position: relative;
-  z-index: 1;
-}
-
-.case-study-hero__meta {
+  background:
+    radial-gradient(circle at 78% 18%, rgba(255, 110, 55, 0.12), transparent 26%),
+    radial-gradient(circle at 12% 82%, rgba(92, 119, 76, 0.14), transparent 28%),
+    var(--color-bg-alt);
+  min-height: 72vh;
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-sm);
-  margin-bottom: var(--space-sm);
   align-items: center;
 }
 
+/* Hero layout: poster-like split */
+.case-study-hero .container {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: center;
+}
+
+/* Small label above title */
 .case-study-hero__role {
-  font-size: 0.875rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--color-primary);
+  display: inline-flex;
+  width: fit-content;
+  padding: 0.45rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.55);
 }
 
+/* Bigger, more showcase-like title */
 .case-study-hero__title {
-  font-size: var(--font-size-4xl);
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  margin-bottom: var(--space-sm);
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.06em;
+  max-width: 9ch;
 }
 
+/* Stronger intro paragraph */
 .case-study-hero__summary {
-  font-size: var(--font-size-lg);
-  color: var(--color-text-secondary);
-  max-width: 80ch;
-  margin-bottom: var(--space-md);
+  font-size: clamp(1.1rem, 1.5vw, 1.35rem);
+  line-height: 1.75;
+  max-width: 58ch;
 }
 
-.case-study-hero__content {
-  display: flex;
-  flex-direction: column;
-  max-width: 80ch;
-}
-
-/* Full-width hero image strip directly below the hero section */
+/* Hero image as floating card */
 .case-study-hero-image-full {
-  width: 100%;
-  line-height: 0; /* collapse whitespace under img */
+  padding: clamp(1.5rem, 4vw, 4rem);
+  background: var(--color-bg-alt);
 }
 
-.case-study-hero-image-full .case-study-hero__image,
-.case-study-hero__image {
-  display: block;
-  width: 100%;
-  height: auto;
-  max-height: clamp(240px, 55vw, 640px);
-  object-fit: cover;
-  object-position: top;
-  animation: none;
+.case-study-hero-image-full .case-study-hero__image {
+  border-radius: 28px;
+  box-shadow: 0 30px 80px rgba(var(--shadow-rgb), 0.18);
+  transform: rotate(1deg);
 }
 
-.case-study-body {
-  padding-block: var(--space-xl);
-}
-
-.case-study-body .container {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-xl);
-}
-
-/* Two-column body: images left, text right */
-.case-study-body__layout {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: var(--space-xl);
-  align-items: start;
-}
-
-.case-study-body__images {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-lg);
-}
-
-.case-study-body__image-item img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: var(--border-radius);
-  animation: none;
-}
-
-/* Override full-bleed overflows from spread classes when inside the body column */
-.case-study-body__images .laptop-spread-image {
-  margin-inline: 0;
-}
-
-.case-study-body__images .laptop-spread-image img {
-  width: 100%;
-}
-
-.case-study-body__content {
-  min-width: 0;
-}
-
-.case-study-section {
-  border-top: 2px solid var(--color-border);
-  padding-top: var(--space-lg);
-}
-
-.case-study-section:first-child {
-  border-top: none;
-  padding-top: 0;
-}
-
-.case-study-section__title {
-  font-size: var(--font-size-2xl);
-  font-weight: 700;
-  margin-bottom: var(--space-sm);
-  color: var(--color-text);
-}
-
-.case-study-section p {
-  color: var(--color-text-secondary);
-  font-size: var(--font-size-lg);
-  max-width: 90ch;
-}
-
-.responsibilities-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xs);
-  margin-top: var(--space-sm);
-}
-
-.responsibilities-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-xs);
-  color: var(--color-text-secondary);
-  font-size: var(--font-size-base);
-}
-
-.responsibilities-list li::before {
-  content: "→";
-  color: var(--color-primary);
-  font-weight: 700;
-  flex-shrink: 0;
-  margin-top: 0.1em;
-}
-
-.tools-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-xs);
-  margin-top: var(--space-sm);
-}
-
-.case-study-gallery {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-md);
-  margin-top: var(--space-md);
-}
-
-.case-study-gallery img {
-  border-radius: var(--border-radius);
-  width: 100%;
-}
-
-.case-study-gallery figcaption {
-  font-size: 0.875rem;
-  color: var(--color-text-secondary);
-  margin-top: var(--space-xs);
-  text-align: center;
-}
-
-.case-study-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-sm);
-  margin-top: var(--space-md);
-}
-
-/* Two-column layout when laptop images are present — no longer used */
-.case-study-body--with-laptops {
-  display: grid !important;
-  grid-template-columns: 1fr;
-  gap: var(--space-xl);
-  align-items: start;
-}
-
-.case-study-breakdown {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-xl);
-}
-
-/* Individual laptop image spread throughout the page */
-.laptop-spread-image {
-  background-color: transparent;
-  margin-inline: -2rem;
-}
-
-.laptop-spread-image img {
-  width: calc(100% + 4rem);
-  max-width: none;
-  height: auto;
-  display: block;
-  object-fit: contain;
-  animation: none;
-}
-
-/* Gallery images spread inline through content — no background for translucent/layered images */
-.gallery-spread-image {
-  margin-block: var(--space-sm);
-}
-
-.gallery-spread-image img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: contain;
-  animation: none;
-}
-
-.video-container {
-  position: relative;
-  width: 100%;
-  padding-bottom: 56.25%;
-  margin-top: var(--space-md);
-  border-radius: var(--border-radius);
-  overflow: hidden;
-  box-shadow: var(--shadow-md);
-}
-
-.video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-/* =============================================
-   Case Study — Marketing Band Layout
-   ============================================= */
-/* Full-width section bands that replace the old 2-column sidebar layout */
+/* Marketing bands feel more like sections */
 .cs-section-band {
-  padding-block: var(--space-2xl);
-  border-bottom: 1px solid var(--color-border);
+  padding-block: clamp(5rem, 10vw, 9rem);
+  position: relative;
+  overflow: hidden;
 }
 
 .cs-section-band:nth-child(odd) {
-  background: var(--color-bg-alt);
+  background:
+    linear-gradient(135deg, rgba(255, 110, 55, 0.06), transparent 42%),
+    var(--color-bg-alt);
 }
 
 .cs-section-band:nth-child(even) {
-  background: var(--color-bg);
+  background:
+    linear-gradient(225deg, rgba(92, 119, 76, 0.08), transparent 40%),
+    var(--color-bg);
 }
 
-.cs-section-band:last-child {
-  border-bottom: none;
-}
-
-/* Two-column layout: text + inline image (used when a section has an assigned image) */
-.cs-section-band__inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-xl);
-  align-items: center;
-}
-
-/* Image on the right: content first, image second */
-.cs-section-band--image-right .cs-section-band__inner {
-  grid-template-columns: 3fr 2fr;
-}
-
-/* Image on the left: image first, content second */
-.cs-section-band--image-left .cs-section-band__inner {
-  grid-template-columns: 2fr 3fr;
-  direction: rtl;
-}
-
-.cs-section-band--image-left .cs-section-band__inner > * {
-  direction: ltr;
-}
-
-.cs-section-band__image {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.cs-section-band__image img {
-  width: 100%;
-  height: auto;
-  display: block;
-  animation: none; /* suppress global img-shadow-pulse */
-}
-
-/* Override the default bordered top-separator since bands handle spacing */
-.cs-section-band .case-study-section {
-  border-top: none;
-  padding-top: 0;
-}
-
-/* Marketing-style section title: accent rule + larger, bolder text */
+/* More dramatic section title */
 .cs-section-band .case-study-section__title {
-  font-size: var(--font-size-3xl);
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  margin-bottom: var(--space-md);
-  color: var(--color-text);
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  line-height: 0.95;
+  max-width: 8ch;
+  letter-spacing: -0.06em;
 }
 
+/* Accent mark feels more designed */
 .cs-section-band .case-study-section__title::before {
-  content: '';
-  display: block;
-  width: 44px;
-  height: 4px;
-  background: var(--color-primary);
-  border-radius: 2px;
-  margin-bottom: var(--space-sm);
+  width: 56px;
+  height: 6px;
+  border-radius: 999px;
+  margin-bottom: 1.25rem;
 }
 
-/* Remove p width cap so text uses the full readable column */
+/* Body text more polished */
 .cs-section-band .case-study-section p {
-  max-width: 80ch;
-  font-size: var(--font-size-lg);
-  color: var(--color-text-secondary);
+  font-size: clamp(1rem, 1.35vw, 1.25rem);
+  line-height: 1.85;
+  max-width: 62ch;
 }
 
-/* Tools heading inside a band */
-.cs-tools-heading {
-  margin-top: var(--space-lg);
-  margin-bottom: var(--space-xs);
-  font-size: var(--font-size-base);
-  font-weight: 700;
-  color: var(--color-text);
+/* Images become presentation cards */
+.cs-section-band__image img,
+.cs-images-strip__grid img,
+.case-study-body__image-item img {
+  border-radius: 30px;
+  box-shadow: 0 24px 70px rgba(var(--shadow-rgb), 0.16);
+  background: white;
+  padding: 0.75rem;
 }
 
-/* Full-width image artifacts strip */
-.cs-images-strip {
-  padding-block: var(--space-2xl);
-  background: var(--color-bg);
-  border-top: 1px solid var(--color-border);
+/* Slight stagger for image sections */
+.cs-section-band--image-right .cs-section-band__image img {
+  transform: rotate(1.5deg);
 }
 
-.cs-images-strip__heading {
-  margin-bottom: var(--space-lg);
+.cs-section-band--image-left .cs-section-band__image img {
+  transform: rotate(-1.5deg);
 }
 
-.cs-images-strip__heading::before {
-  content: '';
-  display: block;
-  width: 44px;
-  height: 4px;
-  background: var(--color-primary);
-  border-radius: 2px;
-  margin-bottom: var(--space-sm);
+/* Make tools/tags look like product badges */
+.tools-list {
+  gap: 0.75rem;
 }
 
-.cs-images-strip__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: var(--space-lg);
+.tools-list li,
+.tools-list span,
+.tools-list a {
+  border-radius: 999px;
+  padding: 0.5rem 0.8rem;
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 8px 20px rgba(var(--shadow-rgb), 0.06);
 }
 
-.cs-images-strip__grid .case-study-body__image-item img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: var(--border-radius);
-  animation: none;
+/* Responsibilities as clean feature points */
+.responsibilities-list li {
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid var(--color-border);
+  border-radius: 18px;
+  padding: 0.9rem 1rem;
 }
 
-/* Reset bleed margins inside the grid */
-.cs-images-strip__grid .laptop-spread-image {
-  margin-inline: 0;
-}
+/* Mobile cleanup */
+@media (max-width: 900px) {
+  .case-study-hero .container,
+  .cs-section-band__inner,
+  .cs-section-band--image-right .cs-section-band__inner,
+  .cs-section-band--image-left .cs-section-band__inner {
+    grid-template-columns: 1fr;
+    direction: ltr;
+  }
 
-.cs-images-strip__grid .laptop-spread-image img {
-  width: 100%;
-}
+  .case-study-hero {
+    min-height: auto;
+  }
 
-
-.loading-state,
-.error-state {
-  text-align: center;
-  padding: var(--space-2xl) var(--space-sm);
-  color: var(--color-text-secondary);
-}
-
-.error-state {
-  color: #b91c1c;
-}
-
-.spinner {
-  display: inline-block;
-  width: 40px;
-  height: 40px;
-  border: 3px solid var(--color-border);
-  border-top-color: var(--color-primary);
-  border-radius: 50%;
-  animation: spin 0.8s linear infinite;
-  margin-bottom: var(--space-sm);
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
+  .case-study-hero__title,
+  .cs-section-band .case-study-section__title {
+    max-width: 100%;
+  }
 }
 
 /* =============================================
