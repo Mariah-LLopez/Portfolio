@@ -410,18 +410,18 @@
     var imageMap = {};
     var overflowInlineImages = [];
     (function () {
-      var M = inlineImages.length, N = filteredSections.length;
-      if (M === 0 || N === 0) return;
-      if (M <= N) {
+      var imageCount = inlineImages.length, sectionCount = filteredSections.length;
+      if (imageCount === 0 || sectionCount === 0) return;
+      if (imageCount <= sectionCount) {
         // Spread all images evenly: image j → section at evenly-spaced index
         inlineImages.forEach(function (img, j) {
-          var idx = M === 1 ? Math.floor((N - 1) / 2) : Math.round(j * (N - 1) / (M - 1));
+          var idx = imageCount === 1 ? Math.floor((sectionCount - 1) / 2) : Math.round(j * (sectionCount - 1) / (imageCount - 1));
           imageMap[idx] = img;
         });
       } else {
         // More images than sections: one per section, remainder goes to artifact strip
         inlineImages.forEach(function (img, j) {
-          if (j < N) {
+          if (j < sectionCount) {
             imageMap[j] = img;
           } else {
             overflowInlineImages.push(img);
