@@ -365,6 +365,12 @@
     const galleryImages = p.galleryImages || [];
     const laptopImages = p.laptopImages || [];
 
+    // Inline images: prefer dedicated laptopImages; fall back to galleryImages
+    // so all case studies get the same alternating-band layout.
+    const inlineImages = laptopImages.length > 0 ? laptopImages : galleryImages;
+    // Only show galleryImages in the artifact strip when a project also has laptopImages
+    const artifactGalleryImages = laptopImages.length > 0 ? galleryImages : [];
+
     const linksHtml = (p.externalLinks || [])
       .map(function (l) {
         var href = l.url;
@@ -399,10 +405,34 @@
 
     const filteredSections = sections.filter(function (s) { return p[s.key]; });
 
+    // Distribute inline images evenly across all sections so they appear
+    // throughout the page (not clustered at the top).
+    var imageMap = {};
+    var overflowInlineImages = [];
+    (function () {
+      var imageCount = inlineImages.length, sectionCount = filteredSections.length;
+      if (imageCount === 0 || sectionCount === 0) return;
+      if (imageCount <= sectionCount) {
+        // Spread all images evenly: image j → section at evenly-spaced index
+        inlineImages.forEach(function (img, j) {
+          var idx = imageCount === 1 ? Math.floor((sectionCount - 1) / 2) : Math.round(j * (sectionCount - 1) / (imageCount - 1));
+          imageMap[idx] = img;
+        });
+      } else {
+        // More images than sections: one per section, remainder goes to artifact strip
+        inlineImages.forEach(function (img, j) {
+          if (j < sectionCount) {
+            imageMap[j] = img;
+          } else {
+            overflowInlineImages.push(img);
+          }
+        });
+      }
+    }());
+
     // Build images HTML for the artifacts strip at the bottom.
-    // laptopImages are distributed inline; only galleryImages go to the strip.
     const bodyImagesHtml = [];
-    galleryImages.forEach(function (img) {
+    artifactGalleryImages.forEach(function (img) {
       bodyImagesHtml.push(
         '<div class="case-study-body__image-item gallery-spread-image">' +
         '<img src="' + escapeHtml(img.src) + '" alt="' + escapeHtml(img.alt) + '" loading="lazy">' +
@@ -430,10 +460,10 @@
       "</div>";
 
     // Build one full-width band per content section.
-    // When laptopImages are available, distribute them across sections alternating left/right.
+    // Images are evenly distributed across sections via imageMap (alternating left/right).
     const sectionBandsHtml = filteredSections
       .map(function (s, i) {
-        var img = laptopImages[i] || null;
+        var img = imageMap[i] || null;
         var sectionInner =
           '<section class="case-study-section" aria-labelledby="section-' +
           s.key +
@@ -486,9 +516,9 @@
         "</div>"
       : "";
 
-    // Full-width images artifact strip (galleryImages + any laptopImages beyond section count)
-    const overflowLaptopImages = laptopImages.slice(filteredSections.length);
-    overflowLaptopImages.forEach(function (img) {
+    // Full-width images artifact strip (galleryImages when project also has laptopImages,
+    // plus any inlineImages that exceeded the section count)
+    overflowInlineImages.forEach(function (img) {
       bodyImagesHtml.push(
         '<div class="case-study-body__image-item laptop-spread-image">' +
         '<img src="' + escapeHtml(img.src) + '" alt="' + escapeHtml(img.alt) + '" loading="lazy">' +
