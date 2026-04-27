@@ -855,100 +855,169 @@ p:last-child {
 }
 
 /* =============================================
-   FINAL FIX: Wide Marketing Layout (Clean Version)
+   FINAL CASE STUDY LAYOUT FIX
+   Full-screen, spacious, centered, responsive
    ============================================= */
 
-/* Expand layout to use more screen width */
+/* Full screen section behavior */
+.case-study-hero,
+.cs-section-band,
+.cs-images-strip {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Use the screen without pushing content into corners */
+.case-study-hero .container,
 .case-study-body .container,
 .cs-section-band .container,
 .cs-images-strip .container {
+  width: min(88vw, 1500px);
   max-width: 1500px;
-  width: min(92vw, 1500px);
-}
-
-/* Two-column layout like your inspiration site */
-.cs-section-band__inner {
-  display: grid;
-  grid-template-columns: minmax(220px, 0.8fr) minmax(0, 2.2fr);
-  gap: clamp(3rem, 7vw, 8rem);
-  align-items: start;
-}
-
-/* Remove forced left/right flipping behavior */
-.cs-section-band--image-right .cs-section-band__inner,
-.cs-section-band--image-left .cs-section-band__inner {
-  grid-template-columns: minmax(220px, 0.8fr) minmax(0, 2.2fr);
-  direction: ltr;
-}
-
-/* LEFT COLUMN: Section Titles */
-.cs-section-band .case-study-section__title {
-  font-size: clamp(2rem, 3vw, 3.5rem);
-  line-height: 1.05;
-  letter-spacing: -0.04em;
-  max-width: 9ch;
-  margin-bottom: 1.25rem;
-}
-
-/* Fix text spacing (your “words too close” issue) */
-.case-study-hero__title,
-.cs-section-band .case-study-section__title {
-  word-spacing: 0.05em;
-}
-
-/* RIGHT COLUMN: Body text */
-.cs-section-band .case-study-section p {
-  max-width: 75ch;
-  font-size: clamp(1rem, 1.1vw, 1.2rem);
-  line-height: 1.75;
+  margin-inline: auto;
 }
 
 /* ---------------------------------------------
-   REMOVE ALL IMAGE STYLING ISSUES
+   HERO SECTION
 ---------------------------------------------- */
 
-/* No rotation, no cards, no white background */
-.cs-section-band__image img,
-.case-study-hero-image-full .case-study-hero__image,
-.case-study-body__image-item img,
-.gallery-spread-image img,
-.laptop-spread-image img,
-.cs-images-strip__grid img {
-  transform: none !important;
-  background: transparent !important;
-  padding: 0 !important;
-  box-shadow: none !important;
-  border-radius: 0 !important;
+.case-study-hero {
+  min-height: 88vh;
+  padding-block: clamp(5rem, 9vw, 9rem);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(105, 119, 86, 0.12), transparent 30%),
+    radial-gradient(circle at 82% 28%, rgba(255, 130, 88, 0.14), transparent 34%),
+    var(--color-bg-alt);
+  display: flex;
+  align-items: center;
 }
 
-/* Image container spacing */
-.cs-section-band__image {
-  width: 100%;
-  margin-top: clamp(2rem, 4vw, 4rem);
+/* Hero content should not be stuck in the corner */
+.case-study-hero .container {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.9fr) minmax(420px, 1.1fr);
+  gap: clamp(4rem, 8vw, 9rem);
+  align-items: center;
 }
 
-.cs-section-band__image img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
+/* Hero text spacing */
+.case-study-hero__content {
+  max-width: 680px;
+}
+
+.case-study-hero__meta {
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.case-study-hero__role {
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+.case-study-hero__title {
+  font-size: clamp(3.25rem, 6vw, 6.75rem);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+  margin-bottom: 1.5rem;
+  max-width: 12ch;
+}
+
+.case-study-hero__summary {
+  font-size: clamp(1.05rem, 1.25vw, 1.35rem);
+  line-height: 1.8;
+  max-width: 58ch;
+  margin-bottom: 2rem;
+}
+
+/* Tags need breathing room */
+.tools-list,
+.case-study-hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.tools-list li,
+.tools-list span,
+.tools-list a,
+.case-study-hero__meta span {
+  padding: 0.55rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(var(--shadow-rgb), 0.14);
+  line-height: 1.2;
+}
+
+/* Buttons need space */
+.case-study-links {
+  gap: 1rem;
+  margin-top: 2rem;
 }
 
 /* ---------------------------------------------
-   SECTION BACKGROUNDS (instead of image cards)
+   IMPORTANT: Do NOT show big images in hero/top
+---------------------------------------------- */
+
+.case-study-hero-image-full {
+  display: none;
+}
+
+/* ---------------------------------------------
+   BODY / MIDDLE SECTIONS
 ---------------------------------------------- */
 
 .cs-section-band {
-  padding-block: clamp(5rem, 8vw, 8rem);
+  padding-block: clamp(6rem, 9vw, 10rem);
   background:
-    radial-gradient(circle at 15% 20%, rgba(105, 119, 86, 0.12), transparent 28%),
-    radial-gradient(circle at 85% 20%, rgba(255, 130, 88, 0.12), transparent 30%),
+    radial-gradient(circle at 18% 20%, rgba(105, 119, 86, 0.1), transparent 30%),
+    radial-gradient(circle at 86% 18%, rgba(255, 130, 88, 0.11), transparent 34%),
     var(--color-bg-alt);
 }
 
-/* Subtle divider like your inspo */
+/* Main layout: text uses both sides, not cramped */
+.cs-section-band__inner {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.75fr) minmax(0, 2.25fr);
+  gap: clamp(4rem, 8vw, 10rem);
+  align-items: start;
+}
+
+/* Remove forced flipping */
+.cs-section-band--image-right .cs-section-band__inner,
+.cs-section-band--image-left .cs-section-band__inner {
+  grid-template-columns: minmax(260px, 0.75fr) minmax(0, 2.25fr);
+  direction: ltr;
+}
+
+/* Left title column */
+.cs-section-band .case-study-section__title {
+  font-size: clamp(2.4rem, 4.2vw, 5rem);
+  line-height: 1;
+  letter-spacing: -0.055em;
+  max-width: 10ch;
+  margin-bottom: 1.5rem;
+}
+
+.cs-section-band .case-study-section__title::before {
+  width: 56px;
+  height: 5px;
+  border-radius: 999px;
+  margin-bottom: 1.25rem;
+}
+
+/* Right text column */
+.cs-section-band .case-study-section p {
+  font-size: clamp(1.05rem, 1.2vw, 1.3rem);
+  line-height: 1.85;
+  max-width: 82ch;
+  margin-bottom: 2rem;
+}
+
+/* Dividers like example site */
 .cs-section-band .case-study-section {
-  border-top: 1px dashed rgba(var(--shadow-rgb), 0.2);
-  padding-top: clamp(2rem, 4vw, 3rem);
+  border-top: 1px dashed rgba(var(--shadow-rgb), 0.22);
+  padding-top: clamp(2.5rem, 4vw, 4rem);
 }
 
 .cs-section-band:first-child .case-study-section {
@@ -956,46 +1025,138 @@ p:last-child {
 }
 
 /* ---------------------------------------------
-   IMAGE ROWS (phones/laptops)
+   IMAGES: centered in middle sections only
 ---------------------------------------------- */
+
+.cs-section-band__image {
+  grid-column: 1 / -1;
+  width: 100%;
+  margin-top: clamp(3rem, 5vw, 5rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Keep transparent images transparent */
+.cs-section-band__image img,
+.case-study-body__image-item img,
+.gallery-spread-image img,
+.laptop-spread-image img,
+.cs-images-strip__grid img {
+  width: min(100%, 1200px);
+  height: auto;
+  object-fit: contain;
+  transform: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Image strip should feel like a middle gallery, not an ending dump */
+.cs-images-strip {
+  padding-block: clamp(6rem, 9vw, 10rem);
+  background: var(--color-bg-alt);
+}
+
+.cs-images-strip__heading {
+  font-size: clamp(2.4rem, 4.2vw, 5rem);
+  line-height: 1;
+  letter-spacing: -0.055em;
+  margin-bottom: clamp(3rem, 5vw, 5rem);
+}
 
 .cs-images-strip__grid {
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: clamp(1.5rem, 3vw, 3rem);
-  align-items: end;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: center;
 }
 
 /* ---------------------------------------------
-   CARDS + PILLS CLEANUP
+   RESPONSIBILITIES / CARDS
 ---------------------------------------------- */
+
+.responsibilities-list {
+  gap: 1rem;
+  margin-top: 2rem;
+}
 
 .responsibilities-list li {
-  background: rgba(255, 255, 255, 0.35);
-  border: 1px solid rgba(var(--shadow-rgb), 0.12);
-  border-radius: 18px;
-  padding: 1rem 1.25rem;
-}
-
-.tools-list li,
-.tools-list span,
-.tools-list a {
-  background: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.38);
   border: 1px solid rgba(var(--shadow-rgb), 0.14);
-  box-shadow: none;
+  border-radius: 20px;
+  padding: 1.1rem 1.35rem;
+  line-height: 1.5;
 }
 
 /* ---------------------------------------------
-   MOBILE
+   MOBILE + TABLET
 ---------------------------------------------- */
 
-@media (max-width: 900px) {
-  .cs-section-band__inner {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+@media (max-width: 1000px) {
+  .case-study-hero {
+    min-height: auto;
+    padding-block: 5rem;
   }
 
-  .cs-section-band .case-study-section__title {
+  .case-study-hero .container,
+  .cs-section-band__inner,
+  .cs-section-band--image-right .cs-section-band__inner,
+  .cs-section-band--image-left .cs-section-band__inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .case-study-hero .container,
+  .case-study-body .container,
+  .cs-section-band .container,
+  .cs-images-strip .container {
+    width: min(90vw, 760px);
+  }
+
+  .case-study-hero__title,
+  .cs-section-band .case-study-section__title,
+  .cs-images-strip__heading {
     max-width: 100%;
+  }
+
+  .cs-section-band__image {
+    margin-top: 2rem;
+  }
+}
+
+/* Small phones */
+@media (max-width: 520px) {
+  .case-study-hero,
+  .cs-section-band,
+  .cs-images-strip {
+    padding-block: 4rem;
+  }
+
+  .case-study-hero .container,
+  .case-study-body .container,
+  .cs-section-band .container,
+  .cs-images-strip .container {
+    width: 90vw;
+  }
+
+  .case-study-hero__title,
+  .cs-section-band .case-study-section__title,
+  .cs-images-strip__heading {
+    font-size: clamp(2.6rem, 13vw, 4rem);
+    line-height: 1.02;
+  }
+
+  .case-study-hero__summary,
+  .cs-section-band .case-study-section p {
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  .tools-list,
+  .case-study-hero__meta {
+    gap: 0.6rem;
   }
 }
 /* =============================================
