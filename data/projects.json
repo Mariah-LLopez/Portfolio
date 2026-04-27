@@ -23,16 +23,6 @@
       "Adobe XD"
     ],
     "heroImage": "assets/hifidelity.png",
-    "galleryImages": [
-      {
-        "src": "assets/persona.png",
-        "alt": "OPPI Data Hub Persona"
-      },
-      {
-        "src": "assets/journeymap.png",
-        "alt": "OPPI Data Hub persona journey"
-      }
-    ],
     "externalLinks": [
       {
         "label": "View Project",
@@ -52,20 +42,28 @@
     "outcomesAndNextSteps": "The redesigned architecture was approved and handed off to development with complete documentation. A structured competition for the changes was addressed in the site's About page.",
     "laptopImages": [
       {
+        "src": "assets/persona.png",
+        "alt": "OPPI Data Hub Persona"
+      },
+      {
+        "src": "assets/journeymap.png",
+        "alt": "OPPI Data Hub persona journey"
+      }
+    ],
         "src": "assets/Laptop.png",
         "alt": "OPPI Data Hub laptops overview"
       },
       {
-        "src": "assets/laptopone.png",
-        "alt": "OPPI Data Hub laptop one"
+        "src": "assets/laptoptwo.png",
+        "alt": "OPPI Data Hub laptop image two"
       },
       {
-        "src": "assets/laptoptwo.png",
-        "alt": "OPPI Data Hub laptop two"
+        "src": "assets/laptopthree.png",
+        "alt": "OPPI Data Hub laptop image three"
       },
       {
         "src": "assets/LotoHilaptop.png",
-        "alt": "OPPI Data Hub laptop three"
+        "alt": "OPPI Data Hub laptop image compare"
       }
     ]
   },
