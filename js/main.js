@@ -708,8 +708,7 @@
       return true;
     }
 
-    // Formspree endpoint — replace YOUR_FORM_ID with your form ID from formspree.io
-    var FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
+    var FORMSPREE_ENDPOINT = "https://formspree.io/f/meevboze";
 
     var errorMsg = document.getElementById("form-error");
     var submitBtn = contactForm.querySelector('[type="submit"]');
