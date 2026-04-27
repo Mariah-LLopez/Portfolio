@@ -50,7 +50,7 @@
         "alt": "OPPI Data Hub persona journey"
       },
       {
-        "src": "assets/Laptop.png",
+        "src": "assets/laptop.png",
         "alt": "OPPI Data Hub laptops overview"
       },
       {
@@ -58,12 +58,12 @@
         "alt": "OPPI Data Hub laptop image two"
       },
       {
-        "src": "assets/laptopthree.png",
+        "src": "assets/laptops.png",
         "alt": "OPPI Data Hub laptop image three"
       },
       {
-        "src": "assets/LotoHilaptop.png",
-        "alt": "OPPI Data Hub laptop image compare"
+        "src": "assets/LotoHiLaptop.png",
+        "alt": "OPPI Data Hub laptop image compare."
       }
     ]
   },
