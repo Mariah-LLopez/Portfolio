@@ -1126,7 +1126,113 @@ p:last-child {
   border: none;
 }
 
-/* Loading / Error states */
+/* =============================================
+   Case Study — Marketing Band Layout
+   ============================================= */
+/* Full-width section bands that replace the old 2-column sidebar layout */
+.cs-section-band {
+  padding-block: var(--space-2xl);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.cs-section-band:nth-child(odd) {
+  background: var(--color-bg-alt);
+}
+
+.cs-section-band:nth-child(even) {
+  background: var(--color-bg);
+}
+
+.cs-section-band:last-child {
+  border-bottom: none;
+}
+
+/* Override the default bordered top-separator since bands handle spacing */
+.cs-section-band .case-study-section {
+  border-top: none;
+  padding-top: 0;
+}
+
+/* Marketing-style section title: accent rule + larger, bolder text */
+.cs-section-band .case-study-section__title {
+  font-size: var(--font-size-3xl);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-md);
+  color: var(--color-text);
+}
+
+.cs-section-band .case-study-section__title::before {
+  content: '';
+  display: block;
+  width: 44px;
+  height: 4px;
+  background: var(--color-primary);
+  border-radius: 2px;
+  margin-bottom: var(--space-sm);
+}
+
+/* Remove p width cap so text uses the full readable column */
+.cs-section-band .case-study-section p {
+  max-width: 80ch;
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+}
+
+/* Tools heading inside a band */
+.cs-tools-heading {
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-xs);
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+/* Full-width image artifacts strip */
+.cs-images-strip {
+  padding-block: var(--space-2xl);
+  background: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+}
+
+.cs-images-strip__heading {
+  margin-bottom: var(--space-lg);
+}
+
+.cs-images-strip__heading::before {
+  content: '';
+  display: block;
+  width: 44px;
+  height: 4px;
+  background: var(--color-primary);
+  border-radius: 2px;
+  margin-bottom: var(--space-sm);
+}
+
+.cs-images-strip__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-lg);
+}
+
+.cs-images-strip__grid .case-study-body__image-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--border-radius);
+  animation: none;
+}
+
+/* Reset bleed margins inside the grid */
+.cs-images-strip__grid .laptop-spread-image {
+  margin-inline: 0;
+}
+
+.cs-images-strip__grid .laptop-spread-image img {
+  width: 100%;
+}
+
+
 .loading-state,
 .error-state {
   text-align: center;
