@@ -855,170 +855,149 @@ p:last-child {
 }
 
 /* =============================================
-   Artistic / Marketing Case Study Upgrade
-   Add existing case study CSS below
+   FINAL FIX: Wide Marketing Layout (Clean Version)
    ============================================= */
 
-/* Softer editorial background */
-.case-study-hero {
-  background:
-    radial-gradient(circle at 78% 18%, rgba(255, 110, 55, 0.12), transparent 26%),
-    radial-gradient(circle at 12% 82%, rgba(92, 119, 76, 0.14), transparent 28%),
-    var(--color-bg-alt);
-  min-height: 72vh;
-  display: flex;
-  align-items: center;
+/* Expand layout to use more screen width */
+.case-study-body .container,
+.cs-section-band .container,
+.cs-images-strip .container {
+  max-width: 1500px;
+  width: min(92vw, 1500px);
 }
 
-/* Hero layout: poster-like split */
-.case-study-hero .container {
+/* Two-column layout like your inspiration site */
+.cs-section-band__inner {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: clamp(2rem, 6vw, 6rem);
-  align-items: center;
+  grid-template-columns: minmax(220px, 0.8fr) minmax(0, 2.2fr);
+  gap: clamp(3rem, 7vw, 8rem);
+  align-items: start;
 }
 
-/* Small label above title */
-.case-study-hero__role {
-  display: inline-flex;
-  width: fit-content;
-  padding: 0.45rem 0.75rem;
-  border: 1px solid var(--color-border);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.55);
+/* Remove forced left/right flipping behavior */
+.cs-section-band--image-right .cs-section-band__inner,
+.cs-section-band--image-left .cs-section-band__inner {
+  grid-template-columns: minmax(220px, 0.8fr) minmax(0, 2.2fr);
+  direction: ltr;
 }
 
-/* Bigger, more showcase-like title */
-.case-study-hero__title {
-  font-size: clamp(3rem, 7vw, 6.5rem);
-  line-height: 0.9;
-  letter-spacing: -0.06em;
-  max-width: 9ch;
-}
-
-/* Stronger intro paragraph */
-.case-study-hero__summary {
-  font-size: clamp(1.1rem, 1.5vw, 1.35rem);
-  line-height: 1.75;
-  max-width: 58ch;
-}
-
-/* Hero image as floating card */
-.case-study-hero-image-full {
-  padding: clamp(1.5rem, 4vw, 4rem);
-  background: var(--color-bg-alt);
-}
-
-.case-study-hero-image-full .case-study-hero__image {
-  border-radius: 28px;
-  box-shadow: 0 30px 80px rgba(var(--shadow-rgb), 0.18);
-  transform: rotate(1deg);
-}
-
-/* Marketing bands feel more like sections */
-.cs-section-band {
-  padding-block: clamp(5rem, 10vw, 9rem);
-  position: relative;
-  overflow: hidden;
-}
-
-.cs-section-band:nth-child(odd) {
-  background:
-    linear-gradient(135deg, rgba(255, 110, 55, 0.06), transparent 42%),
-    var(--color-bg-alt);
-}
-
-.cs-section-band:nth-child(even) {
-  background:
-    linear-gradient(225deg, rgba(92, 119, 76, 0.08), transparent 40%),
-    var(--color-bg);
-}
-
-/* More dramatic section title */
+/* LEFT COLUMN: Section Titles */
 .cs-section-band .case-study-section__title {
-  font-size: clamp(2.5rem, 5vw, 5rem);
-  line-height: 0.95;
-  max-width: 8ch;
-  letter-spacing: -0.06em;
-}
-
-/* Accent mark feels more designed */
-.cs-section-band .case-study-section__title::before {
-  width: 56px;
-  height: 6px;
-  border-radius: 999px;
+  font-size: clamp(2rem, 3vw, 3.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  max-width: 9ch;
   margin-bottom: 1.25rem;
 }
 
-/* Body text more polished */
+/* Fix text spacing (your “words too close” issue) */
+.case-study-hero__title,
+.cs-section-band .case-study-section__title {
+  word-spacing: 0.05em;
+}
+
+/* RIGHT COLUMN: Body text */
 .cs-section-band .case-study-section p {
-  font-size: clamp(1rem, 1.35vw, 1.25rem);
-  line-height: 1.85;
-  max-width: 62ch;
+  max-width: 75ch;
+  font-size: clamp(1rem, 1.1vw, 1.2rem);
+  line-height: 1.75;
 }
 
-/* Images become presentation cards */
+/* ---------------------------------------------
+   REMOVE ALL IMAGE STYLING ISSUES
+---------------------------------------------- */
+
+/* No rotation, no cards, no white background */
 .cs-section-band__image img,
-.cs-images-strip__grid img,
-.case-study-body__image-item img {
-  border-radius: 30px;
-  box-shadow: 0 24px 70px rgba(var(--shadow-rgb), 0.16);
-  background: white;
-  padding: 0.75rem;
+.case-study-hero-image-full .case-study-hero__image,
+.case-study-body__image-item img,
+.gallery-spread-image img,
+.laptop-spread-image img,
+.cs-images-strip__grid img {
+  transform: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
 }
 
-/* Slight stagger for image sections */
-.cs-section-band--image-right .cs-section-band__image img {
-  transform: rotate(1.5deg);
+/* Image container spacing */
+.cs-section-band__image {
+  width: 100%;
+  margin-top: clamp(2rem, 4vw, 4rem);
 }
 
-.cs-section-band--image-left .cs-section-band__image img {
-  transform: rotate(-1.5deg);
+.cs-section-band__image img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
-/* Make tools/tags look like product badges */
-.tools-list {
-  gap: 0.75rem;
+/* ---------------------------------------------
+   SECTION BACKGROUNDS (instead of image cards)
+---------------------------------------------- */
+
+.cs-section-band {
+  padding-block: clamp(5rem, 8vw, 8rem);
+  background:
+    radial-gradient(circle at 15% 20%, rgba(105, 119, 86, 0.12), transparent 28%),
+    radial-gradient(circle at 85% 20%, rgba(255, 130, 88, 0.12), transparent 30%),
+    var(--color-bg-alt);
+}
+
+/* Subtle divider like your inspo */
+.cs-section-band .case-study-section {
+  border-top: 1px dashed rgba(var(--shadow-rgb), 0.2);
+  padding-top: clamp(2rem, 4vw, 3rem);
+}
+
+.cs-section-band:first-child .case-study-section {
+  border-top: none;
+}
+
+/* ---------------------------------------------
+   IMAGE ROWS (phones/laptops)
+---------------------------------------------- */
+
+.cs-images-strip__grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: clamp(1.5rem, 3vw, 3rem);
+  align-items: end;
+}
+
+/* ---------------------------------------------
+   CARDS + PILLS CLEANUP
+---------------------------------------------- */
+
+.responsibilities-list li {
+  background: rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(var(--shadow-rgb), 0.12);
+  border-radius: 18px;
+  padding: 1rem 1.25rem;
 }
 
 .tools-list li,
 .tools-list span,
 .tools-list a {
-  border-radius: 999px;
-  padding: 0.5rem 0.8rem;
-  background: rgba(255, 255, 255, 0.65);
-  border: 1px solid var(--color-border);
-  box-shadow: 0 8px 20px rgba(var(--shadow-rgb), 0.06);
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(var(--shadow-rgb), 0.14);
+  box-shadow: none;
 }
 
-/* Responsibilities as clean feature points */
-.responsibilities-list li {
-  background: rgba(255, 255, 255, 0.55);
-  border: 1px solid var(--color-border);
-  border-radius: 18px;
-  padding: 0.9rem 1rem;
-}
+/* ---------------------------------------------
+   MOBILE
+---------------------------------------------- */
 
-/* Mobile cleanup */
 @media (max-width: 900px) {
-  .case-study-hero .container,
-  .cs-section-band__inner,
-  .cs-section-band--image-right .cs-section-band__inner,
-  .cs-section-band--image-left .cs-section-band__inner {
+  .cs-section-band__inner {
     grid-template-columns: 1fr;
-    direction: ltr;
+    gap: 2rem;
   }
 
-  .case-study-hero {
-    min-height: auto;
-  }
-
-  .case-study-hero__title,
   .cs-section-band .case-study-section__title {
     max-width: 100%;
   }
 }
-
 /* =============================================
    Resume Layout
    ============================================= */
