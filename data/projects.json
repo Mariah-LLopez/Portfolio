@@ -52,19 +52,19 @@
     "outcomesAndNextSteps": "The redesigned architecture was approved and handed off to development with complete documentation. A structured competition for the changes was addressed in the site's About page.",
     "laptopImages": [
       {
-        "src": "assets/laptops.png",
+        "src": "assets/Laptop.png",
         "alt": "OPPI Data Hub laptops overview"
       },
       {
-        "src": "assets/laptop one.png",
+        "src": "assets/laptopone.png",
         "alt": "OPPI Data Hub laptop one"
       },
       {
-        "src": "assets/laptop two.png",
+        "src": "assets/laptoptwo.png",
         "alt": "OPPI Data Hub laptop two"
       },
       {
-        "src": "assets/laptop 3.png",
+        "src": "assets/LotoHilaptop.png",
         "alt": "OPPI Data Hub laptop three"
       }
     ]
