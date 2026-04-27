@@ -1565,6 +1565,22 @@ textarea.form-control {
   display: block;
 }
 
+.form-error {
+  background: #fee2e2;
+  border: 1px solid #fca5a5;
+  color: #991b1b;
+  border-radius: var(--border-radius);
+  padding: var(--space-md);
+  margin-top: var(--space-md);
+  font-weight: 500;
+  text-align: center;
+}
+
+.form-error a {
+  color: inherit;
+  text-decoration: underline;
+}
+
 /* =============================================
    Page Header (inner pages)
    ============================================= */
