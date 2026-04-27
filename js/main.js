@@ -9,6 +9,10 @@
      so renderCaseStudy can initialise dynamically-added canvases. */
   var _initCanvas = null;
 
+  /* Module-level reference to scroll-reveal observer init; set in section 11
+     so renderCaseStudy can observe dynamically-added .reveal elements. */
+  var _initReveal = null;
+
   /* ------------------------------------------
      1. Navigation: Hamburger Menu Toggle
      ------------------------------------------ */
@@ -395,7 +399,7 @@
 
     const filteredSections = sections.filter(function (s) { return p[s.key]; });
 
-    // Build left-column images HTML: gallery images first, then laptop images.
+    // Build images HTML for the artifacts strip at the bottom.
     const bodyImagesHtml = [];
     galleryImages.forEach(function (img) {
       bodyImagesHtml.push(
@@ -412,9 +416,31 @@
       );
     });
 
-    const sectionsHtml = filteredSections
+    // Build a full-width section band for responsibilities & tools
+    const respBandHtml =
+      '<div class="cs-section-band reveal">' +
+      '<div class="container">' +
+      '<section class="case-study-section" aria-labelledby="section-responsibilities">' +
+      '<h2 class="case-study-section__title" id="section-responsibilities">Responsibilities</h2>' +
+      '<ul class="responsibilities-list">' +
+      respHtml +
+      "</ul>" +
+      (toolsHtml
+        ? '<h3 class="cs-tools-heading">Tools Used</h3>' +
+          '<div class="tools-list">' +
+          toolsHtml +
+          "</div>"
+        : "") +
+      "</section>" +
+      "</div>" +
+      "</div>";
+
+    // Build one full-width band per content section
+    const sectionBandsHtml = filteredSections
       .map(function (s) {
         return (
+          '<div class="cs-section-band reveal">' +
+          '<div class="container">' +
           '<section class="case-study-section" aria-labelledby="section-' +
           s.key +
           '">' +
@@ -426,10 +452,36 @@
           "<p>" +
           escapeHtml(p[s.key]) +
           "</p>" +
-          "</section>"
+          "</section>" +
+          "</div>" +
+          "</div>"
         );
       })
       .join("");
+
+    // Video band
+    const videoBandHtml = videoHtml
+      ? '<div class="cs-section-band reveal">' +
+        '<div class="container">' +
+        '<section class="case-study-section" aria-labelledby="section-video">' +
+        '<h2 class="case-study-section__title" id="section-video">Video Walkthrough</h2>' +
+        videoHtml +
+        "</section>" +
+        "</div>" +
+        "</div>"
+      : "";
+
+    // Full-width images artifact strip
+    const imagesStripHtml = bodyImagesHtml.length
+      ? '<div class="cs-images-strip reveal">' +
+        '<div class="container">' +
+        '<h2 class="case-study-section__title cs-images-strip__heading">Project Artifacts</h2>' +
+        '<div class="cs-images-strip__grid">' +
+        bodyImagesHtml.join("") +
+        "</div>" +
+        "</div>" +
+        "</div>"
+      : "";
 
     container.innerHTML =
       // Hero — text only, full-width; image moved below
@@ -470,50 +522,23 @@
           ' hero image" loading="eager">' +
           "</div>"
         : "") +
-      // Body
+      // Body: each section is its own full-width band
       '<div class="case-study-body">' +
-      '<div class="container" style="max-width:1200px;margin-inline:auto">' +
-      '<div class="case-study-body__layout">' +
-      // Left column: all images
-      (bodyImagesHtml.length
-        ? '<aside class="case-study-body__images" aria-label="Project images">' +
-          bodyImagesHtml.join("") +
-          "</aside>"
-        : "") +
-      // Right column: text content
-      '<div class="case-study-body__content">' +
-      '<div class="case-study-breakdown">' +
-      // Responsibilities & Tools block
-      '<section class="case-study-section" aria-labelledby="section-responsibilities">' +
-      '<h2 class="case-study-section__title" id="section-responsibilities">Responsibilities</h2>' +
-      '<ul class="responsibilities-list">' +
-      respHtml +
-      "</ul>" +
-      (toolsHtml
-        ? '<h3 style="margin-top:1.5rem;margin-bottom:0.5rem;font-size:1rem;font-weight:700;color:var(--color-text)">Tools Used</h3>' +
-          '<div class="tools-list">' +
-          toolsHtml +
-          "</div>"
-        : "") +
-      "</section>" +
-      sectionsHtml +
-      // Video
-      (videoHtml
-        ? '<section class="case-study-section" aria-labelledby="section-video">' +
-          '<h2 class="case-study-section__title" id="section-video">Video Walkthrough</h2>' +
-          videoHtml +
-          "</section>"
-        : "") +
-      "</div>" +
-      "</div>" +
-      "</div>" +
-      "</div>" +
+      respBandHtml +
+      sectionBandsHtml +
+      videoBandHtml +
+      imagesStripHtml +
       "</div>";
 
     // Initialise the canvas animation injected into the hero section
     if (_initCanvas) {
       var heroCanvas = container.querySelector(".case-study-hero .section__canvas");
       if (heroCanvas) _initCanvas(heroCanvas);
+    }
+
+    // Observe all .reveal elements rendered in the case study
+    if (_initReveal) {
+      _initReveal(container);
     }
   }
 
@@ -679,28 +704,31 @@
   }
 
   /* ------------------------------------------
-     11. Landing Page Scroll Reveal
+     11. Scroll Reveal
      ------------------------------------------ */
-  const revealElements = document.querySelectorAll(".reveal");
+  var revealObserver = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+        }
+      });
+    },
+    {
+      threshold: 0.1
+    }
+  );
 
-  if (revealElements.length) {
-    const observer = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-          }
-        });
-      },
-      {
-        threshold: 0.15
-      }
-    );
+  document.querySelectorAll(".reveal").forEach(function (element) {
+    revealObserver.observe(element);
+  });
 
-    revealElements.forEach(function (element) {
-      observer.observe(element);
+  // Expose so dynamically-rendered content (e.g. case study) can register its own .reveal elements.
+  _initReveal = function (container) {
+    container.querySelectorAll(".reveal").forEach(function (element) {
+      revealObserver.observe(element);
     });
-  }
+  };
   /* ------------------------------------------
      12. Wireframe Canvas Animation
      ------------------------------------------ */
