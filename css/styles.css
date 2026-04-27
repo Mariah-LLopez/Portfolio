@@ -2187,3 +2187,118 @@ html.moon-mode .tag--muted {
 }
 
 /* Hero inherits the global moon-mode color overrides (orange→pink, green→blue) */
+.case-study-hero .container,
+.cs-section-band .container,
+.case-study-body .container {
+  width: min(92vw, 1500px);
+  max-width: 1500px;
+  margin-inline: auto;
+}
+
+.case-study-hero {
+  min-height: 75vh;
+  display: flex;
+  align-items: center;
+  padding-block: clamp(5rem, 8vw, 9rem);
+}
+
+.case-study-hero__content {
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+.case-study-hero__title {
+  font-size: clamp(3.5rem, 7vw, 7rem);
+  line-height: 1.02;
+  margin-bottom: 1.5rem;
+}
+
+.case-study-hero__summary {
+  max-width: 70ch;
+  line-height: 1.8;
+}
+
+.cs-section-band {
+  padding-block: clamp(5rem, 8vw, 9rem);
+}
+
+.cs-section-band__inner {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.9fr) minmax(420px, 1.1fr);
+  gap: clamp(4rem, 8vw, 10rem);
+  align-items: center;
+}
+
+.cs-section-band--image-left .cs-section-band__content {
+  order: 2;
+}
+
+.cs-section-band--image-left .cs-section-band__image {
+  order: 1;
+}
+
+.cs-section-band__content {
+  max-width: 700px;
+}
+
+.cs-section-band .case-study-section__title {
+  font-size: clamp(2.8rem, 5vw, 5.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.05em;
+  margin-bottom: 1.5rem;
+  max-width: 11ch;
+}
+
+.cs-section-band .case-study-section p {
+  font-size: clamp(1.05rem, 1.25vw, 1.3rem);
+  line-height: 1.85;
+  max-width: 70ch;
+}
+
+.cs-section-band__image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cs-section-band__image img {
+  width: 100%;
+  max-width: 720px;
+  height: auto;
+  object-fit: contain;
+  transform: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+}
+
+.cs-section-band__image--empty {
+  min-height: 220px;
+}
+
+.case-study-hero-image-full {
+  display: none !important;
+}
+
+@media (max-width: 900px) {
+  .cs-section-band__inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .cs-section-band--image-left .cs-section-band__content,
+  .cs-section-band--image-left .cs-section-band__image {
+    order: initial;
+  }
+
+  .case-study-hero,
+  .cs-section-band {
+    padding-block: 4rem;
+  }
+
+  .case-study-hero__title,
+  .cs-section-band .case-study-section__title {
+    max-width: 100%;
+  }
+}
