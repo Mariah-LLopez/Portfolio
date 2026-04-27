@@ -2195,75 +2195,70 @@ html.moon-mode .tag--muted {
   margin-inline: auto;
 }
 
-.case-study-hero {
-  min-height: 75vh;
-  display: flex;
-  align-items: center;
-  padding-block: clamp(5rem, 8vw, 9rem);
+/* =============================================
+   TRUE 2/3 TEXT + 1/3 IMAGE ALTERNATING LAYOUT
+   ============================================= */
+
+/* Full width container */
+.cs-section-band .container,
+.case-study-body .container {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding-inline: clamp(2rem, 5vw, 6rem);
 }
 
-.case-study-hero__content {
-  max-width: 900px;
-  margin-inline: auto;
-}
-
-.case-study-hero__title {
-  font-size: clamp(3.5rem, 7vw, 7rem);
-  line-height: 1.02;
-  margin-bottom: 1.5rem;
-}
-
-.case-study-hero__summary {
-  max-width: 70ch;
-  line-height: 1.8;
-}
-
+/* Each section uses the full page width */
 .cs-section-band {
+  width: 100%;
   padding-block: clamp(5rem, 8vw, 9rem);
 }
 
+/* Default: text takes 2/3, image takes 1/3 */
 .cs-section-band__inner {
   display: grid;
-  grid-template-columns: minmax(320px, 0.9fr) minmax(420px, 1.1fr);
-  gap: clamp(4rem, 8vw, 10rem);
+  grid-template-columns: 2fr 1fr;
+  gap: clamp(3rem, 6vw, 7rem);
   align-items: center;
+  width: 100%;
 }
 
-.cs-section-band--image-left .cs-section-band__content {
-  order: 2;
+/* Text stretches across the 2/3 area */
+.cs-section-band__content,
+.cs-section-band .case-study-section {
+  max-width: none;
+  width: 100%;
 }
 
-.cs-section-band--image-left .cs-section-band__image {
-  order: 1;
-}
-
-.cs-section-band__content {
-  max-width: 700px;
-}
-
+/* Text styling */
 .cs-section-band .case-study-section__title {
-  font-size: clamp(2.8rem, 5vw, 5.5rem);
+  font-size: clamp(3rem, 5.5vw, 6rem);
   line-height: 1.02;
   letter-spacing: -0.05em;
-  margin-bottom: 1.5rem;
-  max-width: 11ch;
+  max-width: 12ch;
+  margin-bottom: 2rem;
 }
 
 .cs-section-band .case-study-section p {
-  font-size: clamp(1.05rem, 1.25vw, 1.3rem);
-  line-height: 1.85;
-  max-width: 70ch;
+  max-width: none;
+  width: 100%;
+  font-size: clamp(1.05rem, 1.25vw, 1.35rem);
+  line-height: 1.9;
+  margin-bottom: 2rem;
 }
 
+/* Image area takes the last third */
 .cs-section-band__image {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+/* Keep transparent mockups clean */
 .cs-section-band__image img {
   width: 100%;
-  max-width: 720px;
+  max-width: 520px;
   height: auto;
   object-fit: contain;
   transform: none !important;
@@ -2273,32 +2268,74 @@ html.moon-mode .tag--muted {
   padding: 0 !important;
 }
 
-.cs-section-band__image--empty {
-  min-height: 220px;
+/* Alternate layout: image first third, text next 2/3 */
+.cs-section-band--image-left .cs-section-band__inner {
+  grid-template-columns: 1fr 2fr;
 }
 
+.cs-section-band--image-left .cs-section-band__image {
+  order: 1;
+}
+
+.cs-section-band--image-left .cs-section-band__content,
+.cs-section-band--image-left .case-study-section {
+  order: 2;
+}
+
+/* Default image-right layout */
+.cs-section-band--image-right .cs-section-band__inner {
+  grid-template-columns: 2fr 1fr;
+}
+
+.cs-section-band--image-right .cs-section-band__content,
+.cs-section-band--image-right .case-study-section {
+  order: 1;
+}
+
+.cs-section-band--image-right .cs-section-band__image {
+  order: 2;
+}
+
+/* Hide the hero image strip if it is still rendering */
 .case-study-hero-image-full {
   display: none !important;
 }
 
+/* Hero should also use the page better */
+.case-study-hero .container {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding-inline: clamp(2rem, 5vw, 6rem);
+}
+
+.case-study-hero__content {
+  max-width: 1100px;
+}
+
+/* Mobile: stack cleanly */
 @media (max-width: 900px) {
-  .cs-section-band__inner {
+  .cs-section-band .container,
+  .case-study-body .container,
+  .case-study-hero .container {
+    padding-inline: 1.5rem;
+  }
+
+  .cs-section-band__inner,
+  .cs-section-band--image-left .cs-section-band__inner,
+  .cs-section-band--image-right .cs-section-band__inner {
     grid-template-columns: 1fr;
     gap: 3rem;
   }
 
-  .cs-section-band--image-left .cs-section-band__content,
-  .cs-section-band--image-left .cs-section-band__image {
-    order: initial;
+  .cs-section-band__image,
+  .cs-section-band__content,
+  .cs-section-band .case-study-section {
+    order: initial !important;
   }
 
-  .case-study-hero,
-  .cs-section-band {
-    padding-block: 4rem;
-  }
-
-  .case-study-hero__title,
   .cs-section-band .case-study-section__title {
     max-width: 100%;
+    font-size: clamp(2.5rem, 12vw, 4rem);
   }
 }
