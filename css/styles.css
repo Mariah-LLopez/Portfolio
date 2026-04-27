@@ -1182,7 +1182,7 @@ p:last-child {
   display: block;
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-md);
-  animation: none;
+  animation: none; /* suppress global img-shadow-pulse */
 }
 
 /* Override the default bordered top-separator since bands handle spacing */
