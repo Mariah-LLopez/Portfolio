@@ -915,12 +915,29 @@ p:last-child {
   margin-bottom: var(--space-md);
 }
 
+.case-study-hero__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  align-items: center;
+  margin-top: var(--space-md);
+}
+
+.case-study-hero__images {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.case-study-hero__content {
+  display: flex;
+  flex-direction: column;
+}
+
 .case-study-hero__image {
   display: block;
   width: 100%;
-  max-width: 900px;
-  margin-top: var(--space-lg);
-  margin-inline: auto;
+  height: auto;
 }
 
 .case-study-body {
@@ -1730,6 +1747,10 @@ textarea.form-control {
 
   .section__title {
     font-size: var(--font-size-2xl);
+  }
+
+  .case-study-hero__inner {
+    grid-template-columns: 1fr;
   }
 }
 

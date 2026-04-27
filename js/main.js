@@ -457,6 +457,15 @@
       '<nav aria-label="Breadcrumb" style="margin-bottom:1rem;font-size:0.9375rem">' +
       '<a href="projects.html">← Back to Projects</a>' +
       "</nav>" +
+      '<div class="case-study-hero__inner">' +
+      '<div class="case-study-hero__images">' +
+      '<img class="case-study-hero__image" src="' +
+      escapeHtml(p.heroImage || "assets/placeholder.svg") +
+      '" alt="' +
+      escapeHtml(p.title) +
+      ' hero image" loading="eager">' +
+      "</div>" +
+      '<div class="case-study-hero__content">' +
       '<div class="case-study-hero__meta">' +
       '<span class="case-study-hero__role">' +
       escapeHtml(p.role) +
@@ -474,11 +483,8 @@
       (linksHtml
         ? '<div class="case-study-links">' + linksHtml + "</div>"
         : "") +
-      '<img class="case-study-hero__image" src="' +
-      escapeHtml(p.heroImage || "assets/placeholder.svg") +
-      '" alt="' +
-      escapeHtml(p.title) +
-      ' hero image" loading="eager">' +
+      "</div>" +
+      "</div>" +
       "</div>" +
       "</div>" +
       // Body
