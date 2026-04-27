@@ -2245,4 +2245,16 @@ html.moon-mode .site-header {
   background: linear-gradient(180deg, #2a2a2a 0%, #1A1A1A 55%, #111111 100%);
 }
 
+html.moon-mode .tag {
+  background: transparent;
+  border: 1.5px solid var(--color-primary);
+  color: var(--color-primary-dark);
+}
+
+html.moon-mode .tag--muted {
+  background: transparent;
+  border: 1.5px solid var(--color-border);
+  color: var(--color-text-secondary);
+}
+
 /* Hero inherits the global moon-mode color overrides (orange→pink, green→blue) */
