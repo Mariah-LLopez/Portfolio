@@ -323,5 +323,230 @@
     "qaAndIteration": "Prototype testing revealed that the listing creation flow was too long for mobile completion in a single session. The flow was redesigned to support saving drafts and resuming, and the step count was reduced from 7 to 4 by consolidating related fields. A second test round validated the revised flow.",
     "outcomesAndNextSteps": "The prototype was well-received, although feedback was to create a larger font. Next steps for the concept include a technical feasibility review, business model exploration, and a higher-fidelity prototype for investor presentation.",
     "analyticsCategory": "Analytics & Insights"
+  },
+  {
+    "title": "Nonprofit Grant Proposals",
+    "slug": "nonprofit-grant-proposals",
+    "strategicSummary": "Authored three targeted grant proposals for two nonprofits — a wildlife conservation group and a youth literacy program — securing funding through clear narrative structure, evidence-based impact statements, and funder-aligned language.",
+    "role": "Grant Writer & Technical Writer",
+    "responsibilities": [
+      "Conducted funder research and alignment analysis",
+      "Interviewed program staff to surface impact data",
+      "Drafted narrative sections: need statements, program descriptions, evaluation plans",
+      "Developed budgets and budget narratives",
+      "Revised proposals through multiple feedback cycles",
+      "Formatted final documents to each funder's submission guidelines"
+    ],
+    "tags": [
+      "Documentation",
+      "Content Strategy"
+    ],
+    "tools": [
+      "Microsoft Word",
+      "Google Docs",
+      "Grants.gov style guidelines",
+      "Foundation Directory"
+    ],
+    "heroImage": "assets/placeholder.svg",
+    "galleryImages": [],
+    "externalLinks": [],
+    "videoEmbed": "",
+    "overview": "This project encompassed three distinct grant proposals submitted on behalf of two nonprofits: Raptor Watch Colorado (a wildlife conservation organization) and Literacy Bridges (a youth reading intervention program). Each proposal required translating the organization's programs into funder-facing narratives that aligned with specific grant priorities, demonstrated measurable community impact, and complied with submission requirements.",
+    "problemAndGoals": "Both organizations had compelling programs but struggled to communicate their impact in language that resonated with institutional funders. The primary challenge was bridging the gap between program-level knowledge — held by staff closest to the work — and the evidence-based, outcome-focused framing funders require. The goal for each proposal was to present a clear problem statement, a well-structured program design, and a credible evaluation plan within strict word and page limits.",
+    "myRole": "I served as lead writer across all three proposals. For Raptor Watch Colorado, I wrote one federal-style proposal to a wildlife foundation and one community foundation proposal emphasizing local partnership. For Literacy Bridges, I wrote a corporate foundation proposal focused on literacy outcomes and ROI framing. I managed all drafts, incorporated feedback from program staff and an executive director, and formatted final submissions to each funder's specifications.",
+    "discoveryAndConstraints": "Discovery involved intake interviews with program directors and a review of prior grant applications, annual reports, and program data. Key constraints included strict word limits (one proposal capped narrative sections at 1,000 words each), varying budget format requirements, and tight submission deadlines. I also had to ensure that program claims were grounded in documented data rather than anecdotal evidence to meet funder due-diligence standards.",
+    "informationArchitecture": "Each proposal was structured around the standard grant narrative arc: organizational credibility, community need, program design, evaluation methodology, sustainability plan, and budget narrative. Within that arc, I tailored sequencing and emphasis based on each funder's stated priorities — for example, leading with ecological data for the wildlife funder and front-loading student outcome statistics for the corporate education funder.",
+    "requirementsAndCriteria": "Requirements varied by funder. Federal-style guidelines required specific section headers and page counts. Foundation portals had character-limited text fields. All three proposals required signed assurances, organizational financials, and IRS determination letters. I created a compliance checklist for each proposal to track submission requirements and flag any missing elements before final review.",
+    "qaAndIteration": "Each proposal underwent two to three revision cycles. First-draft reviews focused on clarity and narrative logic; second-round reviews incorporated program staff corrections to data and program descriptions; final reviews addressed funder-specific language, compliance items, and proofreading. I used a structured review template to ensure consistency across all three proposals.",
+    "outcomesAndNextSteps": "All three proposals were submitted on time and to specification. The Raptor Watch Colorado community foundation proposal was funded in the first cycle. Literacy Bridges received a request for additional information from the corporate funder, which is an active part of the review process. Next steps include debriefing with both organizations on reviewer feedback and building a reusable grant narrative library to streamline future submissions."
+  },
+  {
+    "title": "Nonprofit Brand & Content Style Guide",
+    "slug": "nonprofit-brand-content-style-guide",
+    "strategicSummary": "Developed a comprehensive brand and content style guide for a community arts nonprofit, establishing consistent voice, tone, and editorial standards across print, digital, and social channels.",
+    "role": "Technical Writer & Content Strategist",
+    "responsibilities": [
+      "Audited existing communications across all channels",
+      "Facilitated stakeholder workshops to define voice and tone",
+      "Documented grammar, punctuation, and usage standards",
+      "Created channel-specific writing guidelines",
+      "Built a terminology glossary and brand vocabulary list",
+      "Designed the guide layout for staff usability"
+    ],
+    "tags": [
+      "Documentation",
+      "Content Strategy",
+      "Accessibility"
+    ],
+    "tools": [
+      "Microsoft Word",
+      "Canva",
+      "Google Docs",
+      "AP Stylebook"
+    ],
+    "heroImage": "assets/placeholder.svg",
+    "galleryImages": [],
+    "externalLinks": [],
+    "videoEmbed": "",
+    "overview": "Mosaic Arts Collective is a mid-size community arts nonprofit serving underrepresented artists in southern Colorado. Over several years of growth, the organization's communications had become fragmented — varying voice across social media, grant materials, and event programs, and inconsistent terminology that confused patrons and funders alike. This project produced a living style guide that gave staff and volunteers a single authoritative reference for all written communications.",
+    "problemAndGoals": "The organization lacked written standards for voice, tone, or grammar, which meant that each staff member applied their own interpretation to public-facing content. This created brand inconsistency, occasional accessibility failures (inconsistent alt-text practices, jargon-heavy language), and longer review cycles as leadership corrected variation before publication. The goal was a practical, usable guide that non-writers could apply confidently.",
+    "myRole": "I led the project from discovery through final delivery. My responsibilities included running a two-session stakeholder workshop to define voice attributes, auditing 60+ communications samples across six channels, drafting all guide sections, and facilitating a staff pilot to test usability before final publication.",
+    "discoveryAndConstraints": "The audit covered email newsletters, social media posts, grant narrative excerpts, event programs, website copy, and press releases from the prior two years. Key findings included 14 inconsistently used terms (e.g., 'patron' vs. 'audience member' vs. 'community member'), three distinct tonal registers with no established hierarchy, and no documented alt-text or plain language standards. The primary constraint was staff capacity — the guide needed to be scannable and actionable, not comprehensive in a way that discouraged use.",
+    "informationArchitecture": "The guide was organized into six sections: Brand Voice & Tone, Writing for Specific Channels, Grammar & Mechanics, Accessible Writing Standards, Terminology Glossary, and Governance & Updates. Each section opened with a one-paragraph summary for quick orientation. A two-page Quick Reference Card extracted the highest-priority rules for staff who needed immediate guidance without reading the full document.",
+    "requirementsAndCriteria": "Requirements were developed through stakeholder workshops and documented as a style decisions log, capturing not just the rule but the rationale behind each decision. Accessibility requirements were integrated throughout rather than siloed — plain language targets, alt-text standards, and color contrast guidance appeared in the sections where they were most relevant to the writer's context.",
+    "qaAndIteration": "A pilot test asked four staff members to rewrite a sample email newsletter using only the guide as a reference. Pilot feedback drove two revision cycles: the channel-specific section was reorganized to lead with the most common task (social media posts), and the glossary was expanded with 11 additional terms surfaced during the pilot. A final accessibility review checked the guide document itself for readability and screen reader compatibility.",
+    "outcomesAndNextSteps": "The guide was published as a shared Google Doc with version history enabled. Pilot participants reported higher confidence in publishing decisions and a reduction in revision requests from leadership. The governance section specifies a quarterly review cycle, with a named content owner responsible for updates. Next steps include adapting the guide for the organization's new volunteer onboarding program."
+  },
+  {
+    "title": "AI-Augmentation Workflow Report",
+    "slug": "ai-augmentation-workflow-report",
+    "strategicSummary": "Researched and documented how AI writing and research tools can responsibly augment technical communication workflows, producing an internal report with adoption recommendations, risk analysis, and a practical usage framework.",
+    "role": "Technical Writer & Research Analyst",
+    "responsibilities": [
+      "Reviewed current AI writing and summarization tools",
+      "Tested tools against real technical writing task scenarios",
+      "Documented capability assessments and accuracy limitations",
+      "Developed a responsible-use framework",
+      "Wrote recommendations for phased adoption",
+      "Produced executive summary and full technical report"
+    ],
+    "tags": [
+      "Documentation",
+      "Analytics & Insights",
+      "Content Strategy"
+    ],
+    "tools": [
+      "ChatGPT",
+      "Claude",
+      "Microsoft Copilot",
+      "Google Docs",
+      "Notion"
+    ],
+    "heroImage": "assets/placeholder.svg",
+    "galleryImages": [],
+    "externalLinks": [],
+    "videoEmbed": "",
+    "overview": "As AI-assisted writing tools became increasingly available, technical communication teams faced a common challenge: understanding which tools provide genuine productivity value, which introduce accuracy or compliance risk, and how to establish guardrails that allow responsible adoption. This report was commissioned to evaluate three AI tools — ChatGPT, Claude, and Microsoft Copilot — against a defined set of technical writing task scenarios, and to produce adoption guidance grounded in documented evidence rather than vendor claims.",
+    "problemAndGoals": "Organizations were making AI tool decisions based on marketing materials, individual staff experimentation, or both, with no systematic evaluation framework. The risk was either over-reliance on tools that hallucinate citations or omit regulatory language, or unnecessary restriction of tools that could genuinely reduce revision burden for lower-stakes content tasks. The goal was a structured capability assessment that supported an informed, tiered adoption decision.",
+    "myRole": "I designed the evaluation methodology, executed all tool testing, documented findings, and wrote the full report including an executive summary and appendices. I also facilitated a review session with team leads to validate findings and pressure-test recommendations before final publication.",
+    "discoveryAndConstraints": "Evaluation scenarios covered six technical writing task types: first-draft generation from structured notes, plain language revision of regulatory text, FAQ development from source documents, meeting summary generation, procedure step extraction, and citation checking. Each tool was tested against the same scenario set using identical inputs. Key constraints included the rapidly evolving nature of the tools (capability changes required documentation of tool versions tested) and the absence of an established external evaluation standard for this task domain.",
+    "informationArchitecture": "The report was structured as: Executive Summary, Methodology, Per-Tool Capability Profiles, Cross-Tool Comparative Analysis, Risk Assessment (hallucination, confidentiality, attribution), Responsible-Use Framework, Tiered Adoption Recommendations, and Appendices (raw evaluation scoring rubric, test prompts and outputs). The executive summary was written to stand alone for leadership readers who would not review the full technical analysis.",
+    "requirementsAndCriteria": "The evaluation rubric scored each tool on accuracy, task completion, tone appropriateness, citation handling, and editing burden reduction — rated on a four-point scale with documented evidence for each score. Responsible-use criteria were drawn from published technical communication ethics standards and adapted for AI-specific risks including fabrication and data privacy.",
+    "qaAndIteration": "The draft report underwent review by two subject matter reviewers: a technical writing team lead and a data privacy officer. Their feedback produced a second iteration that strengthened the risk assessment section and added a data-handling decision tree for determining which content types could be processed through cloud-based AI tools under existing data governance policies.",
+    "outcomesAndNextSteps": "The report was adopted as the internal AI usage policy foundation. The tiered adoption framework was incorporated into the team's onboarding documentation, and the responsible-use checklist became part of the content review process. Next steps include a six-month reassessment cycle to update capability profiles as the tools evolve."
+  },
+  {
+    "title": "UX Recommendation Report",
+    "slug": "ux-recommendation-report",
+    "strategicSummary": "Translated UX research findings into a structured recommendation report for a municipal digital services team, providing evidence-based design guidance and a prioritized action roadmap.",
+    "role": "UX Writer & Technical Communicator",
+    "responsibilities": [
+      "Synthesized usability testing data and interview notes",
+      "Structured findings into actionable recommendation categories",
+      "Wrote evidence-backed rationale for each recommendation",
+      "Developed a prioritization matrix (impact vs. effort)",
+      "Created an executive summary for non-technical leadership",
+      "Formatted report to institutional documentation standards"
+    ],
+    "tags": [
+      "Documentation",
+      "UX Strategy",
+      "Discovery"
+    ],
+    "tools": [
+      "Microsoft Word",
+      "Figma",
+      "Notion",
+      "Google Sheets"
+    ],
+    "heroImage": "assets/placeholder.svg",
+    "galleryImages": [],
+    "externalLinks": [],
+    "videoEmbed": "",
+    "overview": "Following a round of usability testing and stakeholder interviews on a municipal permit application portal, the research team had rich qualitative and quantitative data but no structured deliverable to guide the design and development team. This report synthesized the research findings into a formal UX recommendation document — organized by severity, supported by evidence, and packaged for both design implementation and executive decision-making.",
+    "problemAndGoals": "The research phase had produced session recordings, affinity diagrams, and a data spreadsheet, but the findings existed in fragmented form across multiple documents and team members. The design team needed a single, authoritative source they could hand to developers; leadership needed a high-level summary to approve resource allocation. The report had to serve both audiences without becoming so long that either group would skip it.",
+    "myRole": "I was responsible for synthesizing the research data into the recommendation document. I worked directly with the UX researcher to validate my interpretation of findings, drafted all report sections, and iterated based on feedback from the design lead and a program manager who represented the leadership audience.",
+    "discoveryAndConstraints": "Source materials included five usability session recordings (moderated think-aloud protocol), a post-session survey with 47 responses, a heuristic evaluation, and notes from three stakeholder interviews. Key constraints included a two-week delivery timeline and the need to communicate technical UX concepts to a mixed audience that included non-technical program staff and elected officials.",
+    "informationArchitecture": "The report was organized into: Executive Summary, Research Overview and Methodology, Key Findings (grouped by theme, not session), Recommendations (severity-tiered: critical, important, enhancement), Prioritization Matrix, Implementation Notes, and Supporting Appendices (raw survey data summary, heuristic evaluation scores). Each recommendation followed a consistent structure: finding, evidence, recommendation, expected impact, and implementation complexity.",
+    "requirementsAndCriteria": "Each recommendation required documented evidence linking it to a specific finding and, where available, a quantitative indicator (e.g., task completion rate, error frequency). Severity ratings followed a standardized scale defined in the methodology section. Implementation notes specified whether a change required development effort, content editing, or a configuration change — enabling the team to sort by their available capacity.",
+    "qaAndIteration": "Two review cycles refined the report. The first addressed researcher feedback on finding interpretation accuracy. The second addressed program manager feedback on the executive summary — it was rewritten to open with resident impact rather than process description, and three recommendations were elevated based on stakeholder priority context that I had not captured in the initial synthesis.",
+    "outcomesAndNextSteps": "The report was accepted as the primary handoff document for the portal redesign phase. The development team used the prioritization matrix to plan the first sprint. The executive summary was presented to the city's digital services committee and informed the approval of a supplemental UX budget for the next fiscal year."
+  },
+  {
+    "title": "SOP Template: Writing SOPs in Markdown and Exporting to PDF",
+    "slug": "sop-template-markdown-to-pdf",
+    "strategicSummary": "Designed and documented a repeatable SOP authoring system using Markdown as the source format and a CLI-based PDF export pipeline, reducing formatting overhead and enabling version-controlled procedure documentation.",
+    "role": "Technical Writer & Documentation Specialist",
+    "responsibilities": [
+      "Defined the Markdown-as-code documentation framework",
+      "Designed the SOP template structure and metadata schema",
+      "Built the Pandoc + CSS PDF export pipeline",
+      "Wrote the SOP-on-SOPs authoring guide",
+      "Created example SOPs demonstrating the template",
+      "Documented the Git version control workflow for procedures"
+    ],
+    "tags": [
+      "Documentation",
+      "Content Strategy"
+    ],
+    "tools": [
+      "Markdown",
+      "Pandoc",
+      "Git",
+      "VS Code",
+      "CSS",
+      "GitHub Actions"
+    ],
+    "heroImage": "assets/placeholder.svg",
+    "galleryImages": [],
+    "externalLinks": [],
+    "videoEmbed": "",
+    "overview": "Many teams write SOPs in Word or Google Docs, which creates version control challenges, inconsistent formatting, and high maintenance overhead when procedures change. This project developed a docs-as-code approach: SOPs are authored in Markdown, stored in a Git repository, and exported to consistently formatted PDF documents via a Pandoc build pipeline. The deliverable was both the system itself and the meta-SOP that teaches writers how to use it.",
+    "problemAndGoals": "The problem is familiar in documentation-heavy teams: ten people maintaining SOPs in ten slightly different Word templates, no audit trail, no diff-based review, and PDFs that look different every time someone edits a header. The goal was a lightweight, open-source-based system that any writer could adopt without specialized tooling, that produced print-ready PDFs with consistent formatting, and that supported meaningful version history through standard Git workflows.",
+    "myRole": "I designed the full system — the Markdown template schema, the Pandoc export configuration, the CSS stylesheet that controls PDF output, and the authoring guide (the SOP on making SOPs). I also wrote three example SOPs using the template to validate the system and demonstrate the range of procedure types it could support: a simple two-step checklist, a branching decision procedure, and a multi-role handoff process.",
+    "discoveryAndConstraints": "Research included reviewing existing docs-as-code frameworks (Divio, Diataxis, GitBook conventions) and evaluating three PDF export tools: Pandoc, WeasyPrint, and a JavaScript-based solution. Pandoc was selected for its mature Markdown support, active maintenance, and ability to apply a custom CSS stylesheet for PDF output via wkhtmltopdf. Key constraints included keeping the authoring experience accessible to writers without a software engineering background — meaning no build-system complexity beyond a single terminal command.",
+    "informationArchitecture": "The SOP template uses a YAML front matter block for metadata (title, version, owner, effective date, review date, approval chain) and a fixed Markdown section structure: Purpose, Scope, Definitions, Procedure Steps, Exceptions and Escalations, Related Documents, and Revision History. The authoring guide is itself written using the template, serving as both documentation and working example. The Git workflow section documents branching strategy, PR review requirements, and the automated PDF export trigger via GitHub Actions.",
+    "requirementsAndCriteria": "The template was designed to meet common regulatory documentation standards including ISO 9001 procedure documentation requirements and FDA 21 CFR Part 11 audit trail considerations. Required metadata fields were defined as mandatory front matter keys; the export pipeline surfaces a validation error if required fields are missing. Accessibility requirements for the PDF output included heading structure, list formatting, and sufficient color contrast in the CSS stylesheet.",
+    "qaAndIteration": "The system was tested by asking two writers with no prior Markdown experience to author a new SOP using only the authoring guide as a reference. Both writers successfully produced a correctly formatted PDF on the first attempt. Feedback drove two refinements: the Definitions section template was given more explicit placeholder guidance, and the Revision History table format was simplified to reduce entry friction.",
+    "outcomesAndNextSteps": "The template system was published as an open repository with MIT license, including the full authoring guide, three example SOPs, and the Pandoc/CSS export configuration. The GitHub Actions workflow enables automatic PDF generation on any commit to the main branch. Next steps include adding a linter check for required front matter fields and developing a companion template for policy documents that share the same structural logic."
+  },
+  {
+    "title": "Translation Documents: Government & Literary Texts Using Cloud Services",
+    "slug": "translation-documents-cloud-services",
+    "strategicSummary": "Produced two professional translations — a FEMA public preparedness document (English to Spanish) and a chapter from a contemporary novel (English to Spanish) — using cloud translation services augmented by post-editing, terminology management, and cultural adaptation.",
+    "role": "Technical Translator & Localization Specialist",
+    "responsibilities": [
+      "Evaluated cloud translation service quality for each text type",
+      "Developed domain-specific terminology glossaries",
+      "Performed full post-editing on machine translation output",
+      "Applied plain language and cultural adaptation for government document",
+      "Maintained literary voice and stylistic register for the novel chapter",
+      "Documented the translation and post-editing workflow"
+    ],
+    "tags": [
+      "Documentation",
+      "Content Strategy",
+      "Accessibility"
+    ],
+    "tools": [
+      "DeepL",
+      "Google Cloud Translation API",
+      "Microsoft Azure Translator",
+      "SDL Trados (CAT tool basics)",
+      "Microsoft Word",
+      "Google Docs"
+    ],
+    "heroImage": "assets/placeholder.svg",
+    "galleryImages": [],
+    "externalLinks": [],
+    "videoEmbed": "",
+    "overview": "This project produced two completed translations using a cloud-assisted translation workflow: a FEMA public emergency preparedness guide (English to Spanish) intended for distribution to Spanish-speaking communities in Colorado, and Chapter 4 of a contemporary English-language novel (English to Spanish) as a literary translation exercise exploring the limits of machine translation for register and voice. Together, the two documents represent opposite ends of the translation spectrum — technical plainness versus literary expressiveness — and demonstrate how cloud translation services must be applied differently for each.",
+    "problemAndGoals": "The government translation challenge was ensuring that FEMA's regulatory and procedural language was rendered in plain, accessible Spanish appropriate for readers with varying literacy levels — not a literal word-for-word transfer that preserved bureaucratic complexity. The literary translation challenge was the opposite: preserving idiomatic expression, narrative voice, and cultural resonance that machine translation systems consistently flatten. Both projects required documenting what cloud tools could and could not do reliably, producing a replicable post-editing workflow.",
+    "myRole": "I served as translator and post-editor for both documents. For the government document, I also developed a Spanish plain language checklist adapted from the federal Plain Writing Act guidelines. For the literary chapter, I maintained a style notes document tracking voice decisions, idiomatic choices, and cultural equivalences that deviated from the machine output. I documented the full workflow for both projects as a translatable methodology for future translation assignments.",
+    "discoveryAndConstraints": "Source text evaluation preceded translation for both documents. The FEMA guide contained specialized terminology (emergency shelter categories, NIMS terminology, FEMA program names) requiring a verified Spanish-language glossary cross-referenced against official FEMA Spanish publications. The novel chapter contained colloquial American English, regional dialect markers, and stream-of-consciousness passages that cloud translation systems predictably mistranslated. Key constraints included working without a professional translation memory database and meeting accessibility standards for the government document.",
+    "informationArchitecture": "Both translations were delivered as track-changes documents showing machine translation output, post-edit decisions, and translator notes. The government document was accompanied by a terminology glossary (source term, approved Spanish equivalent, usage notes) and a plain language review checklist. The literary translation was accompanied by a translator's notes appendix documenting stylistic decisions section by section, providing the rationale for departures from literal translation.",
+    "requirementsAndCriteria": "The government document translation was evaluated against three criteria: terminological accuracy (cross-referenced against official FEMA Spanish glossaries), plain language compliance (Flesch-Kincaid reading level target of Grade 6–8 in Spanish), and formatting preservation (all original section structure, heading hierarchy, and call-out boxes maintained). The literary translation was evaluated on voice consistency, idiomatic naturalness, and fidelity to narrative meaning rather than surface-level word choice.",
+    "qaAndIteration": "The government document was reviewed by a bilingual public health communicator for plain language and accessibility. Feedback produced one revision cycle that simplified three procedural paragraphs and corrected two term equivalences where regional Spanish variation was relevant for the Colorado target audience. The literary chapter was reviewed against the original by a Spanish-language literature instructor, whose feedback refined the handling of two extended dialogue passages and one recurring metaphor.",
+    "outcomesAndNextSteps": "Both final documents were delivered with complete post-editing documentation. The government translation workflow was formatted as a reusable methodology guide for subsequent public-sector translation projects. The literary translation and translator's notes were submitted as a portfolio piece demonstrating the range and limits of cloud-assisted translation for non-technical text. Next steps include expanding the government translation to the full FEMA guide and exploring CAT tool integration to build a translation memory for future assignments."
   }
 ]
