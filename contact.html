@@ -118,6 +118,7 @@
           <!-- Contact Form -->
           <div class="form-card">
             <form id="contact-form" novalidate aria-label="Send a message">
+              <input type="hidden" name="_subject" value="New message from your portfolio contact form" />
               <h3 style="font-size:var(--font-size-xl);margin-bottom:var(--space-md)">Send a Message</h3>
 
               <div class="form-group">
@@ -193,6 +194,9 @@
 
               <div id="form-success" class="form-success" tabindex="-1" aria-live="polite">
                 ✅ Your message has been sent! I'll be in touch soon.
+              </div>
+              <div id="form-error" class="form-error" tabindex="-1" aria-live="polite" style="display:none">
+                ❌ Something went wrong. Please try again or email me directly at <a href="mailto:mariahllopez.co@gmail.com">mariahllopez.co@gmail.com</a>.
               </div>
             </form>
           </div>

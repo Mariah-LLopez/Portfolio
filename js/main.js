@@ -708,27 +708,64 @@
       return true;
     }
 
+    var FORMSPREE_ENDPOINT = "https://formspree.io/f/meevboze";
+
+    var errorMsg = document.getElementById("form-error");
+    var submitBtn = contactForm.querySelector('[type="submit"]');
+
     contactForm.addEventListener("submit", function (e) {
       e.preventDefault();
 
-      const nameOk = validateField("contact-name");
-      const emailOk = validateField("contact-email");
-      const msgOk = validateField("contact-message");
+      var nameOk = validateField("contact-name");
+      var emailOk = validateField("contact-email");
+      var msgOk = validateField("contact-message");
 
       if (!nameOk || !emailOk || !msgOk) {
         // Focus first invalid field
-        const firstInvalid = contactForm.querySelector(".is-invalid");
+        var firstInvalid = contactForm.querySelector(".is-invalid");
         if (firstInvalid) firstInvalid.focus();
         return;
       }
 
-      // Simulate submit success (no backend)
-      if (successMsg) {
-        successMsg.classList.add("visible");
-        successMsg.setAttribute("role", "alert");
-        contactForm.reset();
-        successMsg.focus();
+      // Disable button and show loading state
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Sending…";
       }
+      if (errorMsg) errorMsg.style.display = "none";
+
+      fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        body: new FormData(contactForm),
+        headers: { Accept: "application/json" }
+      })
+        .then(function (response) {
+          if (response.ok) {
+            if (successMsg) {
+              successMsg.classList.add("visible");
+              successMsg.setAttribute("role", "alert");
+              contactForm.reset();
+              successMsg.focus();
+            }
+          } else {
+            if (errorMsg) {
+              errorMsg.style.display = "block";
+              errorMsg.focus();
+            }
+          }
+        })
+        .catch(function () {
+          if (errorMsg) {
+            errorMsg.style.display = "block";
+            errorMsg.focus();
+          }
+        })
+        .finally(function () {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Send Message";
+          }
+        });
     });
   }
   /* ------------------------------------------
