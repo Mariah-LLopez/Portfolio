@@ -1045,7 +1045,6 @@ p:last-child {
 
 .case-study-gallery img {
   border-radius: var(--border-radius);
-  box-shadow: var(--shadow-sm);
   width: 100%;
 }
 
@@ -1094,8 +1093,6 @@ p:last-child {
 
 /* Gallery images spread inline through content — no background for translucent/layered images */
 .gallery-spread-image {
-  border-radius: var(--border-radius);
-  overflow: hidden;
   margin-block: var(--space-sm);
 }
 
@@ -1180,8 +1177,6 @@ p:last-child {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow-md);
   animation: none; /* suppress global img-shadow-pulse */
 }
 
@@ -2230,14 +2225,12 @@ html.moon-mode .site-header {
 }
 
 html.moon-mode .tag {
-  background: transparent;
-  border: 1.5px solid var(--color-primary);
-  color: var(--color-primary-dark);
+  background: #EDE7F6;
+  color: #4A3976;
 }
 
 html.moon-mode .tag--muted {
-  background: transparent;
-  border: 1.5px solid var(--color-border);
+  background: #EDE8F5;
   color: var(--color-text-secondary);
 }
 
