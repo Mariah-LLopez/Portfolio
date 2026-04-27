@@ -2130,23 +2130,7 @@ html {
   animation: grain 12s linear infinite;
 }
 
-/* =============================================
-   Image Drop-Shadow Pulse Animation
-   ============================================= */
-@keyframes img-shadow-pulse {
-  0%, 100% {
-    box-shadow: 0 4px 18px rgba(var(--shadow-rgb), 0.13),
-                0 2px 6px  rgba(var(--shadow-rgb), 0.08);
-  }
-  50% {
-    box-shadow: 0 10px 36px rgba(var(--shadow-rgb), 0.26),
-                0 4px 14px  rgba(var(--shadow-rgb), 0.16);
-  }
-}
-
-img {
-  animation: img-shadow-pulse 4s ease-in-out infinite;
-}
+/* Drop-shadow pulse animation removed */
 
 /* =============================================
    Reduced Motion — disable grain animations
