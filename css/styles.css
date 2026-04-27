@@ -1078,17 +1078,8 @@ p:last-child {
 }
 
 /* ---------------------------------------------
-   IMAGES: centered in middle sections only
+   IMAGES centered
 ---------------------------------------------- */
-
-.cs-section-band__image {
-  grid-column: 1 / -1;
-  width: 100%;
-  margin-top: clamp(3rem, 5vw, 5rem);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 /* Keep transparent images transparent */
 .cs-section-band__image img,
@@ -2337,5 +2328,69 @@ html.moon-mode .tag--muted {
   .cs-section-band .case-study-section__title {
     max-width: 100%;
     font-size: clamp(2.5rem, 12vw, 4rem);
+  }
+}
+/* =============================================
+   FINAL HARD FIX — FORCE SIDE BY SIDE
+   ============================================= */
+
+.cs-section-band__inner {
+  display: grid !important;
+  grid-template-columns: 2fr 1fr !important;
+  gap: clamp(3rem, 6vw, 7rem);
+  align-items: center;
+}
+
+/* TEXT SIDE */
+.cs-section-band__content,
+.cs-section-band .case-study-section {
+  grid-column: auto !important;
+  width: 100%;
+}
+
+/* IMAGE SIDE */
+.cs-section-band__image {
+  grid-column: auto !important; /* THIS is the fix */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0 !important;
+}
+
+/* IMAGE SIZE */
+.cs-section-band__image img {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ALTERNATING LAYOUT */
+.cs-section-band--image-left .cs-section-band__inner {
+  grid-template-columns: 1fr 2fr !important;
+}
+
+.cs-section-band--image-left .cs-section-band__image {
+  order: 1;
+}
+
+.cs-section-band--image-left .cs-section-band__content,
+.cs-section-band--image-left .case-study-section {
+  order: 2;
+}
+
+.cs-section-band--image-right .cs-section-band__image {
+  order: 2;
+}
+
+.cs-section-band--image-right .cs-section-band__content,
+.cs-section-band--image-right .case-study-section {
+  order: 1;
+}
+
+/* MOBILE STACK */
+@media (max-width: 900px) {
+  .cs-section-band__inner {
+    grid-template-columns: 1fr !important;
   }
 }
