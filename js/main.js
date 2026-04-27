@@ -400,17 +400,11 @@
     const filteredSections = sections.filter(function (s) { return p[s.key]; });
 
     // Build images HTML for the artifacts strip at the bottom.
+    // laptopImages are distributed inline; only galleryImages go to the strip.
     const bodyImagesHtml = [];
     galleryImages.forEach(function (img) {
       bodyImagesHtml.push(
         '<div class="case-study-body__image-item gallery-spread-image">' +
-        '<img src="' + escapeHtml(img.src) + '" alt="' + escapeHtml(img.alt) + '" loading="lazy">' +
-        "</div>"
-      );
-    });
-    laptopImages.forEach(function (img) {
-      bodyImagesHtml.push(
-        '<div class="case-study-body__image-item laptop-spread-image">' +
         '<img src="' + escapeHtml(img.src) + '" alt="' + escapeHtml(img.alt) + '" loading="lazy">' +
         "</div>"
       );
@@ -435,12 +429,12 @@
       "</div>" +
       "</div>";
 
-    // Build one full-width band per content section
+    // Build one full-width band per content section.
+    // When laptopImages are available, distribute them across sections alternating left/right.
     const sectionBandsHtml = filteredSections
-      .map(function (s) {
-        return (
-          '<div class="cs-section-band reveal">' +
-          '<div class="container">' +
+      .map(function (s, i) {
+        var img = laptopImages[i] || null;
+        var sectionInner =
           '<section class="case-study-section" aria-labelledby="section-' +
           s.key +
           '">' +
@@ -452,7 +446,28 @@
           "<p>" +
           escapeHtml(p[s.key]) +
           "</p>" +
-          "</section>" +
+          "</section>";
+
+        if (img) {
+          var side = i % 2 === 0 ? "right" : "left";
+          return (
+            '<div class="cs-section-band cs-section-band--image-' + side + ' reveal">' +
+            '<div class="container">' +
+            '<div class="cs-section-band__inner">' +
+            sectionInner +
+            '<div class="cs-section-band__image">' +
+            '<img src="' + escapeHtml(img.src) + '" alt="' + escapeHtml(img.alt) + '" loading="lazy">' +
+            "</div>" +
+            "</div>" +
+            "</div>" +
+            "</div>"
+          );
+        }
+
+        return (
+          '<div class="cs-section-band reveal">' +
+          '<div class="container">' +
+          sectionInner +
           "</div>" +
           "</div>"
         );
@@ -471,7 +486,15 @@
         "</div>"
       : "";
 
-    // Full-width images artifact strip
+    // Full-width images artifact strip (galleryImages + any laptopImages beyond section count)
+    const overflowLaptopImages = laptopImages.slice(filteredSections.length);
+    overflowLaptopImages.forEach(function (img) {
+      bodyImagesHtml.push(
+        '<div class="case-study-body__image-item laptop-spread-image">' +
+        '<img src="' + escapeHtml(img.src) + '" alt="' + escapeHtml(img.alt) + '" loading="lazy">' +
+        "</div>"
+      );
+    });
     const imagesStripHtml = bodyImagesHtml.length
       ? '<div class="cs-images-strip reveal">' +
         '<div class="container">' +
