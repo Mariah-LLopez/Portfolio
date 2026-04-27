@@ -461,48 +461,41 @@
 
     // Build one full-width band per content section.
     // Images are evenly distributed across sections via imageMap (alternating left/right).
-    const sectionBandsHtml = filteredSections
-      .map(function (s, i) {
-        var img = imageMap[i] || null;
-        var sectionInner =
-          '<section class="case-study-section" aria-labelledby="section-' +
-          s.key +
-          '">' +
-          '<h2 class="case-study-section__title" id="section-' +
-          s.key +
-          '">' +
-          s.label +
-          "</h2>" +
-          "<p>" +
-          escapeHtml(p[s.key]) +
-          "</p>" +
-          "</section>";
+   const sectionBandsHtml = filteredSections
+  .map(function (s, i) {
+    var img = imageMap[i] || null;
+    var side = i % 2 === 0 ? "right" : "left";
 
-        if (img) {
-          var side = i % 2 === 0 ? "right" : "left";
-          return (
-            '<div class="cs-section-band cs-section-band--image-' + side + ' reveal">' +
-            '<div class="container">' +
-            '<div class="cs-section-band__inner">' +
-            sectionInner +
-            '<div class="cs-section-band__image">' +
-            '<img src="' + escapeHtml(img.src) + '" alt="' + escapeHtml(img.alt) + '" loading="lazy">' +
-            "</div>" +
-            "</div>" +
-            "</div>" +
-            "</div>"
-          );
-        }
+    return (
+      '<div class="cs-section-band cs-section-band--image-' + side + ' reveal">' +
+      '<div class="container">' +
+      '<div class="cs-section-band__inner">' +
 
-        return (
-          '<div class="cs-section-band reveal">' +
-          '<div class="container">' +
-          sectionInner +
-          "</div>" +
+      '<section class="case-study-section cs-section-band__content" aria-labelledby="section-' +
+      s.key +
+      '">' +
+      '<h2 class="case-study-section__title" id="section-' +
+      s.key +
+      '">' +
+      s.label +
+      "</h2>" +
+      "<p>" +
+      escapeHtml(p[s.key]) +
+      "</p>" +
+      "</section>" +
+
+      (img
+        ? '<div class="cs-section-band__image">' +
+          '<img src="' + escapeHtml(img.src) + '" alt="' + escapeHtml(img.alt) + '" loading="lazy">' +
           "</div>"
-        );
-      })
-      .join("");
+        : '<div class="cs-section-band__image cs-section-band__image--empty"></div>') +
+
+      "</div>" +
+      "</div>" +
+      "</div>"
+    );
+  })
+  .join("");
 
     // Video band
     const videoBandHtml = videoHtml
@@ -566,15 +559,6 @@
       "</div>" +
       "</div>" +
       // Full-width hero image directly below the hero section
-      (p.heroImage
-        ? '<div class="case-study-hero-image-full">' +
-          '<img class="case-study-hero__image" src="' +
-          escapeHtml(p.heroImage) +
-          '" alt="' +
-          escapeHtml(p.title) +
-          ' hero image" loading="eager">' +
-          "</div>"
-        : "") +
       // Body: each section is its own full-width band
       '<div class="case-study-body">' +
       respBandHtml +
