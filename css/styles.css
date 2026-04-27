@@ -950,6 +950,41 @@ p:last-child {
   gap: var(--space-xl);
 }
 
+/* Two-column body: images left, text right */
+.case-study-body__layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.case-study-body__images {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.case-study-body__image-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--border-radius);
+  animation: none;
+}
+
+/* Override full-bleed overflows from spread classes when inside the body column */
+.case-study-body__images .laptop-spread-image {
+  margin-inline: 0;
+}
+
+.case-study-body__images .laptop-spread-image img {
+  width: 100%;
+}
+
+.case-study-body__content {
+  min-width: 0;
+}
+
 .case-study-section {
   border-top: 2px solid var(--color-border);
   padding-top: var(--space-lg);
@@ -1750,6 +1785,10 @@ textarea.form-control {
   }
 
   .case-study-hero__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .case-study-body__layout {
     grid-template-columns: 1fr;
   }
 }
