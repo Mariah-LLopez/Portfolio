@@ -715,7 +715,7 @@
       });
     },
     {
-      threshold: 0.1
+      threshold: 0.1 // trigger earlier for large full-width bands on all pages
     }
   );
 
