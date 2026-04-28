@@ -347,11 +347,11 @@
       "Grants.gov style guidelines",
       "Foundation Directory"
     ],
-    "heroImage": "assets/placeholder.svg",
+    "heroImage": "assets/grants.png",
     "externalLinks": [
       {
         "label": "View Project",
-        "url": ""
+        "url": "assets/Mariah Lopez_Greccio Housing for Journey for Good Grant.pdf"
       }
     ],
     "videoEmbed": "",
@@ -363,7 +363,20 @@
     "requirementsAndCriteria": "Requirements varied by funder. Federal-style guidelines required specific section headers and page counts. Foundation portals had character-limited text fields. All three proposals required signed assurances, organizational financials, and IRS determination letters. I created a compliance checklist for each proposal to track submission requirements and flag any missing elements before final review.",
     "qaAndIteration": "Each proposal underwent two to three revision cycles. First-draft reviews focused on clarity and narrative logic; second-round reviews incorporated program staff corrections to data and program descriptions; final reviews addressed funder-specific language, compliance items, and proofreading. I used a structured review template to ensure consistency across all three proposals.",
     "outcomesAndNextSteps": "All three proposals were submitted on time and to specification. The Raptor Watch Colorado community foundation proposal was funded in the first cycle. Literacy Bridges received a request for additional information from the corporate funder, which is an active part of the review process. Next steps include debriefing with both organizations on reviewer feedback and building a reusable grant narrative library to streamline future submissions.",
-    "sectionImages": {}
+    "sectionImages": {
+      "overview": {
+        "src": "assets/ESGrant.png",
+        "alt": "Services Checkout in App"
+      },
+      "outcomesAndNextSteps": {
+        "src": "assets/gande.png",
+        "alt": "User Account in App"
+      },
+      "discoveryAndConstraints": {
+        "src": "assets/denverearlycon.png",
+        "alt": "Services Checkout in App"
+      }
+    }
   },
   {
     "title": "Nonprofit Brand & Content Style Guide",
@@ -389,11 +402,11 @@
       "Google Docs",
       "AP Stylebook"
     ],
-    "heroImage": "assets/placeholder.svg",
+    "heroImage": "assets/odaathero.png",
     "externalLinks": [
       {
         "label": "View Project",
-        "url": ""
+        "url": "assets/audience-analysis-content-strategy-document.pdf"
       }
     ],
     "videoEmbed": "",
@@ -405,9 +418,13 @@
     "requirementsAndCriteria": "Requirements were developed through stakeholder workshops and documented as a style decisions log, capturing not just the rule but the rationale behind each decision. Accessibility requirements were integrated throughout rather than siloed — plain language targets, alt-text standards, and color contrast guidance appeared in the sections where they were most relevant to the writer's context.",
     "qaAndIteration": "A pilot test asked four staff members to rewrite a sample email newsletter using only the guide as a reference. Pilot feedback drove two revision cycles: the channel-specific section was reorganized to lead with the most common task (social media posts), and the glossary was expanded with 11 additional terms surfaced during the pilot. A final accessibility review checked the guide document itself for readability and screen reader compatibility.",
     "outcomesAndNextSteps": "The guide was published as a shared Google Doc with version history enabled. Pilot participants reported higher confidence in publishing decisions and a reduction in revision requests from leadership. The governance section specifies a quarterly review cycle, with a named content owner responsible for updates. Next steps include adapting the guide for the organization's new volunteer onboarding program.",
-    "sectionImages": {}
+    "sectionImages": {      
+    "requirementsAndCriteria": {
+        "src": "assets/empathy.png",
+        "alt": "User Account in App"
+      }
+  }
   },
-  {
     "title": "AI-Augmentation Workflow Report",
     "slug": "ai-augmentation-workflow-report",
     "strategicSummary": "Researched and documented how AI writing and research tools can responsibly augment technical communication workflows, producing an internal report with adoption recommendations, risk analysis, and a practical usage framework.",
