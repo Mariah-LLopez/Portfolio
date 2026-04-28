@@ -429,14 +429,13 @@
       "ChatGPT",
       "Claude",
       "Microsoft Copilot",
-      "Google Docs",
-      "Notion"
+      "Google Docs"
     ],
-    "heroImage": "assets/placeholder.svg",
+    "heroImage": "assets/aiworkflow.png",
     "externalLinks": [
       {
         "label": "View Project",
-        "url": ""
+        "url": "assets/AI Augmented Workflow Mariah Lopez.pdf"
       }
     ],
     "videoEmbed": "",
@@ -448,7 +447,17 @@
     "requirementsAndCriteria": "The evaluation rubric scored each tool on accuracy, task completion, tone appropriateness, citation handling, and editing burden reduction — rated on a four-point scale with documented evidence for each score. Responsible-use criteria were drawn from published technical communication ethics standards and adapted for AI-specific risks including fabrication and data privacy.",
     "qaAndIteration": "The draft report underwent review by two subject matter reviewers: a technical writing team lead and a data privacy officer. Their feedback produced a second iteration that strengthened the risk assessment section and added a data-handling decision tree for determining which content types could be processed through cloud-based AI tools under existing data governance policies.",
     "outcomesAndNextSteps": "The report was adopted as the internal AI usage policy foundation. The tiered adoption framework was incorporated into the team's onboarding documentation, and the responsible-use checklist became part of the content review process. Next steps include a six-month reassessment cycle to update capability profiles as the tools evolve.",
-    "sectionImages": {}
+    "sectionImages": {
+      "discoveryAndConstraints": {
+        "src": "assets/aipage.png",
+        "alt": "Services Checkout in App"
+      },
+      "requirementsAndCriteria": {
+        "src": "assets/tocai.png",
+        "alt": "User Account in App"
+      }
+    }
+  }
   },
   {
     "title": "UX Recommendation Report",
