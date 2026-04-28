@@ -424,7 +424,8 @@
         "alt": "User Account in App"
       }
   }
-  },
+  }
+  {
     "title": "AI-Augmentation Workflow Report",
     "slug": "ai-augmentation-workflow-report",
     "strategicSummary": "Researched and documented how AI writing and research tools can responsibly augment technical communication workflows, producing an internal report with adoption recommendations, risk analysis, and a practical usage framework.",
