@@ -485,14 +485,17 @@
       "problemAndGoals": {
         "src": "assets/toc ux report page one.png",
         "alt": "UX Report page one",
-        "caption": "Persona used to define the needs, goals, and data behaviors of a public-sector recreation user."
-      "informationArchitecture": {
+        "caption": "First page of the Table of Contents for the UX Report."
+        },
+        "informationArchitecture": {
         "src": "assets/toc ux report page two.png",
         "alt": "UX Report page two"
-      },
-      "requirementsAndCriteria": {
+        "caption": "Second page of the Table of Contents for the UX Report."
+        },
+        "requirementsAndCriteria": {
         "src": "assets/appendix ux report page.png",
         "alt": "Appendix page of the UX Report."
+        "caption": "Appendix of UX Report"
       }
     }
   },
