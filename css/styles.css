@@ -45,6 +45,7 @@
   --shadow-btn-hover: 0 6px 0 rgba(var(--shadow-rgb), 0.26), 0 10px 20px rgba(var(--shadow-rgb), 0.20);
   --shadow-btn-active: 0 1px 0 rgba(var(--shadow-rgb), 0.22), 0 2px 6px rgba(var(--shadow-rgb), 0.12);
   --transition: 0.2s ease;
+  --color-accent-bg: rgba(111, 125, 90, 0.07);
 }
 
 /* =============================================
@@ -2178,6 +2179,7 @@ html.moon-mode {
   --color-hero-desc-bg: transparent;
   --color-mobile-nav-bg: rgba(255, 255, 255, 0.97);
   --shadow-rgb: 26, 26, 26;
+  --color-accent-bg: rgba(58, 120, 201, 0.06);
 }
 
 html.moon-mode .site-header {
@@ -2543,3 +2545,196 @@ html.moon-mode .tag--muted {
 [data-slug="oppi-data-hub-redesign"] .cs-section-band--no-image .cs-section-band__image--empty {
   display: block !important;
 }
+
+/* =============================================
+   Directional Reveal Animations
+   ============================================= */
+
+.js .reveal--from-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.85s ease, transform 0.85s ease;
+}
+
+.js .reveal--from-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.85s ease, transform 0.85s ease;
+}
+
+.js .reveal--from-left.is-visible,
+.js .reveal--from-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* The first cs-section-band (now immediately after cs-intro-band) should have no border-top */
+.cs-intro-band + .cs-section-band .case-study-section {
+  border-top: none;
+}
+
+/* Intro band sections don't need the dashed border */
+.cs-intro-band .case-study-section {
+  border-top: none;
+  padding-top: 0;
+}
+
+/* =============================================
+   Intro Band — Responsibilities Left, Overview Right
+   ============================================= */
+
+.cs-intro-band {
+  width: 100%;
+  padding-block: clamp(5rem, 8vw, 9rem);
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.cs-intro-band .container {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding-inline: clamp(2rem, 5vw, 6rem);
+}
+
+.cs-intro-band__inner {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: clamp(3rem, 7vw, 9rem);
+  align-items: start;
+}
+
+.cs-intro-band__left .case-study-section__title,
+.cs-intro-band__right .case-study-section__title {
+  font-size: clamp(var(--font-size-2xl), 3vw, var(--font-size-3xl));
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  max-width: 14ch;
+  margin-bottom: 1.5rem;
+}
+
+.cs-intro-band__overview p {
+  font-size: clamp(1.05rem, 1.25vw, 1.35rem);
+  line-height: 1.9;
+  margin-bottom: 0;
+}
+
+/* Sticky left column on tall screens */
+@media (min-width: 900px) {
+  .cs-intro-band__left {
+    position: sticky;
+    top: 6rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .cs-intro-band__inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+/* =============================================
+   Alternating Band Backgrounds
+   ============================================= */
+
+.cs-section-band--alt {
+  background: var(--color-bg);
+}
+
+.cs-section-band--accent {
+  background: var(--color-accent-bg);
+}
+
+html.moon-mode .cs-section-band--alt {
+  background: #f5f5f5;
+}
+
+/* =============================================
+   Wide Image Bands (2-image projects)
+   ============================================= */
+
+.cs-section-band--wide-image {
+  min-height: 70vh;
+}
+
+.cs-section-band--wide-image .cs-section-band__inner {
+  grid-template-columns: 1fr 1fr !important;
+  align-items: stretch !important;
+  min-height: 65vh;
+}
+
+.cs-section-band--wide-image .cs-section-band__image {
+  align-self: stretch;
+  overflow: hidden;
+  border-radius: var(--border-radius-lg);
+}
+
+.cs-section-band--wide-image .cs-section-band__image img {
+  width: 100% !important;
+  max-width: none !important;
+  height: 100% !important;
+  min-height: 500px;
+  object-fit: cover !important;
+  border-radius: var(--border-radius-lg);
+}
+
+.cs-section-band--wide-image .cs-section-band__image figcaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.55));
+  color: #fff;
+  padding: 1.5rem 1rem 1rem;
+  border-radius: 0 0 var(--border-radius-lg) var(--border-radius-lg);
+}
+
+.cs-section-band--wide-image .cs-section-band__image figure {
+  position: relative;
+  height: 100%;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.cs-section-band--wide-image.cs-section-band--image-left .cs-section-band__inner {
+  grid-template-columns: 1fr 1fr !important;
+}
+
+@media (max-width: 900px) {
+  .cs-section-band--wide-image {
+    min-height: auto;
+  }
+
+  .cs-section-band--wide-image .cs-section-band__inner {
+    grid-template-columns: 1fr !important;
+    min-height: auto;
+  }
+
+  .cs-section-band--wide-image .cs-section-band__image img {
+    min-height: 280px;
+    height: 280px !important;
+  }
+
+  .cs-section-band--wide-image .cs-section-band__image figure {
+    min-height: 280px;
+  }
+}
+
+/* =============================================
+   Image hover lift (section band images)
+   ============================================= */
+
+.cs-section-band__image figure {
+  transition: transform 0.4s ease;
+}
+
+.cs-section-band__image figure:hover {
+  transform: translateY(-4px);
+}
+
+.cs-section-band--wide-image .cs-section-band__image figure:hover {
+  transform: none;
+}
+

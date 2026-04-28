@@ -380,6 +380,10 @@
 
     const videoHtml = buildVideoEmbed(p.videoEmbed);
 
+    // Count sectionImages to detect 2-image projects
+    const totalSectionImages = Object.keys(p.sectionImages || {}).length;
+    const hasTwoImages = totalSectionImages === 2;
+
     const sections = [
       { key: "overview", label: "Overview" },
       { key: "problemAndGoals", label: "Problem & Goals" },
@@ -393,13 +397,24 @@
       { key: "outcomesAndNextSteps", label: "Outcomes & Next Steps" }
     ];
 
+    // Overview goes in the intro band; exclude it from the section bands
     const filteredSections = sections.filter(function (s) {
-      return p[s.key];
+      return p[s.key] && s.key !== "overview";
     });
 
-    const respBandHtml =
-      '<div class="cs-section-band reveal">' +
+    // Intro band: responsibilities + tools LEFT, overview RIGHT
+    const introOverviewHtml = p.overview
+      ? '<section class="case-study-section cs-intro-band__overview" aria-labelledby="section-overview">' +
+        '<h2 class="case-study-section__title" id="section-overview">Overview</h2>' +
+        "<p>" + escapeHtml(p.overview) + "</p>" +
+        "</section>"
+      : "";
+
+    const csIntroBandHtml =
+      '<div class="cs-intro-band reveal reveal--from-left">' +
       '<div class="container">' +
+      '<div class="cs-intro-band__inner">' +
+      '<div class="cs-intro-band__left">' +
       '<section class="case-study-section" aria-labelledby="section-responsibilities">' +
       '<h2 class="case-study-section__title" id="section-responsibilities">Responsibilities</h2>' +
       '<ul class="responsibilities-list">' +
@@ -413,12 +428,23 @@
         : "") +
       "</section>" +
       "</div>" +
+      '<div class="cs-intro-band__right">' +
+      introOverviewHtml +
+      "</div>" +
+      "</div>" +
+      "</div>" +
       "</div>";
+
+    // Band background variant cycle: default → alt → accent
+    var bandVariants = ["", " cs-section-band--alt", " cs-section-band--accent"];
 
     const sectionBandsHtml = filteredSections
       .map(function (s, i) {
         var img = (p.sectionImages && p.sectionImages[s.key]) || null;
         var side = i % 2 === 0 ? "right" : "left";
+        var revealDir = i % 2 === 0 ? " reveal--from-left" : " reveal--from-right";
+        var variantClass = bandVariants[i % 3];
+        var wideClass = hasTwoImages && img ? " cs-section-band--wide-image" : "";
 
         var imgHtml;
         if (!img) {
@@ -446,7 +472,9 @@
         }
 
         return (
-          '<div class="cs-section-band cs-section-band--image-' + side + (!img ? ' cs-section-band--no-image' : '') + ' reveal">' +
+          '<div class="cs-section-band cs-section-band--image-' + side +
+          (!img ? " cs-section-band--no-image" : "") +
+          wideClass + variantClass + " reveal" + revealDir + '">' +
           '<div class="container">' +
           '<div class="cs-section-band__inner">' +
 
@@ -521,7 +549,7 @@
         : "") +
 
       '<div class="case-study-body" data-slug="' + escapeHtml(p.slug || "") + '">' +
-      respBandHtml +
+      csIntroBandHtml +
       sectionBandsHtml +
       videoBandHtml +
       "</div>";
