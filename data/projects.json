@@ -589,12 +589,12 @@
     "outcomesAndNextSteps": "Both final documents were delivered with complete post-editing documentation. The government translation workflow was formatted as a reusable methodology guide for subsequent public-sector translation projects. The literary translation and translator's notes were submitted as a portfolio piece demonstrating the range and limits of cloud-assisted translation for non-technical text. Next steps include expanding the government translation to the full FEMA guide and exploring CAT tool integration to build a translation memory for future assignments.",
     "sectionImages": {
       "problemAndGoals": {
-        "src": "assets/awssc.pdf",
+        "src": "assets/awstranslate.png",
         "alt": "AWS Translation",
         "caption": "AWS Translation"
       },
       "informationArchitecture": {
-        "src": "assets/pagetranslate.pdf",
+        "src": "assets/translation.png",
         "alt": "page translation screenshot",
         "caption": "Digital interface of translation"
       }
