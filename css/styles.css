@@ -2496,3 +2496,25 @@ html.moon-mode .tag--muted {
   color: var(--color-text-secondary);
   text-align: center;
 }
+
+/* ---------------------------------------------
+   OPPI: larger section images
+   (not the hero image)
+---------------------------------------------- */
+
+[data-slug="oppi-data-hub-redesign"] .cs-section-band__inner,
+[data-slug="oppi-data-hub-redesign"] .cs-section-band--image-right .cs-section-band__inner {
+  grid-template-columns: 1fr 1fr !important;
+}
+
+[data-slug="oppi-data-hub-redesign"] .cs-section-band--image-left .cs-section-band__inner {
+  grid-template-columns: 1fr 1fr !important;
+}
+
+[data-slug="oppi-data-hub-redesign"] .cs-section-band__image img {
+  max-width: 700px !important;
+}
+
+[data-slug="oppi-data-hub-redesign"] .cs-section-band__image figcaption {
+  max-width: 700px;
+}

@@ -520,7 +520,7 @@
           "</div>"
         : "") +
 
-      '<div class="case-study-body">' +
+      '<div class="case-study-body" data-slug="' + escapeHtml(p.slug || "") + '">' +
       respBandHtml +
       sectionBandsHtml +
       videoBandHtml +
