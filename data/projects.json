@@ -349,7 +349,12 @@
       "Foundation Directory"
     ],
     "heroImage": "assets/placeholder.svg",
-    "externalLinks": [],
+    "externalLinks": [      
+      {
+        "label": "View Project",
+        "url": "file:///C:/Users/B/Desktop/Mariah%20Lopez_Greccio%20Housing%20for%20Journey%20for%20Good%20Grant.pdf"
+      }
+    ],
     "videoEmbed": "",
     "overview": "This project encompassed three distinct grant proposals submitted on behalf of two nonprofits: Raptor Watch Colorado (a wildlife conservation organization) and Literacy Bridges (a youth reading intervention program). Each proposal required translating the organization's programs into funder-facing narratives that aligned with specific grant priorities, demonstrated measurable community impact, and complied with submission requirements.",
     "problemAndGoals": "Both organizations had compelling programs but struggled to communicate their impact in language that resonated with institutional funders. The primary challenge was bridging the gap between program-level knowledge \u2014 held by staff closest to the work \u2014 and the evidence-based, outcome-focused framing funders require. The goal for each proposal was to present a clear problem statement, a well-structured program design, and a credible evaluation plan within strict word and page limits.",
@@ -386,7 +391,12 @@
       "AP Stylebook"
     ],
     "heroImage": "assets/placeholder.svg",
-    "externalLinks": [],
+    "externalLinks": [    
+      {
+        "label": "View Project",
+        "url": "file:///C:/Users/B/Desktop/StyleGuide%20Bunny%20Mariah%20Lopez%20TCID%203130%20Joshua%20Bohumil.pdf"
+      }
+    ],
     "videoEmbed": "",
     "overview": "Mosaic Arts Collective is a mid-size community arts nonprofit serving underrepresented artists in southern Colorado. Over several years of growth, the organization's communications had become fragmented \u2014 varying voice across social media, grant materials, and event programs, and inconsistent terminology that confused patrons and funders alike. This project produced a living style guide that gave staff and volunteers a single authoritative reference for all written communications.",
     "problemAndGoals": "The organization lacked written standards for voice, tone, or grammar, which meant that each staff member applied their own interpretation to public-facing content. This created brand inconsistency, occasional accessibility failures (inconsistent alt-text practices, jargon-heavy language), and longer review cycles as leadership corrected variation before publication. The goal was a practical, usable guide that non-writers could apply confidently.",
@@ -424,7 +434,12 @@
       "Notion"
     ],
     "heroImage": "assets/placeholder.svg",
-    "externalLinks": [],
+    "externalLinks": [      
+      {
+        "label": "View Project",
+        "url": "file:///C:/Users/B/Desktop/AI%20Augmented%20Workflow%20Mariah%20Lopez.pdf"
+      }
+    ],
     "videoEmbed": "",
     "overview": "As AI-assisted writing tools became increasingly available, technical communication teams faced a common challenge: understanding which tools provide genuine productivity value, which introduce accuracy or compliance risk, and how to establish guardrails that allow responsible adoption. This report was commissioned to evaluate three AI tools \u2014 ChatGPT, Claude, and Microsoft Copilot \u2014 against a defined set of technical writing task scenarios, and to produce adoption guidance grounded in documented evidence rather than vendor claims.",
     "problemAndGoals": "Organizations were making AI tool decisions based on marketing materials, individual staff experimentation, or both, with no systematic evaluation framework. The risk was either over-reliance on tools that hallucinate citations or omit regulatory language, or unnecessary restriction of tools that could genuinely reduce revision burden for lower-stakes content tasks. The goal was a structured capability assessment that supported an informed, tiered adoption decision.",
@@ -457,11 +472,15 @@
     "tools": [
       "Microsoft Word",
       "Figma",
-      "Notion",
       "Google Sheets"
     ],
     "heroImage": "assets/placeholder.svg",
-    "externalLinks": [],
+    "externalLinks": [    
+      {
+        "label": "View Project",
+        "url": "file:///C:/Users/B/Desktop/UX%20REPORT%20MARIAH%20LOPEZ.pdf"
+      }
+    ],
     "videoEmbed": "",
     "overview": "Following a round of usability testing and stakeholder interviews on a municipal permit application portal, the research team had rich qualitative and quantitative data but no structured deliverable to guide the design and development team. This report synthesized the research findings into a formal UX recommendation document \u2014 organized by severity, supported by evidence, and packaged for both design implementation and executive decision-making.",
     "problemAndGoals": "The research phase had produced session recordings, affinity diagrams, and a data spreadsheet, but the findings existed in fragmented form across multiple documents and team members. The design team needed a single, authoritative source they could hand to developers; leadership needed a high-level summary to approve resource allocation. The report had to serve both audiences without becoming so long that either group would skip it.",
@@ -484,7 +503,7 @@
       "Built the Pandoc + CSS PDF export pipeline",
       "Wrote the SOP-on-SOPs authoring guide",
       "Created example SOPs demonstrating the template",
-      "Documented the Git version control workflow for procedures"
+      "Documented the Git version control workflow for procedures."
     ],
     "tags": [
       "Documentation",
@@ -492,14 +511,17 @@
     ],
     "tools": [
       "Markdown",
-      "Pandoc",
+      "Adobe PDF",
       "Git",
       "VS Code",
-      "CSS",
-      "GitHub Actions"
     ],
     "heroImage": "assets/placeholder.svg",
-    "externalLinks": [],
+    "externalLinks": [      
+      {
+        "label": "View Project",
+        "url": "file:///C:/Users/B/Desktop/document.pdf"
+      }
+    ],
     "videoEmbed": "",
     "overview": "Many teams write SOPs in Word or Google Docs, which creates version control challenges, inconsistent formatting, and high maintenance overhead when procedures change. This project developed a docs-as-code approach: SOPs are authored in Markdown, stored in a Git repository, and exported to consistently formatted PDF documents via a Pandoc build pipeline. The deliverable was both the system itself and the meta-SOP that teaches writers how to use it.",
     "problemAndGoals": "The problem is familiar in documentation-heavy teams: ten people maintaining SOPs in ten slightly different Word templates, no audit trail, no diff-based review, and PDFs that look different every time someone edits a header. The goal was a lightweight, open-source-based system that any writer could adopt without specialized tooling, that produced print-ready PDFs with consistent formatting, and that supported meaningful version history through standard Git workflows.",
@@ -538,7 +560,12 @@
       "Google Docs"
     ],
     "heroImage": "assets/placeholder.svg",
-    "externalLinks": [],
+    "externalLinks": [     
+      {
+        "label": "View Project",
+        "url": "file:///C:/Users/B/Desktop/100q_Spanish.pdf"
+      
+      ],
     "videoEmbed": "",
     "overview": "This project produced two completed translations using a cloud-assisted translation workflow: a FEMA public emergency preparedness guide (English to Spanish) intended for distribution to Spanish-speaking communities in Colorado, and Chapter 4 of a contemporary English-language novel (English to Spanish) as a literary translation exercise exploring the limits of machine translation for register and voice. Together, the two documents represent opposite ends of the translation spectrum \u2014 technical plainness versus literary expressiveness \u2014 and demonstrate how cloud translation services must be applied differently for each.",
     "problemAndGoals": "The government translation challenge was ensuring that FEMA's regulatory and procedural language was rendered in plain, accessible Spanish appropriate for readers with varying literacy levels \u2014 not a literal word-for-word transfer that preserved bureaucratic complexity. The literary translation challenge was the opposite: preserving idiomatic expression, narrative voice, and cultural resonance that machine translation systems consistently flatten. Both projects required documenting what cloud tools could and could not do reliably, producing a replicable post-editing workflow.",
