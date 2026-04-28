@@ -2530,3 +2530,16 @@ html.moon-mode .tag--muted {
 [data-slug="oppi-data-hub-redesign"] .cs-section-band__image figcaption {
   max-width: 700px;
 }
+
+/* OPPI: no-image sections alternate content position (last three sections) */
+[data-slug="oppi-data-hub-redesign"] .cs-section-band--no-image.cs-section-band--image-right .cs-section-band__inner {
+  grid-template-columns: 2fr 1fr !important;
+}
+
+[data-slug="oppi-data-hub-redesign"] .cs-section-band--no-image.cs-section-band--image-left .cs-section-band__inner {
+  grid-template-columns: 1fr 2fr !important;
+}
+
+[data-slug="oppi-data-hub-redesign"] .cs-section-band--no-image .cs-section-band__image--empty {
+  display: block !important;
+}
