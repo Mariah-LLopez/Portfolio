@@ -380,8 +380,8 @@
 
     const videoHtml = buildVideoEmbed(p.videoEmbed);
 
-    // Count sectionImages to detect 2-image projects
-    const totalSectionImages = Object.keys(p.sectionImages || {}).length;
+    // Count sectionImages (excluding overview, which is rendered in the intro band)
+    const totalSectionImages = Object.keys(p.sectionImages || {}).filter(function (k) { return k !== "overview"; }).length;
     const hasTwoImages = totalSectionImages === 2;
 
     const sections = [
@@ -410,6 +410,16 @@
         "</section>"
       : "";
 
+    const overviewImg = p.sectionImages && p.sectionImages.overview ? p.sectionImages.overview : null;
+    const introOverviewImgHtml = overviewImg
+      ? '<figure class="cs-intro-band__image">' +
+        '<img src="' + escapeHtml(overviewImg.src) + '" alt="' + escapeHtml(overviewImg.alt) + '" loading="lazy">' +
+        (overviewImg.caption
+          ? '<figcaption>' + escapeHtml(overviewImg.caption) + '</figcaption>'
+          : "") +
+        "</figure>"
+      : "";
+
     const csIntroBandHtml =
       '<div class="cs-intro-band reveal reveal--from-left">' +
       '<div class="container">' +
@@ -430,6 +440,7 @@
       "</div>" +
       '<div class="cs-intro-band__right">' +
       introOverviewHtml +
+      introOverviewImgHtml +
       "</div>" +
       "</div>" +
       "</div>" +
