@@ -568,15 +568,14 @@
       "DeepL",
       "Google Cloud Translation API",
       "Microsoft Azure Translator",
-      "SDL Trados (CAT tool basics)",
       "Microsoft Word",
       "Google Docs"
     ],
-    "heroImage": "assets/placeholder.svg",
+    "heroImage": "assets/awstranslation.png",
     "externalLinks": [
       {
         "label": "View Project",
-        "url": ""
+        "url": "assets/100q_Spanish.pdf"
       }
     ],
     "videoEmbed": "",
@@ -588,6 +587,16 @@
     "requirementsAndCriteria": "The government document translation was evaluated against three criteria: terminological accuracy (cross-referenced against official FEMA Spanish glossaries), plain language compliance (Flesch-Kincaid reading level target of Grade 6–8 in Spanish), and formatting preservation (all original section structure, heading hierarchy, and call-out boxes maintained). The literary translation was evaluated on voice consistency, idiomatic naturalness, and fidelity to narrative meaning rather than surface-level word choice.",
     "qaAndIteration": "The government document was reviewed by a bilingual public health communicator for plain language and accessibility. Feedback produced one revision cycle that simplified three procedural paragraphs and corrected two term equivalences where regional Spanish variation was relevant for the Colorado target audience. The literary chapter was reviewed against the original by a Spanish-language literature instructor, whose feedback refined the handling of two extended dialogue passages and one recurring metaphor.",
     "outcomesAndNextSteps": "Both final documents were delivered with complete post-editing documentation. The government translation workflow was formatted as a reusable methodology guide for subsequent public-sector translation projects. The literary translation and translator's notes were submitted as a portfolio piece demonstrating the range and limits of cloud-assisted translation for non-technical text. Next steps include expanding the government translation to the full FEMA guide and exploring CAT tool integration to build a translation memory for future assignments.",
-    "sectionImages": {}
-  }
+    "sectionImages": {
+      "problemAndGoals": {
+       "src": "assets/awssc.pdf",
+       "alt": "AWS Translation",
+       "caption": "AWS Translation"
+        },
+      "informationArchitecture": {
+       "src": "assets/pagetranslate.pdf",
+       "alt": "page translation screenshot",
+       "caption": "Digital interface of translation"
+        }
+  },
 ]
