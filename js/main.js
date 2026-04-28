@@ -410,8 +410,8 @@
         "</section>"
       : "";
 
-    var overviewImg = p.sectionImages && p.sectionImages.overview ? p.sectionImages.overview : null;
-    var introOverviewImgHtml = overviewImg
+    const overviewImg = p.sectionImages && p.sectionImages.overview ? p.sectionImages.overview : null;
+    const introOverviewImgHtml = overviewImg
       ? '<figure class="cs-intro-band__image">' +
         '<img src="' + escapeHtml(overviewImg.src) + '" alt="' + escapeHtml(overviewImg.alt) + '" loading="lazy">' +
         (overviewImg.caption
