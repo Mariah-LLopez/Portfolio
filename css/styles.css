@@ -2394,3 +2394,91 @@ html.moon-mode .tag--muted {
     grid-template-columns: 1fr !important;
   }
 }
+/* =============================================
+   HERO HEADER + FULL WIDTH HERO IMAGE FIX
+   ============================================= */
+
+/* Move hero text block left instead of centered */
+.case-study-hero {
+  min-height: 70vh !important;
+  display: flex !important;
+  align-items: center !important;
+  padding-block: clamp(5rem, 8vw, 8rem) !important;
+}
+
+.case-study-hero .container {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding-left: clamp(2rem, 7vw, 7rem) !important;
+  padding-right: clamp(2rem, 7vw, 7rem) !important;
+  display: block !important;
+}
+
+.case-study-hero__content {
+  max-width: 850px !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+
+.case-study-hero__title {
+  max-width: 11ch !important;
+  font-size: clamp(4rem, 8vw, 8rem) !important;
+  line-height: 0.95 !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.case-study-hero__summary {
+  max-width: 68ch !important;
+  font-size: clamp(1rem, 1.2vw, 1.25rem) !important;
+  line-height: 1.8 !important;
+}
+
+/* Bring the full-width hero image back */
+.case-study-hero-image-full {
+  display: block !important;
+  width: 100vw !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  background: var(--color-bg-alt);
+}
+
+/* Stretch image across screen */
+.case-study-hero-image-full .case-study-hero__image {
+  display: block !important;
+  width: 100vw !important;
+  max-width: none !important;
+  height: clamp(360px, 58vw, 760px) !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+/* More space between responsibilities and tools */
+.responsibilities-list {
+  margin-bottom: clamp(2rem, 4vw, 4rem) !important;
+}
+
+.cs-tools-heading {
+  margin-top: clamp(2rem, 4vw, 4rem) !important;
+  margin-bottom: 1rem !important;
+}
+/* Image captions */
+.cs-section-band__image {
+  flex-direction: column !important;
+  gap: 0.9rem !important;
+}
+
+.cs-section-band__image figcaption {
+  max-width: 520px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+  text-align: center;
+}
