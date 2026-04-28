@@ -2408,6 +2408,18 @@ html.moon-mode .tag--muted {
     order: initial !important;
   }
 }
+
+/* NO IMAGE: stretch text to full width */
+.cs-section-band--no-image .cs-section-band__inner,
+.cs-section-band--no-image.cs-section-band--image-right .cs-section-band__inner,
+.cs-section-band--no-image.cs-section-band--image-left .cs-section-band__inner {
+  grid-template-columns: 1fr !important;
+}
+
+.cs-section-band--no-image .cs-section-band__image--empty {
+  display: none !important;
+}
+
 /* =============================================
    HERO HEADER + FULL WIDTH HERO IMAGE FIX
    ============================================= */
