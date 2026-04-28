@@ -465,7 +465,7 @@
       "Figma",
       "Google Sheets"
     ],
-    "heroImage": "assets/placeholder.svg",
+    "heroImage": "assets/oppippora.png",
     "externalLinks": [
       {
         "label": "View Project",
@@ -481,7 +481,20 @@
     "requirementsAndCriteria": "Each recommendation was tied directly to observed user behavior from usability testing and user flow analysis. Priority was given to issues that caused task failure, hesitation, or confusion. Key criteria included improving navigation efficiency, reducing cognitive load, and increasing clarity through better organization and written explanations.",
     "qaAndIteration": "The report was refined through feedback and iteration to ensure recommendations accurately reflected user behavior and were clearly communicated. Revisions focused on strengthening the connection between usability findings and design recommendations, as well as simplifying language to ensure accessibility for both technical and non-technical stakeholders.",
     "outcomesAndNextSteps": "The final recommendations provided a clear direction for improving the Recreation Data page by introducing structured organization and contextual explanations. Key changes included grouping links into meaningful categories and adding short descriptions to clarify each resource. These improvements aim to reduce user confusion, improve task completion, and create a more intuitive and efficient experience.",
-    "sectionImages": {}
+     "sectionImages": {
+      "problemAndGoals": {
+        "src": "assets/toc ux report page one.png",
+        "alt": "UX Report page one",
+        "caption": "Persona used to define the needs, goals, and data behaviors of a public-sector recreation user."
+      "informationArchitecture": {
+        "src": "assets/toc ux report page two.png",
+        "alt": "UX Report page two"
+      },
+      "requirementsAndCriteria": {
+        "src": "assets/appendix ux report page.png",
+        "alt": "Appendix page of the UX Report."
+      }
+    }
   },
   {
     "title": "SOP Template: Writing SOPs in Markdown and Exporting to PDF",
