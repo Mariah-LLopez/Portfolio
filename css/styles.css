@@ -891,8 +891,8 @@ p:last-child {
 }
 
 .case-study-hero__title {
-  font-size: clamp(3rem, 6vw, 6.5rem);
-  line-height: 1;
+  font-size: clamp(var(--font-size-3xl), 5vw, var(--font-size-hero));
+  line-height: 1.1;
   margin-bottom: 1.5rem;
 }
 
@@ -954,8 +954,8 @@ p:last-child {
 ---------------------------------------------- */
 
 .cs-section-band .case-study-section__title {
-  font-size: clamp(2.5rem, 4vw, 4.5rem);
-  line-height: 1.05;
+  font-size: clamp(var(--font-size-2xl), 3.5vw, var(--font-size-3xl));
+  line-height: 1.15;
   margin-bottom: 1.5rem;
   max-width: 10ch;
 }
@@ -1104,9 +1104,9 @@ p:last-child {
 }
 
 .cs-images-strip__heading {
-  font-size: clamp(2.4rem, 4.2vw, 5rem);
-  line-height: 1;
-  letter-spacing: -0.055em;
+  font-size: clamp(var(--font-size-3xl), 3.5vw, var(--font-size-4xl));
+  line-height: 1.1;
+  letter-spacing: -0.03em;
   margin-bottom: clamp(3rem, 5vw, 5rem);
 }
 
@@ -1188,13 +1188,13 @@ p:last-child {
   .case-study-hero__title,
   .cs-section-band .case-study-section__title,
   .cs-images-strip__heading {
-    font-size: clamp(2.6rem, 13vw, 4rem);
-    line-height: 1.02;
+    font-size: clamp(var(--font-size-3xl), 10vw, var(--font-size-4xl));
+    line-height: 1.1;
   }
 
   .case-study-hero__summary,
   .cs-section-band .case-study-section p {
-    font-size: 1rem;
+    font-size: var(--font-size-base);
     line-height: 1.75;
   }
 
@@ -2223,9 +2223,9 @@ html.moon-mode .tag--muted {
 
 /* Text styling */
 .cs-section-band .case-study-section__title {
-  font-size: clamp(3rem, 5.5vw, 6rem);
-  line-height: 1.02;
-  letter-spacing: -0.05em;
+  font-size: clamp(var(--font-size-2xl), 3.5vw, var(--font-size-3xl));
+  line-height: 1.15;
+  letter-spacing: -0.02em;
   max-width: 12ch;
   margin-bottom: 2rem;
 }
@@ -2327,7 +2327,7 @@ html.moon-mode .tag--muted {
 
   .cs-section-band .case-study-section__title {
     max-width: 100%;
-    font-size: clamp(2.5rem, 12vw, 4rem);
+    font-size: clamp(var(--font-size-2xl), 10vw, var(--font-size-3xl));
   }
 }
 /* =============================================
@@ -2423,8 +2423,8 @@ html.moon-mode .tag--muted {
 
 .case-study-hero__title {
   max-width: 11ch !important;
-  font-size: clamp(4rem, 8vw, 8rem) !important;
-  line-height: 0.95 !important;
+  font-size: clamp(var(--font-size-4xl), 5vw, var(--font-size-hero)) !important;
+  line-height: 1.1 !important;
   margin-bottom: 1.5rem !important;
 }
 
