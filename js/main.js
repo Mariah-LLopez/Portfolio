@@ -343,254 +343,189 @@
     );
   }
 
-  function renderCaseStudy(p, container) {
-    const tagsHtml = (p.tags || [])
-      .map(function (t) {
-        return '<span class="tag">' + escapeHtml(t) + "</span>";
-      })
-      .join("");
+function renderCaseStudy(p, container) {
+  const tagsHtml = (p.tags || [])
+    .map(function (t) {
+      return '<span class="tag">' + escapeHtml(t) + "</span>";
+    })
+    .join("");
 
-    const toolsHtml = (p.tools || [])
-      .map(function (t) {
-        return '<span class="badge">' + escapeHtml(t) + "</span>";
-      })
-      .join("");
+  const toolsHtml = (p.tools || [])
+    .map(function (t) {
+      return '<span class="badge">' + escapeHtml(t) + "</span>";
+    })
+    .join("");
 
-    const respHtml = (p.responsibilities || [])
-      .map(function (r) {
-        return "<li>" + escapeHtml(r) + "</li>";
-      })
-      .join("");
+  const respHtml = (p.responsibilities || [])
+    .map(function (r) {
+      return "<li>" + escapeHtml(r) + "</li>";
+    })
+    .join("");
 
-    const galleryImages = p.galleryImages || [];
-    const laptopImages = p.laptopImages || [];
+  const galleryImages = p.galleryImages || [];
+  const laptopImages = p.laptopImages || [];
+  const inlineImages = laptopImages.length > 0 ? laptopImages : galleryImages;
 
-    // Inline images: prefer dedicated laptopImages; fall back to galleryImages
-    // so all case studies get the same alternating-band layout.
-    const inlineImages = laptopImages.length > 0 ? laptopImages : galleryImages;
-    // Only show galleryImages in the artifact strip when a project also has laptopImages
-    const artifactGalleryImages = laptopImages.length > 0 ? galleryImages : [];
+  const linksHtml = (p.externalLinks || [])
+    .map(function (l) {
+      var href = l.url || l.src || "#";
+      return (
+        '<a href="' +
+        escapeHtml(href) +
+        '" class="btn btn--outline" target="_blank" rel="noopener noreferrer">' +
+        escapeHtml(l.label) +
+        "</a>"
+      );
+    })
+    .join("");
 
-    const linksHtml = (p.externalLinks || [])
-      .map(function (l) {
-        var href = l.url;
-        if (!href && l.src) {
-          console.warn("externalLinks entry uses deprecated \"src\" key; use \"url\" instead.", l);
-          href = l.src;
-        }
-        return (
-          '<a href="' +
-          escapeHtml(href) +
-          '" class="btn btn--outline" target="_blank" rel="noopener noreferrer">' +
-          escapeHtml(l.label) +
-          "</a>"
-        );
-      })
-      .join("");
+  const videoHtml = buildVideoEmbed(p.videoEmbed);
 
-    const videoHtml = buildVideoEmbed(p.videoEmbed);
+  const sections = [
+    { key: "overview", label: "Overview" },
+    { key: "problemAndGoals", label: "Problem & Goals" },
+    { key: "myRole", label: "My Role" },
+    { key: "discoveryAndConstraints", label: "Discovery & Constraints" },
+    { key: "informationArchitecture", label: "Information Architecture" },
+    { key: "userFlows", label: "User Flows" },
+    { key: "wireframesAndPrototypes", label: "Wireframes & Prototypes" },
+    { key: "requirementsAndCriteria", label: "Requirements & Acceptance Criteria" },
+    { key: "qaAndIteration", label: "Analytics & Iteration" },
+    { key: "outcomesAndNextSteps", label: "Outcomes & Next Steps" }
+  ];
 
-    const sections = [
-      { key: "overview", label: "Overview" },
-      { key: "problemAndGoals", label: "Problem & Goals" },
-      { key: "myRole", label: "My Role" },
-      { key: "discoveryAndConstraints", label: "Discovery & Constraints" },
-      { key: "informationArchitecture", label: "Information Architecture" },
-      { key: "userFlows", label: "User Flows" },
-      { key: "wireframesAndPrototypes", label: "Wireframes & Prototypes" },
-      { key: "requirementsAndCriteria", label: "Requirements & Acceptance Criteria" },
-      { key: "qaAndIteration", label: "Analytics & Iteration" },
-      { key: "outcomesAndNextSteps", label: "Outcomes & Next Steps" },
-    ];
+  const filteredSections = sections.filter(function (s) {
+    return p[s.key];
+  });
 
-    const filteredSections = sections.filter(function (s) { return p[s.key]; });
+  var imageMap = {};
+  inlineImages.forEach(function (img, j) {
+    if (filteredSections.length === 0) return;
+    var idx =
+      inlineImages.length === 1
+        ? Math.floor((filteredSections.length - 1) / 2)
+        : Math.round(j * (filteredSections.length - 1) / (inlineImages.length - 1));
+    imageMap[idx] = img;
+  });
 
-    // Distribute inline images evenly across all sections so they appear
-    // throughout the page (not clustered at the top).
-    var imageMap = {};
-    var overflowInlineImages = [];
-    (function () {
-      var imageCount = inlineImages.length, sectionCount = filteredSections.length;
-      if (imageCount === 0 || sectionCount === 0) return;
-      if (imageCount <= sectionCount) {
-        // Spread all images evenly: image j → section at evenly-spaced index
-        inlineImages.forEach(function (img, j) {
-          var idx = imageCount === 1 ? Math.floor((sectionCount - 1) / 2) : Math.round(j * (sectionCount - 1) / (imageCount - 1));
-          imageMap[idx] = img;
-        });
-      } else {
-        // More images than sections: one per section, remainder goes to artifact strip
-        inlineImages.forEach(function (img, j) {
-          if (j < sectionCount) {
-            imageMap[j] = img;
-          } else {
-            overflowInlineImages.push(img);
-          }
-        });
-      }
-    }());
+  const respBandHtml =
+    '<div class="cs-section-band reveal">' +
+    '<div class="container">' +
+    '<section class="case-study-section" aria-labelledby="section-responsibilities">' +
+    '<h2 class="case-study-section__title" id="section-responsibilities">Responsibilities</h2>' +
+    '<ul class="responsibilities-list">' +
+    respHtml +
+    "</ul>" +
+    (toolsHtml
+      ? '<h3 class="cs-tools-heading">Tools Used</h3>' +
+        '<div class="tools-list">' +
+        toolsHtml +
+        "</div>"
+      : "") +
+    "</section>" +
+    "</div>" +
+    "</div>";
 
-    // Build images HTML for the artifacts strip at the bottom.
-    const bodyImagesHtml = [];
-    artifactGalleryImages.forEach(function (img) {
-      bodyImagesHtml.push(
-        '<div class="case-study-body__image-item gallery-spread-image">' +
-        '<img src="' + escapeHtml(img.src) + '" alt="' + escapeHtml(img.alt) + '" loading="lazy">' +
+  const sectionBandsHtml = filteredSections
+    .map(function (s, i) {
+      var img = imageMap[i] || null;
+      var side = i % 2 === 0 ? "right" : "left";
+
+      return (
+        '<div class="cs-section-band cs-section-band--image-' + side + ' reveal">' +
+        '<div class="container">' +
+        '<div class="cs-section-band__inner">' +
+
+        '<section class="case-study-section cs-section-band__content" aria-labelledby="section-' +
+        s.key +
+        '">' +
+        '<h2 class="case-study-section__title" id="section-' +
+        s.key +
+        '">' +
+        s.label +
+        "</h2>" +
+        "<p>" +
+        escapeHtml(p[s.key]) +
+        "</p>" +
+        "</section>" +
+
+        (img
+          ? '<figure class="cs-section-band__image">' +
+            '<img src="' + escapeHtml(img.src) + '" alt="' + escapeHtml(img.alt) + '" loading="lazy">' +
+            '<figcaption>' + escapeHtml(img.caption || img.alt) + "</figcaption>" +
+            "</figure>"
+          : '<div class="cs-section-band__image cs-section-band__image--empty"></div>') +
+
+        "</div>" +
+        "</div>" +
         "</div>"
       );
-    });
+    })
+    .join("");
 
-    // Build a full-width section band for responsibilities & tools
-    const respBandHtml =
-      '<div class="cs-section-band reveal">' +
+  const videoBandHtml = videoHtml
+    ? '<div class="cs-section-band reveal">' +
       '<div class="container">' +
-      '<section class="case-study-section" aria-labelledby="section-responsibilities">' +
-      '<h2 class="case-study-section__title" id="section-responsibilities">Responsibilities</h2>' +
-      '<ul class="responsibilities-list">' +
-      respHtml +
-      "</ul>" +
-      (toolsHtml
-        ? '<h3 class="cs-tools-heading">Tools Used</h3>' +
-          '<div class="tools-list">' +
-          toolsHtml +
-          "</div>"
-        : "") +
+      '<section class="case-study-section" aria-labelledby="section-video">' +
+      '<h2 class="case-study-section__title" id="section-video">Video Walkthrough</h2>' +
+      videoHtml +
       "</section>" +
-      "</div>" +
-      "</div>";
-
-    // Build one full-width band per content section.
-    // Images are evenly distributed across sections via imageMap (alternating left/right).
-   const sectionBandsHtml = filteredSections
-  .map(function (s, i) {
-    var img = imageMap[i] || null;
-    var side = i % 2 === 0 ? "right" : "left";
-
-    return (
-      '<div class="cs-section-band cs-section-band--image-' + side + ' reveal">' +
-      '<div class="container">' +
-      '<div class="cs-section-band__inner">' +
-
-      '<section class="case-study-section cs-section-band__content" aria-labelledby="section-' +
-      s.key +
-      '">' +
-      '<h2 class="case-study-section__title" id="section-' +
-      s.key +
-      '">' +
-      s.label +
-      "</h2>" +
-      "<p>" +
-      escapeHtml(p[s.key]) +
-      "</p>" +
-      "</section>" +
-
-      (img
-        '<figure class="cs-section-band__image">' +
-        '<img src="' + escapeHtml(img.src) + '" alt="' + escapeHtml(img.alt) + '" loading="lazy">' +
-        '<figcaption>' + escapeHtml(img.caption || img.alt) + '</figcaption>' +
-        "</figure>"
-        : '<div class="cs-section-band__image cs-section-band__image--empty"></div>') +
-
-      "</div>" +
       "</div>" +
       "</div>"
-    );
-  })
-  .join("");
+    : "";
 
-    // Video band
-    const videoBandHtml = videoHtml
-      ? '<div class="cs-section-band reveal">' +
-        '<div class="container">' +
-        '<section class="case-study-section" aria-labelledby="section-video">' +
-        '<h2 class="case-study-section__title" id="section-video">Video Walkthrough</h2>' +
-        videoHtml +
-        "</section>" +
-        "</div>" +
+  container.innerHTML =
+    '<div class="case-study-hero">' +
+    '<canvas class="section__canvas" aria-hidden="true"></canvas>' +
+    '<div class="container">' +
+    '<nav aria-label="Breadcrumb" style="margin-bottom:1rem;font-size:0.9375rem">' +
+    '<a href="projects.html">← Back to Projects</a>' +
+    "</nav>" +
+    '<div class="case-study-hero__content">' +
+    '<div class="case-study-hero__meta">' +
+    '<span class="case-study-hero__role">' +
+    escapeHtml(p.role || "") +
+    "</span>" +
+    '<div class="project-card__tags">' +
+    tagsHtml +
+    "</div>" +
+    "</div>" +
+    '<h1 class="case-study-hero__title">' +
+    escapeHtml(p.title || "") +
+    "</h1>" +
+    '<p class="case-study-hero__summary">' +
+    escapeHtml(p.strategicSummary || "") +
+    "</p>" +
+    (linksHtml ? '<div class="case-study-links">' + linksHtml + "</div>" : "") +
+    "</div>" +
+    "</div>" +
+    "</div>" +
+
+    (p.heroImage
+      ? '<div class="case-study-hero-image-full">' +
+        '<img class="case-study-hero__image" src="' +
+        escapeHtml(p.heroImage) +
+        '" alt="' +
+        escapeHtml(p.title) +
+        ' hero image" loading="eager">' +
         "</div>"
-      : "";
+      : "") +
 
-    // Full-width images artifact strip (galleryImages when project also has laptopImages,
-    // plus any inlineImages that exceeded the section count)
-    overflowInlineImages.forEach(function (img) {
-      bodyImagesHtml.push(
-        '<div class="case-study-body__image-item laptop-spread-image">' +
-        '<img src="' + escapeHtml(img.src) + '" alt="' + escapeHtml(img.alt) + '" loading="lazy">' +
-        "</div>"
-      );
-    });
-    const imagesStripHtml = bodyImagesHtml.length
-      ? '<div class="cs-images-strip reveal">' +
-        '<div class="container">' +
-        '<h2 class="case-study-section__title cs-images-strip__heading">Project Artifacts</h2>' +
-        '<div class="cs-images-strip__grid">' +
-        bodyImagesHtml.join("") +
-        "</div>" +
-        "</div>" +
-        "</div>"
-      : "";
+    '<div class="case-study-body">' +
+    respBandHtml +
+    sectionBandsHtml +
+    videoBandHtml +
+    "</div>";
 
-    container.innerHTML =
-      // Hero — text only, full-width; image moved below
-      '<div class="case-study-hero">' +
-      '<canvas class="section__canvas" aria-hidden="true"></canvas>' +
-      '<div class="container">' +
-      '<nav aria-label="Breadcrumb" style="margin-bottom:1rem;font-size:0.9375rem">' +
-      '<a href="projects.html">← Back to Projects</a>' +
-      "</nav>" +
-      '<div class="case-study-hero__content">' +
-      '<div class="case-study-hero__meta">' +
-      '<span class="case-study-hero__role">' +
-      escapeHtml(p.role) +
-      "</span>" +
-      '<div class="project-card__tags">' +
-      tagsHtml +
-      "</div>" +
-      "</div>" +
-      '<h1 class="case-study-hero__title">' +
-      escapeHtml(p.title) +
-      "</h1>" +
-      '<p class="case-study-hero__summary">' +
-      escapeHtml(p.strategicSummary) +
-      "</p>" +
-      (linksHtml
-        ? '<div class="case-study-links">' + linksHtml + "</div>"
-        : "") +
-
-      respBandHtml +
-      sectionBandsHtml +
-      videoBandHtml +
-      imagesStripHtml +
-      "</div>";
-     "</div>" +
-     "</div>" +
-   "</div>" +
-
-   (p.heroImage
-     ? '<div class="case-study-hero-image-full">' +
-     '<img class="case-study-hero__image" src="' +
-      escapeHtml(p.heroImage) +
-      '" alt="' +
-      escapeHtml(p.title) +
-      ' hero image" loading="eager">' +
-    "</div>"
-     : "") +
-
-'<div class="case-study-body">' +
-    // Initialise the canvas animation injected into the hero section
-    if (_initCanvas) {
-      var heroCanvas = container.querySelector(".case-study-hero .section__canvas");
-      if (heroCanvas) _initCanvas(heroCanvas);
-    }
-
-    // Observe all .reveal elements rendered in the case study
-    if (_initReveal) {
-      _initReveal(container);
-    }
+  if (_initCanvas) {
+    var heroCanvas = container.querySelector(".case-study-hero .section__canvas");
+    if (heroCanvas) _initCanvas(heroCanvas);
   }
 
-  /* ------------------------------------------
-     8. Video Embed Helper
+  if (_initReveal) {
+    _initReveal(container);
+  }
+}
      ------------------------------------------ */
   function buildVideoEmbed(url) {
     if (!url || url.trim() === "") return "";
