@@ -208,6 +208,14 @@
       "outcomesAndNextSteps": {
         "src": "assets/pvtt.png",
         "alt": "Style Guide Video Template"
+      },
+      "discoveryAndConstraints": {
+        "src": "assets/logoguidelines.png",
+        "alt": "logo and guidelines"
+      },
+      "wireframesAndPrototypes": {
+        "src": "assets/purposeandaudience.png",
+        "alt": "purpose and audience"
       }
     }
   },
