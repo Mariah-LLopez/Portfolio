@@ -949,6 +949,23 @@ p:last-child {
   border-radius: 0 !important;
 }
 
+/* Multiple images side-by-side */
+.cs-section-band__image--multi {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.cs-section-band__image--multi figure {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 /* ---------------------------------------------
    TEXT SPACING FIX (not cramped)
 ---------------------------------------------- */

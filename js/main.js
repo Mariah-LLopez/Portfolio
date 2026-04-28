@@ -364,10 +364,6 @@
       })
       .join("");
 
-    const galleryImages = p.galleryImages || [];
-    const laptopImages = p.laptopImages || [];
-    const inlineImages = laptopImages.length > 0 ? laptopImages : galleryImages;
-
     const linksHtml = (p.externalLinks || [])
       .map(function (l) {
         var href = l.url || l.src || "#";
@@ -401,18 +397,6 @@
       return p[s.key];
     });
 
-    var imageMap = {};
-    inlineImages.forEach(function (img, j) {
-      if (filteredSections.length === 0) return;
-
-      var idx =
-        inlineImages.length === 1
-          ? Math.floor((filteredSections.length - 1) / 2)
-          : Math.round(j * (filteredSections.length - 1) / (inlineImages.length - 1));
-
-      imageMap[idx] = img;
-    });
-
     const respBandHtml =
       '<div class="cs-section-band reveal">' +
       '<div class="container">' +
@@ -433,8 +417,33 @@
 
     const sectionBandsHtml = filteredSections
       .map(function (s, i) {
-        var img = imageMap[i] || null;
+        var img = (p.sectionImages && p.sectionImages[s.key]) || null;
         var side = i % 2 === 0 ? "right" : "left";
+
+        var imgHtml;
+        if (!img) {
+          imgHtml = '<div class="cs-section-band__image cs-section-band__image--empty"></div>';
+        } else if (Array.isArray(img)) {
+          imgHtml =
+            '<div class="cs-section-band__image cs-section-band__image--multi">' +
+            img
+              .map(function (item) {
+                return (
+                  '<figure>' +
+                  '<img src="' + escapeHtml(item.src) + '" alt="' + escapeHtml(item.alt) + '" loading="lazy">' +
+                  '<figcaption>' + escapeHtml(item.caption || item.alt || "") + "</figcaption>" +
+                  "</figure>"
+                );
+              })
+              .join("") +
+            "</div>";
+        } else {
+          imgHtml =
+            '<figure class="cs-section-band__image">' +
+            '<img src="' + escapeHtml(img.src) + '" alt="' + escapeHtml(img.alt) + '" loading="lazy">' +
+            '<figcaption>' + escapeHtml(img.caption || img.alt || "") + "</figcaption>" +
+            "</figure>";
+        }
 
         return (
           '<div class="cs-section-band cs-section-band--image-' + side + ' reveal">' +
@@ -454,12 +463,7 @@
           "</p>" +
           "</section>" +
 
-          (img
-            ? '<figure class="cs-section-band__image">' +
-              '<img src="' + escapeHtml(img.src) + '" alt="' + escapeHtml(img.alt) + '" loading="lazy">' +
-              '<figcaption>' + escapeHtml(img.caption || img.alt || "") + "</figcaption>" +
-              "</figure>"
-            : '<div class="cs-section-band__image cs-section-band__image--empty"></div>') +
+          imgHtml +
 
           "</div>" +
           "</div>" +
