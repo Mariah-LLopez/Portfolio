@@ -45,6 +45,7 @@
   --shadow-btn-hover: 0 6px 0 rgba(var(--shadow-rgb), 0.26), 0 10px 20px rgba(var(--shadow-rgb), 0.20);
   --shadow-btn-active: 0 1px 0 rgba(var(--shadow-rgb), 0.22), 0 2px 6px rgba(var(--shadow-rgb), 0.12);
   --transition: 0.2s ease;
+  --color-accent-bg: rgba(111, 125, 90, 0.07);
 }
 
 /* =============================================
@@ -2178,6 +2179,7 @@ html.moon-mode {
   --color-hero-desc-bg: transparent;
   --color-mobile-nav-bg: rgba(255, 255, 255, 0.97);
   --shadow-rgb: 26, 26, 26;
+  --color-accent-bg: rgba(58, 120, 201, 0.06);
 }
 
 html.moon-mode .site-header {
@@ -2641,15 +2643,11 @@ html.moon-mode .tag--muted {
 }
 
 .cs-section-band--accent {
-  background: rgba(111, 125, 90, 0.07);
+  background: var(--color-accent-bg);
 }
 
 html.moon-mode .cs-section-band--alt {
   background: #f5f5f5;
-}
-
-html.moon-mode .cs-section-band--accent {
-  background: rgba(58, 120, 201, 0.06);
 }
 
 /* =============================================
