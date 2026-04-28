@@ -485,9 +485,10 @@
       "</section>" +
 
       (img
-        ? '<div class="cs-section-band__image">' +
-          '<img src="' + escapeHtml(img.src) + '" alt="' + escapeHtml(img.alt) + '" loading="lazy">' +
-          "</div>"
+        '<figure class="cs-section-band__image">' +
+        '<img src="' + escapeHtml(img.src) + '" alt="' + escapeHtml(img.alt) + '" loading="lazy">' +
+        '<figcaption>' + escapeHtml(img.caption || img.alt) + '</figcaption>' +
+        "</figure>"
         : '<div class="cs-section-band__image cs-section-band__image--empty"></div>') +
 
       "</div>" +
@@ -555,18 +556,27 @@
       (linksHtml
         ? '<div class="case-study-links">' + linksHtml + "</div>"
         : "") +
-      "</div>" +
-      "</div>" +
-      "</div>" +
-      // Full-width hero image directly below the hero section
-      // Body: each section is its own full-width band
-      '<div class="case-study-body">' +
+
       respBandHtml +
       sectionBandsHtml +
       videoBandHtml +
       imagesStripHtml +
       "</div>";
+     "</div>" +
+     "</div>" +
+   "</div>" +
 
+   (p.heroImage
+     ? '<div class="case-study-hero-image-full">' +
+     '<img class="case-study-hero__image" src="' +
+      escapeHtml(p.heroImage) +
+      '" alt="' +
+      escapeHtml(p.title) +
+      ' hero image" loading="eager">' +
+    "</div>"
+     : "") +
+
+'<div class="case-study-body">' +
     // Initialise the canvas animation injected into the hero section
     if (_initCanvas) {
       var heroCanvas = container.querySelector(".case-study-hero .section__canvas");
