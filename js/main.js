@@ -446,7 +446,7 @@
         }
 
         return (
-          '<div class="cs-section-band cs-section-band--image-' + side + ' reveal">' +
+          '<div class="cs-section-band cs-section-band--image-' + side + (!img ? ' cs-section-band--no-image' : '') + ' reveal">' +
           '<div class="container">' +
           '<div class="cs-section-band__inner">' +
 
