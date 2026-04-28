@@ -522,11 +522,11 @@
       "Git",
       "VS Code"
     ],
-    "heroImage": "assets/placeholder.svg",
+    "heroImage": "assets/markdownsc.png",
     "externalLinks": [
       {
         "label": "View Project",
-        "url": ""
+        "url": "assets/document.pdf"
       }
     ],
     "videoEmbed": "",
@@ -538,7 +538,13 @@
     "requirementsAndCriteria": "The template was designed to meet common regulatory documentation standards including ISO 9001 procedure documentation requirements and FDA 21 CFR Part 11 audit trail considerations. Required metadata fields were defined as mandatory front matter keys; the export pipeline surfaces a validation error if required fields are missing. Accessibility requirements for the PDF output included heading structure, list formatting, and sufficient color contrast in the CSS stylesheet.",
     "qaAndIteration": "The system was tested by asking two writers with no prior Markdown experience to author a new SOP using only the authoring guide as a reference. Both writers successfully produced a correctly formatted PDF on the first attempt. Feedback drove two refinements: the Definitions section template was given more explicit placeholder guidance, and the Revision History table format was simplified to reduce entry friction.",
     "outcomesAndNextSteps": "The template system was published as an open repository with MIT license, including the full authoring guide, three example SOPs, and the Pandoc/CSS export configuration. The GitHub Actions workflow enables automatic PDF generation on any commit to the main branch. Next steps include adding a linter check for required front matter fields and developing a companion template for policy documents that share the same structural logic.",
-    "sectionImages": {}
+    "sectionImages": {      
+      "informationArchitecture": {
+       "src": "assets/markdowncode.png",
+       "alt": "Markdown on Pycharm Code to export",
+       "caption": "Markdown Editor through PyCharm"
+        }
+    }
   },
   {
     "title": "Translation Documents: Government & Literary Texts Using Cloud Services",
