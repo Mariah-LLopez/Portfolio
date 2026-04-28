@@ -2619,6 +2619,26 @@ html.moon-mode .tag--muted {
   margin-bottom: 0;
 }
 
+.cs-intro-band__image {
+  margin-top: 2rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.cs-intro-band__image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0.5rem;
+}
+
+.cs-intro-band__image figcaption {
+  font-size: 0.875rem;
+  color: var(--color-text-muted, #666);
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
 /* Sticky left column on tall screens */
 @media (min-width: 900px) {
   .cs-intro-band__left {
