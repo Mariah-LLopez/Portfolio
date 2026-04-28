@@ -106,6 +106,22 @@
         "src": "assets/translatedppld.png",
         "alt": "Library website Translated"
       },
+      "problemAndGoals": {
+        "src": "assets/ipad one.png",
+        "alt": "iPad mockup of library website problem and goals"
+      },
+      "discoveryAndConstraints": {
+        "src": "assets/ipad two.png",
+        "alt": "iPad mockup of library website discovery"
+      },
+      "wireframesAndPrototypes": {
+        "src": "assets/ipad three.png",
+        "alt": "iPad mockup of library website wireframes"
+      },
+      "informationArchitecture": {
+        "src": "assets/ipad four.png",
+        "alt": "iPad mockup of library website information architecture"
+      },
       "outcomesAndNextSteps": {
         "src": "assets/ppld.png",
         "alt": "Library Redesigned Page"
@@ -317,6 +333,22 @@
       "overview": {
         "src": "assets/ffapp.png",
         "alt": "Services Checkout in App"
+      },
+      "problemAndGoals": {
+        "src": "assets/phone one.png",
+        "alt": "Phone mockup showing furniture flipping app problem and goals"
+      },
+      "discoveryAndConstraints": {
+        "src": "assets/iphones.png",
+        "alt": "iPhones mockup showing furniture flipping app discovery"
+      },
+      "informationArchitecture": {
+        "src": "assets/iphone two.png",
+        "alt": "iPhone mockup showing furniture flipping app information architecture"
+      },
+      "wireframesAndPrototypes": {
+        "src": "assets/iphone three.png",
+        "alt": "iPhone mockup showing furniture flipping app wireframes"
       },
       "outcomesAndNextSteps": {
         "src": "assets/ffaccount.png",
