@@ -2336,20 +2336,11 @@ html.moon-mode .tag--muted {
     gap: 3rem;
   }
 
-  .cs-section-band__image,
-  .cs-section-band__content,
-  .cs-section-band .case-study-section {
-    order: initial !important;
-  }
-
   .cs-section-band .case-study-section__title {
     max-width: 100%;
     font-size: clamp(var(--font-size-2xl), 10vw, var(--font-size-3xl));
   }
 }
-/* =============================================
-   FINAL HARD FIX — FORCE SIDE BY SIDE
-   ============================================= */
 
 .cs-section-band__inner {
   display: grid !important;
@@ -2406,9 +2397,15 @@ html.moon-mode .tag--muted {
 }
 
 /* MOBILE STACK */
-@media (max-width: 900px) {
+@media (max-width: 767px) {
   .cs-section-band__inner {
     grid-template-columns: 1fr !important;
+  }
+
+  .cs-section-band__image,
+  .cs-section-band__content,
+  .cs-section-band .case-study-section {
+    order: initial !important;
   }
 }
 /* =============================================
