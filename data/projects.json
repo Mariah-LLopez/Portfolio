@@ -42,8 +42,9 @@
     "outcomesAndNextSteps": "The redesigned architecture was approved and handed off to development with complete documentation. A structured competition for the changes was addressed in the site's About page.",
     "laptopImages": [
       {
-        "src": "assets/persona.png",
-        "alt": "OPPI Data Hub Persona"
+      "src": "assets/persona.png",
+      "alt": "OPPI Data Hub Persona",
+      "caption": "Persona used to define the needs, goals, and data behaviors of a public-sector recreation user."
       },
       {
         "src": "assets/journeymap.png",
