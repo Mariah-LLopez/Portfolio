@@ -129,52 +129,68 @@
     }
   },
   {
-    "title": "Colorado Springs Utilities Public Information Flyer",
-    "slug": "colorado-springs-utilities-public-information-flyer",
-    "strategicSummary": "Redesigned public utility communications to improve content clarity, plain language compliance, and accessibility for a diverse municipal audience.",
-    "role": "Content Strategist & Information Designer",
+    "title": "Recall & Reflect: AI Memory Companion",
+    "slug": "recall-reflect-ai-memory-companion",
+    "strategicSummary": "Designed a high-fidelity mobile app prototype that uses AI to help users capture, reflect on, and strengthen everyday memories through personalized daily check-ins and memory exercises.",
+    "role": "UX Designer & Prototype Developer",
     "responsibilities": [
-      "Audited existing communications for clarity and accessibility",
-      "Applied plain language principles to technical content",
-      "Developed content hierarchy and layout recommendations",
-      "Created accessible design specifications"
+      "Defined user needs and problem space through research",
+      "Designed end-to-end user flows for core app features",
+      "Created high-fidelity mobile prototypes in Figma",
+      "Developed AI-assisted suggestion and insight features",
+      "Iterated on designs based on usability feedback"
     ],
     "tags": [
-      "Content Strategy",
-      "Documentation",
-      "Accessibility"
+      "UX Design",
+      "Prototyping",
+      "AI",
+      "Mobile"
     ],
     "tools": [
-      "Adobe XD",
-      "Microsoft Word",
-      "Kraemer's Library",
-      "Figma"
+      "Figma",
+      "Adobe XD"
     ],
-    "heroImage": "assets/csuwebsite.png",
+    "heroImage": "assets/Picture1.png",
     "externalLinks": [
       {
-        "label": "View Project",
-        "url": "assets/csu-public-information-flyer.pdf"
+        "label": "View Case Study",
+        "url": "assets/RecallReflectAIMmemoryCompanion.pdf"
       }
     ],
-    "overview": "Colorado Springs Utilities distributes public information materials to hundreds of thousands of customers across the Pikes Peak region. Many of these materials used technical language, dense formatting, and layouts that created barriers for residents. This project applied content strategy and plain language principles to improve communication effectiveness.",
-    "problemAndGoals": "Confusion in the information already presented in the distributed materials, indicating comprehension failures rather than information gaps. Goals included improving first-read comprehension, reducing calls related to billing and service information, and ensuring materials met accessibility requirements.",
-    "myRole": "As a Content Strategist, I analyzed the communications, identified content patterns that were confusing, and developed recommendations. I created the content in a flyer format, front and back, that could be left with mail or at residential areas.",
-    "discoveryAndConstraints": "Discovery included identifying common confusion points and readability analysis. Constraints included brand guidelines that required significant negotiation to update, and printing specifications that limited layout flexibility.",
-    "informationArchitecture": "Documents were restructured using a consistent hierarchy: key action or message first, supporting detail second, and reference information last. Recurring content blocks were identified and standardized across the materials to reduce inconsistency.",
-    "userFlows": "Customer journeys were mapped for the three scenarios: understanding a higher-than-expected bill, setting up automatic payment, and reporting a service issue. Each journey identified the touchpoints where written materials played a role and where content gaps created friction.",
-    "wireframesAndPrototypes": "Layout prototypes were developed for demonstrating improved visual hierarchy, white space, and typography. Each prototype included annotations explaining the content strategy rationale for key decisions.",
-    "requirementsAndCriteria": "A content requirements document specified reading level targets, required accessibility metadata for digital versions, approved terminology for technical concepts, and review process requirements for future updates.",
-    "qaAndIteration": "Materials were reviewed for accuracy. Two iteration cycles addressed terminology concerns from the technical reviewer and layout adjustments for print production.",
-    "outcomesAndNextSteps": "Revised materials showed that the content style guide was extending the approach to digital communications and developing templates for routine notices.",
+    "overview": "Recall & Reflect is an AI-powered mobile memory companion designed to help users capture fleeting everyday moments, reflect on patterns over time, and strengthen recall through guided exercises. The app addresses the growing need for intentional memory practices in a fast-paced digital world, offering a calm, supportive experience personalized to each user.",
+    "problemAndGoals": "Many people struggle to hold on to meaningful everyday moments — small wins, emotional insights, and daily experiences that fade quickly without intentional capture. The goal was to design an app that felt low-friction for daily journaling, surfaced useful reflections automatically, and offered gentle AI-driven nudges without feeling intrusive or clinical.",
+    "myRole": "As the UX Designer and prototype developer, I led the end-to-end design process from problem framing through high-fidelity prototyping. I defined user personas, mapped core task flows, designed the screen architecture, and crafted the AI suggestion and weekly insight features that personalize the experience.",
+    "discoveryAndConstraints": "Discovery began with identifying the emotional and cognitive barriers to consistent journaling. Key constraints included keeping the daily check-in to under two minutes, ensuring the AI suggestions felt supportive rather than surveillance-like, and designing for one-handed mobile use. Accessibility considerations shaped typography, contrast, and tap-target sizing throughout.",
+    "informationArchitecture": "The app is organized into four primary areas: Home (daily check-in and recent moments), Your Space (personal settings and AI profile), Reflect (weekly insights and pattern summaries), and Exercises (guided memory strengthening activities). Navigation uses a persistent bottom tab bar to minimize cognitive load and allow quick task switching.",
+    "userFlows": "Three primary flows were designed: logging a moment via the quick-capture prompt, reviewing the AI-generated weekly insight summary, and completing a memory exercise. Each flow was optimized for low friction, with smart defaults and a single primary action per screen. Edge cases — such as skipping a day or dismissing an AI suggestion — were mapped to ensure the experience remained encouraging rather than guilt-inducing.",
+    "wireframesAndPrototypes": "High-fidelity prototypes were built in Figma covering all core screens: the daily check-in dashboard, moment capture flow, AI insight cards, Your Space settings, and the memory exercise library. Interactive prototypes were used to validate navigation patterns and micro-interaction timing with test participants.",
+    "requirementsAndCriteria": "Design requirements specified a maximum two-tap path to log a moment, WCAG AA color contrast compliance, a consistent soft visual language to reinforce the calm brand tone, and AI suggestion copy that passed a plain language readability check. Privacy considerations required that all AI personalization be transparently communicated in the Your Space section.",
+    "qaAndIteration": "Two rounds of usability testing were conducted with five participants each. Key iterations included simplifying the moment-capture prompt, reordering the weekly insight summary to lead with a positive observation, and adding a 'Moment saved' confirmation screen to provide satisfying closure to the logging flow.",
+    "outcomesAndNextSteps": "The prototype successfully demonstrated a low-friction, AI-assisted memory journaling experience. Participants responded positively to the weekly insight summaries and the memory exercise library. Next steps include engineering handoff with detailed component specifications, integration planning for the AI suggestion engine, and an expanded accessibility audit for screen reader compatibility.",
     "sectionImages": {
       "overview": {
-        "src": "assets/frontflyer.png",
-        "alt": "Utility flyer Front"
+        "src": "assets/Picture1.png",
+        "alt": "Recall and Reflect app overview screens showing daily check-in and AI insights"
+      },
+      "problemAndGoals": {
+        "src": "assets/Picture2.png",
+        "alt": "Recall and Reflect Your Space and weekly insights screens"
+      },
+      "myRole": {
+        "src": "assets/Picture3.png",
+        "alt": "Recall and Reflect recommendations and memory exercises screens"
+      },
+      "userFlows": {
+        "src": "assets/Picture4.png",
+        "alt": "Recall and Reflect log a moment flow and moment saved confirmation"
+      },
+      "wireframesAndPrototypes": {
+        "src": "assets/Picture5.png",
+        "alt": "Recall and Reflect high-fidelity prototype screens"
       },
       "outcomesAndNextSteps": {
-        "src": "assets/backflyer.png",
-        "alt": "Utility Flyer Back"
+        "src": "assets/Picture6.png",
+        "alt": "Recall and Reflect final prototype outcome screens"
       }
     }
   },
