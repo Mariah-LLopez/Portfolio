@@ -72,7 +72,7 @@ The `slug` must be unique and URL-safe (lowercase, hyphens only). Links to the c
 ### Update resume PDF
 Replace the file at:
 ```
-assets/resume.pdf
+assets/Resume (12).pdf
 ```
 The Download Resume buttons throughout the site link to this path automatically.
 
@@ -125,7 +125,7 @@ Portfolio/
 │   └── projects.json       # All project data — edit this to update content
 ├── assets/
 │   ├── placeholder.svg     # Default project image
-│   └── resume.pdf          # (Add your resume PDF here)
+│   └── Resume (12).pdf     # Resume PDF
 ├── .gitignore
 └── README.md
 ```
