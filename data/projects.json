@@ -629,6 +629,175 @@
     }
   },
   {
+    "title": "Accounting Fundamentals: QuickBooks for Entry-Level Staff",
+    "slug": "accounting-fundamentals-quickbooks-entry-level",
+    "strategicSummary": "Developed an interactive eLearning course on Articulate 360 to onboard entry-level accounting staff in QuickBooks workflows, covering core data entry tasks, reconciliation, and reporting fundamentals.",
+    "role": "Instructional Designer & eLearning Developer",
+    "responsibilities": [
+      "Conducted learner and task analysis for entry-level accounting roles",
+      "Defined learning objectives aligned to QuickBooks job tasks",
+      "Designed course structure, module flow, and knowledge checks",
+      "Developed interactive slides and scenario-based activities in Articulate 360",
+      "Created supporting job aids and reference materials",
+      "Reviewed and iterated based on stakeholder feedback"
+    ],
+    "tags": [
+      "Instructional Design",
+      "eLearning",
+      "Content Strategy",
+      "Documentation"
+    ],
+    "tools": [
+      "Articulate 360",
+      "QuickBooks",
+      "Microsoft Word",
+      "Google Docs"
+    ],
+    "heroImage": "assets/learning1.png",
+    "externalLinks": [
+      {
+        "label": "View Project",
+        "url": "https://uccs-4561.reach360.com/preview-course/fc70199a-eb5a-494d-abca-ab7993bbd42a/a580ae6b-95f2-4b8a-9556-024c3c45e5ed"
+      }
+    ],
+    "overview": "This eLearning course was built in Articulate 360 to support accounting staff stepping into entry-level roles that require daily use of QuickBooks. The course walks learners through foundational tasks — from navigating the dashboard and entering transactions to running basic reports — in a structured, self-paced format designed for on-the-job onboarding.",
+    "problemAndGoals": "New accounting staff often receive minimal formal training on QuickBooks before being expected to perform live data entry. Errors in early task performance can compound across a company's financial records. The goal was to create a structured, consistent onboarding experience that builds confidence in core QuickBooks workflows and reduces data entry mistakes from day one.",
+    "myRole": "As the instructional designer and course developer, I conducted a task analysis of key entry-level accounting responsibilities, mapped these to specific QuickBooks functions, wrote all course content and quiz items, and assembled the full interactive course in Articulate 360. I iterated on the design through stakeholder reviews before finalizing the published version.",
+    "discoveryAndConstraints": "Discovery involved reviewing the daily task lists for entry-level accounting roles and identifying the QuickBooks functions that caused the most confusion or errors during onboarding. Key constraints included keeping total seat time under 45 minutes for a busy work environment and ensuring the course could be completed without a live QuickBooks login — requiring simulated screen interactions within Articulate rather than live software access.",
+    "informationArchitecture": "The course is organized into four modules: (1) Navigating QuickBooks, (2) Recording Transactions, (3) Managing Accounts Payable and Receivable, and (4) Running Basic Reports. Each module includes a brief introduction, worked examples with annotated screenshots, a guided practice activity, and a short knowledge check. A job aid PDF summarizing common QuickBooks shortcuts accompanies the course.",
+    "userFlows": "The primary learner flow moves sequentially through the four modules, with knowledge checks gating progression to the next module. A branching scenario in Module 2 presents a realistic data entry error situation and asks learners to identify and correct the mistake, reinforcing real-world judgment alongside procedural knowledge.",
+    "wireframesAndPrototypes": "Course wireframes were developed in a slide-based storyboard format, mapping each screen's content, interaction type, and audio narration notes. A low-fidelity prototype was reviewed with a subject matter expert in accounting to validate task accuracy before full development in Articulate 360.",
+    "requirementsAndCriteria": "Learning objectives were written using measurable action verbs (identify, demonstrate, apply) and mapped to specific QuickBooks task scenarios. Assessment items required learners to achieve 80% on each module knowledge check before advancing. Accessibility requirements included alt text on all screenshots, sufficient color contrast, and keyboard-navigable interactions.",
+    "qaAndIteration": "The published course was reviewed by two accounting staff members who completed it in full and provided feedback on task accuracy and clarity. One iteration cycle refined the transaction entry scenarios in Module 2 and clarified the report export walkthrough in Module 4 based on their comments.",
+    "outcomesAndNextSteps": "The course is published and accessible via Articulate 360's Reach platform for self-paced staff onboarding. Learner completion and quiz score data are tracked through the platform dashboard. Next steps include adding a Module 5 covering QuickBooks payroll basics and developing a manager's guide for facilitating post-course coaching conversations.",
+    "sectionImages": {
+      "overview": {
+        "src": "assets/learning1.png",
+        "alt": "Accounting eLearning course overview screen in Articulate 360"
+      },
+      "wireframesAndPrototypes": {
+        "src": "assets/learning2.png",
+        "alt": "Accounting eLearning course module screen showing QuickBooks workflow"
+      },
+      "outcomesAndNextSteps": {
+        "src": "assets/learning3.png",
+        "alt": "Accounting eLearning course knowledge check and completion screen"
+      }
+    }
+  },
+  {
+    "title": "Enterprise Healthcare Operations & Systems Compliance",
+    "slug": "enterprise-healthcare-operations-compliance",
+    "strategicSummary": "Designed an eLearning session in Articulate 360 to orient healthcare staff to enterprise operations, systems compliance, and medical coding workflows, supporting organizational onboarding and regulatory readiness.",
+    "role": "Instructional Designer & eLearning Developer",
+    "responsibilities": [
+      "Analyzed compliance training requirements and medical coding workflows",
+      "Defined learning objectives for healthcare systems onboarding",
+      "Structured course content to align with regulatory and operational standards",
+      "Developed interactive eLearning content in Articulate 360",
+      "Created scenario-based activities for medical coding procedures",
+      "Iterated design based on subject matter expert review"
+    ],
+    "tags": [
+      "Instructional Design",
+      "eLearning",
+      "Content Strategy",
+      "Documentation"
+    ],
+    "tools": [
+      "Articulate 360",
+      "Microsoft Word",
+      "Google Docs"
+    ],
+    "heroImage": "assets/elearning1.png",
+    "externalLinks": [
+      {
+        "label": "View Project",
+        "url": "https://uccs-4561.reach360.com/preview-course/468de4db-9e41-49c7-8b60-4a5ff35c8339/ededb12a-7401-4e4f-b840-896356f50b76"
+      }
+    ],
+    "overview": "This eLearning session supports healthcare staff joining enterprise organizations that require fluency in both operational systems and compliance standards. The course focuses on medical coding workflows — translating clinical documentation into standardized codes — within the broader context of healthcare information systems and regulatory requirements such as HIPAA and ICD coding standards.",
+    "problemAndGoals": "Healthcare staff entering enterprise environments often face a steep learning curve around systems compliance and the procedural logic of medical coding. Errors in coding directly affect billing accuracy, audit outcomes, and patient records integrity. The goal was to create a clear, accessible eLearning experience that explains how coding workflows fit into the larger operational picture and equips staff with the foundational knowledge needed to work accurately within enterprise systems.",
+    "myRole": "As instructional designer, I mapped the content from compliance documentation and medical coding process guides into a structured eLearning sequence. I wrote all instructional content, designed interactive activities to reinforce coding decision logic, and developed the full course in Articulate 360. Subject matter expert review from a healthcare operations lead informed two rounds of content revisions.",
+    "discoveryAndConstraints": "Discovery included reviewing enterprise healthcare onboarding materials, HIPAA training requirements, and ICD-10 coding documentation standards. A key constraint was managing content complexity — medical coding involves nuanced procedural logic that must be simplified for a broad learner audience without sacrificing accuracy or compliance fidelity. The course needed to be completable in under an hour while covering both systems orientation and core coding concepts.",
+    "informationArchitecture": "The course is organized into three sections: (1) Healthcare Enterprise Systems Overview, covering the relationship between EHR platforms, billing systems, and compliance frameworks; (2) Medical Coding Workflows, walking through the step-by-step process of translating clinical documentation into ICD and CPT codes; and (3) Compliance and Quality Checks, covering audit readiness, common coding errors, and escalation procedures.",
+    "userFlows": "Learners move through the three sections sequentially, with interactive coding scenarios embedded in Section 2 requiring them to select the correct code for a clinical description from multiple options. Section 3 includes a compliance checklist activity that asks learners to identify which documentation elements are required before submitting a coded claim.",
+    "wireframesAndPrototypes": "A storyboard was developed prior to Articulate 360 development, mapping each slide's instructional content, interaction type, and compliance-critical callouts. The storyboard was reviewed by a healthcare operations subject matter expert to validate workflow accuracy and identify any gaps in the coding procedure coverage.",
+    "requirementsAndCriteria": "Learning objectives specified measurable outcomes: learners should be able to identify the stages of the medical coding workflow, apply ICD-10 coding logic to a clinical scenario, and describe the compliance requirements governing coded documentation. Assessment items were tied directly to these objectives, with an 80% passing threshold per section.",
+    "qaAndIteration": "Two iteration cycles were completed following SME and peer review. The first cycle refined the ICD-10 scenario activities to better reflect real-world coding complexity without exceeding the scope of entry-level competencies. The second cycle added a glossary of key terms following learner feedback that abbreviations in the compliance section needed clearer definition.",
+    "outcomesAndNextSteps": "The course is published on Articulate 360's Reach platform and available for healthcare onboarding programs. Completion and assessment data are trackable for compliance recordkeeping. Next steps include developing a companion course focused on CPT procedure coding and creating a facilitator guide for blended delivery in instructor-led onboarding sessions.",
+    "sectionImages": {
+      "overview": {
+        "src": "assets/elearning1.png",
+        "alt": "Healthcare eLearning course overview screen showing enterprise systems context"
+      },
+      "wireframesAndPrototypes": {
+        "src": "assets/elearning2.png",
+        "alt": "Healthcare eLearning medical coding workflow activity screen"
+      },
+      "outcomesAndNextSteps": {
+        "src": "assets/elearning3.png",
+        "alt": "Healthcare eLearning compliance section and assessment screen"
+      }
+    }
+  },
+  {
+    "title": "Getting Organized for Legal Help: First Steps Learning Module",
+    "slug": "getting-organized-for-legal-help",
+    "strategicSummary": "Created a concise eLearning module in Articulate 360 to help individuals prepare for their first legal consultation, covering what documents to gather, key questions to consider, and how to communicate effectively with an attorney.",
+    "role": "Instructional Designer & eLearning Developer",
+    "responsibilities": [
+      "Identified key learner needs for first-time legal consultation preparation",
+      "Defined learning objectives focused on practical preparation steps",
+      "Structured module content for a general, non-specialist audience",
+      "Developed plain-language instructional content in Articulate 360",
+      "Designed interactive checklists and scenario prompts",
+      "Reviewed and refined based on accessibility and clarity standards"
+    ],
+    "tags": [
+      "Instructional Design",
+      "eLearning",
+      "Accessibility",
+      "Content Strategy"
+    ],
+    "tools": [
+      "Articulate 360",
+      "Microsoft Word",
+      "Google Docs"
+    ],
+    "heroImage": "assets/elearn1.png",
+    "externalLinks": [
+      {
+        "label": "View Project",
+        "url": "https://uccs-4561.reach360.com/preview-course/358fdd4b-6e79-4ffc-a5d6-5ae4896ee927/6e4c1ad5-9223-4a67-9a56-f8b6707e61b2"
+      }
+    ],
+    "overview": "This learning module is designed for individuals who are seeking legal advice for the first time and are unsure how to prepare. Many people approach a legal consultation without the documents, timeline, or context that attorneys need to be helpful — resulting in wasted consultation time and added stress. This short, accessible module walks learners through the practical steps of getting organized before their first meeting with a lawyer.",
+    "problemAndGoals": "People navigating legal situations for the first time often don't know what to bring, what to say, or what questions to ask. This lack of preparation can lead to incomplete consultations, higher costs, and increased anxiety. The goal of this module is to demystify the preparation process: what documents are typically relevant, how to organize a basic timeline of events, and what kinds of questions help a lawyer understand your situation quickly.",
+    "myRole": "As the instructional designer, I identified the key informational gaps that first-time legal consultation seekers face and structured those into a brief, plain-language learning sequence. I wrote all module content, designed the interactive checklist activities, and developed the full module in Articulate 360 with accessibility and plain language as guiding principles throughout.",
+    "discoveryAndConstraints": "Content development drew on commonly available public legal resources, self-help legal guides, and consultations with general patterns of what attorneys request from new clients. The primary constraint was audience breadth — the module needed to be relevant across different types of legal situations (family law, landlord-tenant, employment, estate) without being so general as to be unhelpful. Plain language and low reading level targets were applied throughout to ensure accessibility for diverse learners.",
+    "informationArchitecture": "The module is organized into three short sections: (1) What to Bring — covering documents, identification, and correspondence relevant to most legal matters; (2) Building Your Timeline — guiding learners to create a clear written sequence of events before their appointment; and (3) Questions to Ask — introducing a framework for identifying what you need to know from the attorney versus what the attorney needs from you.",
+    "userFlows": "The learner flow moves through the three sections in sequence, with a brief reflection prompt at the end of each section. The module closes with a printable preparation checklist that learners can take with them to their consultation. The interactive checklist in Section 1 lets learners mark off document types relevant to their specific situation.",
+    "wireframesAndPrototypes": "A storyboard outlined each screen's content, interaction type, and plain language review notes before development in Articulate 360. The storyboard was reviewed for readability and accessibility, with a Flesch-Kincaid target of Grade 6–8 applied to all instructional copy.",
+    "requirementsAndCriteria": "The module was designed to be completable in under 15 minutes, with no prior legal knowledge assumed. Accessibility requirements included keyboard-navigable interactions, alt text on all visual elements, sufficient color contrast, and screen reader compatibility. Plain language criteria were applied to every content screen.",
+    "qaAndIteration": "The module was reviewed for plain language compliance and clarity by a peer with no legal background. Feedback produced one revision cycle that simplified the document-gathering section and added brief explanatory notes for legal terms that could not be entirely avoided.",
+    "outcomesAndNextSteps": "The module is published on Articulate 360's Reach platform as a standalone, self-paced resource. It is designed to be shareable by legal aid organizations, public libraries, or community nonprofits as part of a broader public access to justice initiative. Next steps include developing a Spanish-language version to serve Spanish-speaking community members and exploring integration with local legal aid referral resources.",
+    "sectionImages": {
+      "overview": {
+        "src": "assets/elearn1.png",
+        "alt": "Legal preparation learning module overview screen"
+      },
+      "wireframesAndPrototypes": {
+        "src": "assets/elearn2.png",
+        "alt": "Legal preparation module document checklist activity screen"
+      },
+      "outcomesAndNextSteps": {
+        "src": "assets/elearn3.png",
+        "alt": "Legal preparation module questions framework and completion screen"
+      }
+    }
+  },
+  {
     "title": "Translation Documents: Government & Literary Texts Using Cloud Services",
     "slug": "translation-documents-cloud-services",
     "strategicSummary": "Produced two professional translations — (English to Spanish) and a chapter from a contemporary novel (English to Spanish) — using cloud translation services augmented by post-editing, terminology management, and cultural adaptation.",
